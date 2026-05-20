@@ -6,7 +6,13 @@ import SectionHeader from "@/components/SectionHeader";
 import Link from "next/link";
 import { Check, ExternalLink } from "lucide-react";
 
-const currentPartners = [
+const currentPartners: {
+  name: string;
+  descFr: string;
+  descEn: string;
+  url: string;
+}[] = [
+  
   /*{
     name: "Grassl Glass",
     descFr: "Verres de dégustation haut de gamme, conçus pour révéler chaque nuance aromatique. Grassl accompagne nos dégustations avec leur verrerie d'exception.",
