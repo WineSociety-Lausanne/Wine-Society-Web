@@ -37,7 +37,7 @@ export const dictionaries = {
       tastings: {
         title: "Soirées de dégustation",
         items: [
-          "55 étudiants toutes les 2 semaines",
+          "55 étudiants toutes les deux semaines",
           "Animation par des professionnels du vin",
           "Vins du monde, champagnes",
           "Buffet apéritif après chaque soirée",
@@ -246,7 +246,7 @@ export const dictionaries = {
       tastings: {
         title: "Tasting evenings",
         items: [
-          "55 students every 2 weeks",
+          "55 students every two weeks",
           "Led by wine professionals",
           "World wines, champagnes",
           "Aperitif buffet after each tasting",
