@@ -11,7 +11,7 @@ const currentPartners: {
   descFr: string;
   descEn: string;
   url: string;
-  categorie:{ fr: string; en: string };
+  category:{ fr: string; en: string };
 }[] = [
   
   /*{
