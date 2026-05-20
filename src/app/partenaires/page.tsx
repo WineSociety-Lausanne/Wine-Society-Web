@@ -1,7 +1,7 @@
 "use client";
 
 import { useLang } from "@/lib/lang-context";
-import { SlideIn, StaggerContainer, StaggerItem } from "@/components/AnimatedText";
+import { FadeUp, SlideIn, StaggerContainer, StaggerItem } from "@/components/AnimatedText";
 import SectionHeader from "@/components/SectionHeader";
 import Link from "next/link";
 import { Check, ExternalLink } from "lucide-react";
@@ -106,7 +106,9 @@ export default function PartenairesPage() {
                   <div className={`${tier.header} p-10 pb-8 text-center`}>
                     <p className="font-body text-cream-100/70 text-xs uppercase tracking-[0.2em]">Sponsor</p>
                     <p className="font-headline text-4xl text-cream-100 mt-2">{tier.name}</p>
-                    <p className="font-display text-cream-100/80 text-lg mt-2">{tier.price}</p>
+                    <p className="font-display text-cream-100/60 text-sm mt-2 italic">
+                      {locale === "fr" ? "Sur demande" : "On request"}
+                    </p>
                   </div>
                   <div className="p-10 flex-1 flex flex-col">
                     <ul className="space-y-4 flex-1">
@@ -117,13 +119,30 @@ export default function PartenairesPage() {
                         </li>
                       ))}
                     </ul>
-                    <Link href="/contact" className="btn-primary w-full mt-8 text-center">Contact</Link>
+                    <a href="/WineSociety_Sponsoring_2025-2026.pdf" download className="btn-primary w-full mt-8 text-center">
+                      {locale === "fr" ? "Télécharger le dossier" : "Download brochure"}
+                    </a>
                   </div>
                 </div>
               </StaggerItem>
             ))}
           </StaggerContainer>
         </div>
+      </section>
+
+      {/* CTA Contact */}
+      <section className="section-padding bg-wine-900 text-center">
+        <FadeUp>
+          <p className="font-display text-2xl md:text-3xl text-cream-100 mb-4">
+            {locale === "fr" ? "Intéressé par un partenariat ?" : "Interested in a partnership?"}
+          </p>
+          <p className="font-body text-cream-200/40 text-sm mb-8">
+            {locale === "fr" ? "Contactez-nous pour discuter d'une offre sur mesure" : "Get in touch to discuss a tailored offer"}
+          </p>
+          <Link href="/contact" className="bg-cream-100 text-wine-900 px-10 py-4 font-body font-semibold text-xs uppercase tracking-[0.25em] hover:bg-white transition-all duration-500 inline-block text-center">
+            {locale === "fr" ? "Nous contacter" : "Contact us"}
+          </Link>
+        </FadeUp>
       </section>
     </>
   );
