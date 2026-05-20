@@ -163,12 +163,12 @@ export const dictionaries = {
       title: "Notre équipe",
       subtitle: "Une équipe passionnée au service de l'œnologie",
       roles: {
-        president: "Président(e)",
-        vicePresident: "Vice-président(e)",
+        president: "Président",
+        vicePresident: "Vice-président",
         sponsorship: "Responsable Sponsorship",
         events: "Responsable Événements",
         communication: "Responsable Communication",
-        treasurer: "Trésorier(ère)",
+        treasurer: "Trésorier",
       },
     },
     events: {
