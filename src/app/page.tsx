@@ -126,12 +126,17 @@ function Hero() {
 
 function PrestigiousDomains() {
   const { locale } = useLang();
-  const domains = [
+  const baseDomains = [
     "Château Lafite Rothschild", "Branaire-Ducru", "Joseph Drouhin",
-    "Famille Perrin", "Champagne Lanson", "E. Guigal",
-    "Château Lafite Rothschild", "Branaire-Ducru", "Joseph Drouhin",
-    "Famille Perrin", "Champagne Lanson", "E. Guigal",
+    "Famille Perrin", "Champagne Lanson", "M. Chapoutier",
+    "Frères Dutruy", "Mauler", "Minuty", "Bouchard Père et Fils",
+    "Marie-Thérèse Chappaz", "Gosset", "Lagrange",
   ];
+
+  const [domains] = useState(() => {
+    const shuffled = [...baseDomains].sort(() => Math.random() - 0.5);
+    return [...shuffled, ...shuffled];
+  });
 
   return (
     <section className="py-16 border-b border-dark-300/20 overflow-hidden">
@@ -146,7 +151,7 @@ function PrestigiousDomains() {
         <motion.div
           className="flex gap-16 whitespace-nowrap"
           animate={{ x: ["0%", "-50%"] }}
-          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
         >
           {domains.map((name, i) => (
             <span key={i} className="font-display text-2xl md:text-3xl text-dark-300 italic flex-shrink-0">

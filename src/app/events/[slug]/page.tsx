@@ -17,17 +17,17 @@ const events: Record<string, {
   spots: number;
   formUrl: string | null;
 }> = {
-  "rentree-2025": {
-    titleFr: "Soirée d'ouverture — Rentrée 2025",
-    titleEn: "Opening Night — Fall 2025",
-    date: "2025-09-17",
-    time: "18:30",
+  "Blanchard": {
+    titleFr: "Première Dégustation",
+    titleEn: "First Tasting",
+    date: "2025-11-11",
+    time: "19:300",
     location: "Salle à confirmer, Campus UNIL-EPFL",
     descFr: "Rejoignez-nous pour la première dégustation de la saison 2025-2026 ! Une soirée de bienvenue ouverte à tous les étudiants, avec une sélection de vins pour bien commencer l'année. 4 à 6 cuvées dégustées, suivies d'un apéritif convivial.",
     descEn: "Join us for the first tasting of the 2025-2026 season! A welcome evening open to all students, featuring a selection of wines to kick off the year. 4 to 6 wines tasted, followed by a convivial aperitif.",
-    spots: 55,
+    spots: 40,
     formUrl: null, // Remplacer par l'URL de ton Google Form
-  },
+  },/*
   "octobre-2025": {
     titleFr: "Domaine à confirmer",
     titleEn: "Estate TBC",
@@ -38,7 +38,7 @@ const events: Record<string, {
     descEn: "Bimonthly tasting evening. The guest estate will be announced soon. Stay tuned on our social media!",
     spots: 55,
     formUrl: null,
-  },
+  },*/
 };
 
 export default function EventPage() {

@@ -10,13 +10,13 @@ import { Calendar, Clock, MapPin, Wine, ChevronRight, ImageIcon, ArrowRight } fr
 
 const upcomingEvents = [
   {
-    slug: "rentree-2025",
-    date: "2025-09-17",
-    titleFr: "Soirée d'ouverture — Rentrée 2025",
-    titleEn: "Opening Night — Fall 2025",
-    descFr: "Dégustation de bienvenue pour lancer la nouvelle saison",
-    descEn: "Welcome tasting to kick off the new season",
-  },
+    slug: "Blanchard",
+    date: "2025-11-11",
+    titleFr: "A venir",
+    titleEn: "Comming Soon",
+    descFr: "Dégustation",
+    descEn: "Tasting",
+  },/*
   {
     slug: "octobre-2025",
     date: "2025-10-01",
@@ -24,15 +24,28 @@ const upcomingEvents = [
     titleEn: "Estate TBC",
     descFr: "Soirée dégustation bimensuelle",
     descEn: "Bimonthly tasting evening",
-  },
+  },*/
 ];
 
 const pastHighlights = [
-  { titleFr: "Château Lafite Rothschild", titleEn: "Château Lafite Rothschild", descFr: "Une soirée exceptionnelle autour des grands crus du Médoc", descEn: "An exceptional evening featuring the grand crus of Médoc", photoCount: 6 },
-  { titleFr: "Champagne Lanson", titleEn: "Champagne Lanson", descFr: "Découverte de la gamme Lanson, du Brut au Rosé", descEn: "Discovering the Lanson range, from Brut to Rosé", photoCount: 4 },
-  { titleFr: "Joseph Drouhin — Bourgogne", titleEn: "Joseph Drouhin — Burgundy", descFr: "Exploration des terroirs bourguignons avec la Maison Drouhin", descEn: "Exploring Burgundian terroirs with Maison Drouhin", photoCount: 4 },
-  { titleFr: "Famille Perrin — Vallée du Rhône", titleEn: "Famille Perrin — Rhône Valley", descFr: "Les grands vins du Rhône sud, de Gigondas à Châteauneuf-du-Pape", descEn: "Great wines of the Southern Rhône", photoCount: 4 },
-  { titleFr: "Branaire-Ducru — Saint-Julien", titleEn: "Branaire-Ducru — Saint-Julien", descFr: "4ème Grand Cru Classé présenté par le domaine", descEn: "4th Grand Cru Classé presented by the estate", photoCount: 4 },
+  { titleFr: "Branaire-Ducru — Saint-Julien", titleEn: "Branaire-Ducru — Saint-Julien", descFr: "4ème Grand Cru Classé présenté par le domaine", descEn: "4th Grand Cru Classé presented by the estate", photoCount: 0 },
+  { titleFr: "Cave de la Côte", titleEn: "Cave de la Côte", descFr: "À la découverte des pépites et cépages emblématiques du vignoble vaudois", descEn: "Discovering the hidden gems and iconic grape varieties of the Vaud region", photoCount: 0 },
+  { titleFr: "Château Minuty — Côtes de Provence", titleEn: "Château Minuty — Côtes de Provence", descFr: "L'excellence des grands rosés de Provence et de la French Riviera", descEn: "The excellence of great Provence rosés and the French Riviera", photoCount: 0 },
+  { titleFr: "Champagne Lanson", titleEn: "Champagne Lanson", descFr: "Découverte de la gamme Lanson, du Brut au Rosé", descEn: "Discovering the Lanson range, from Brut to Rosé", photoCount: 0 },
+  { titleFr: "Mauler", titleEn: "Mauler", descFr: "Tradition et excellence des grands vins mousseux suisses depuis 1829", descEn: "Tradition and excellence of great Swiss sparkling wines since 1829", photoCount: 0 },
+  { titleFr: "Les Frères Dutruy", titleEn: "Les Frères Dutruy", descFr: "Des vins de terroir d'exception récompensés au cœur de La Côte", descEn: "Exceptional award-winning terroir wines from the heart of La Côte", photoCount: 0 },
+  { titleFr: "Famille Perrin — Vallée du Rhône", titleEn: "Famille Perrin — Rhône Valley", descFr: "Les grands vins du Rhône sud, de Gigondas à Châteauneuf-du-Pape", descEn: "Great wines of the Southern Rhône, from Gigondas to Châteauneuf-du-Pape", photoCount: 0 },
+  { titleFr: "Joseph Drouhin — Bourgogne", titleEn: "Joseph Drouhin — Burgundy", descFr: "Exploration des terroirs bourguignons avec la Maison Drouhin", descEn: "Exploring Burgundian terroirs with Maison Drouhin", photoCount: 0 },
+  { titleFr: "Château Chasse-Spleen", titleEn: "Château Chasse-Spleen", descFr: "L'élégance et la poésie d'un grand nom de Moulis-en-Médoc", descEn: "The elegance and poetry of a great name from Moulis-en-Médoc", photoCount: 0 },
+  { titleFr: "Château Lafite Rothschild", titleEn: "Château Lafite Rothschild", descFr: "Une soirée exceptionnelle autour des grands crus légendaires du Médoc", descEn: "An exceptional evening featuring the legendary grand crus of Médoc", photoCount: 0 },
+  { titleFr: "Bouvet-Jabloir", titleEn: "Bouvet-Jabloir", descFr: "La haute couture du vignoble neuchâtelois et ses grands Pinots Noirs", descEn: "The haute couture of Neuchâtel vineyards and its great Pinot Noirs", photoCount: 0 },
+  { titleFr: "Bouchard Père & Fils", titleEn: "Bouchard Père & Fils", descFr: "Un voyage historique à travers les plus prestigieux climats de Bourgogne", descEn: "A historical journey through the most prestigious climates of Burgundy", photoCount: 0 },
+  { titleFr: "Château Pichon", titleEn: "Château Pichon", descFr: "Immersion dans l'excellence des Grands Crus Classés de Pauillac", descEn: "Immersion into the excellence of Pauillac's Grand Crus Classés", photoCount: 0 },
+  { titleFr: "Louis Latour", titleEn: "Louis Latour", descFr: "Deux siècles de tradition et de grands vins blancs et rouges de Bourgogne", descEn: "Two centuries of tradition and great Burgundy white and red wines", photoCount: 0 },
+  { titleFr: "Sélection Terroir & Charcuterie", titleEn: "Local Terroir & Pairings", descFr: "Sélection de produits artisanaux pour accompagner nos plus belles cuvées", descEn: "Selection of local artisanal products to complement our finest cuvées", photoCount: 0 },
+  { titleFr: "Champagne Gosset", titleEn: "Champagne Gosset", descFr: "Dégustation historique de la plus ancienne Maison de Vins de la Champagne", descEn: "Historical tasting session with the oldest Wine House in Champagne", photoCount: 0 },
+  { titleFr: "Marie-Thérèse Chappaz", titleEn: "Marie-Thérèse Chappaz", descFr: "Les icônes biodynamiques du Valais par une vigneronne d'exception", descEn: "The iconic biodynamic wines of Valais by an exceptional winemaker", photoCount: 0 },
+  { titleFr: "Château Lagrange", titleEn: "Château Lagrange", descFr: "Splendeur, rigueur et précision d'un Grand Cru Classé de Saint-Julien", descEn: "Splendor, rigor and precision of a Saint-Julien Grand Cru Classé", photoCount: 0 },
 ];
 
 export default function EventsPage() {
@@ -145,7 +158,7 @@ export default function EventsPage() {
                       />
                     </div>
                   </button>
-
+                
                   <div
                     className="grid transition-[grid-template-rows] duration-500 ease-in-out"
                     style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}

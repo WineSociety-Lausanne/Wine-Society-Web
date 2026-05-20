@@ -7,20 +7,20 @@ import Link from "next/link";
 import { Check, ExternalLink } from "lucide-react";
 
 const currentPartners = [
-  {
+  /*{
     name: "Grassl Glass",
     descFr: "Verres de dégustation haut de gamme, conçus pour révéler chaque nuance aromatique. Grassl accompagne nos dégustations avec leur verrerie d'exception.",
     descEn: "Premium tasting glasses designed to reveal every aromatic nuance. Grassl supports our tastings with their exceptional glassware.",
     url: "https://glasslglass.com",
     category: { fr: "Verrerie", en: "Glassware" },
-  },
-  {
+  },*/
+  /*{
     name: "Daniel Gazzar Vins",
     descFr: "Maison de vins basée à Pully, sélection pointue de domaines français et suisses. Partenaire clé pour nos bouteilles d'entraînement aux concours.",
     descEn: "Wine house based in Pully, with a refined selection of French and Swiss estates. Key partner for our competition training samples.",
     url: "https://daniel-vins.ch",
     category: { fr: "Vins", en: "Wines" },
-  },
+  },*/
 ];
 
 export default function PartenairesPage() {
@@ -41,30 +41,32 @@ export default function PartenairesPage() {
       </section>
 
       {/* Current partners */}
-      <section className="section-padding bg-bg">
-        <div className="max-w-5xl mx-auto space-y-6">
-          {currentPartners.map((partner, i) => (
-            <SlideIn key={i} direction={i % 2 === 0 ? "left" : "right"} delay={i * 0.15}>
-              <div className="bg-white border border-wine-800/10 p-10 md:p-14 group hover:border-wine-800/25 transition-all duration-700">
-                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
-                  <div className="flex-1">
-                    <span className="font-body text-wine-700/50 text-[10px] uppercase tracking-[0.3em]">
-                      {locale === "fr" ? partner.category.fr : partner.category.en}
-                    </span>
-                    <h3 className="font-headline text-3xl md:text-4xl text-wine-900 mt-3 mb-5 group-hover:text-wine-700 transition-colors duration-500">{partner.name}</h3>
-                    <p className="font-body text-dark-500 text-sm leading-[1.8] max-w-lg">
-                      {locale === "fr" ? partner.descFr : partner.descEn}
-                    </p>
+      {currentPartners.length > 0 && (
+        <section className="section-padding bg-bg">
+          <div className="max-w-5xl mx-auto space-y-6">
+            {currentPartners.map((partner, i) => (
+              <SlideIn key={i} direction={i % 2 === 0 ? "left" : "right"} delay={i * 0.15}>
+                <div className="bg-white border border-wine-800/10 p-10 md:p-14 group hover:border-wine-800/25 transition-all duration-700">
+                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
+                    <div className="flex-1">
+                      <span className="font-body text-wine-700/50 text-[10px] uppercase tracking-[0.3em]">
+                        {locale === "fr" ? partner.category.fr : partner.category.en}
+                      </span>
+                      <h3 className="font-headline text-3xl md:text-4xl text-wine-900 mt-3 mb-5 group-hover:text-wine-700 transition-colors duration-500">{partner.name}</h3>
+                      <p className="font-body text-dark-500 text-sm leading-[1.8] max-w-lg">
+                        {locale === "fr" ? partner.descFr : partner.descEn}
+                      </p>
+                    </div>
+                    <a href={partner.url} target="_blank" rel="noopener noreferrer" className="btn-ghost flex-shrink-0 mt-4 md:mt-8">
+                      {locale === "fr" ? "Visiter" : "Visit"} <ExternalLink className="w-3 h-3" />
+                    </a>
                   </div>
-                  <a href={partner.url} target="_blank" rel="noopener noreferrer" className="btn-ghost flex-shrink-0 mt-4 md:mt-8">
-                    {locale === "fr" ? "Visiter" : "Visit"} <ExternalLink className="w-3 h-3" />
-                  </a>
                 </div>
-              </div>
-            </SlideIn>
-          ))}
-        </div>
-      </section>
+              </SlideIn>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Why sponsor */}
       <section className="section-padding bg-bg-alt">

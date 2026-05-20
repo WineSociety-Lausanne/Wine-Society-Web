@@ -39,7 +39,7 @@ export const dictionaries = {
         items: [
           "55 étudiants toutes les 2 semaines",
           "Animation par des professionnels du vin",
-          "Vins du monde, champagnes & spiritueux",
+          "Vins du monde, champagnes",
           "Buffet apéritif après chaque soirée",
         ],
       },
@@ -49,7 +49,7 @@ export const dictionaries = {
           "The Left Bank Bordeaux Cup",
           "Elyxir — ESSEC Business School",
           "Millésime EHL",
-          "L'Étiquette — Kedge Business School",
+          "Sciences Po International Tasting",
         ],
       },
       visits: {
@@ -130,33 +130,33 @@ export const dictionaries = {
       subtitle: "Représenter Lausanne sur la scène internationale",
       list: [
         {
-          name: "The Left Bank Bordeaux Cup",
+          name: "The Left Bank Bordeaux Cup 2026",
           organizer: "Commanderie du Bontemps",
           location: "Londres, Angleterre",
           description:
             "Prestigieux concours international de dégustation à l'aveugle réunissant les meilleures universités du monde autour des grands crus bordelais.",
         },
         {
-          name: "Elyxir",
+          name: "Elyxir 2026",
           organizer: "ESSEC Business School",
           location: "Paris, France",
           description:
-            "Compétition inter-écoles organisée par l'ESSEC, mêlant dégustation à l'aveugle et culture œnologique.",
+            "Compétition inter-écoles organisée par l'ESSEC Business School, mêlant dégustation à l'aveugle et culture œnologique.",
         },
         {
-          name: "Millésime EHL",
-          organizer: "École Hôtelière de Lausanne",
-          location: "Lausanne, Suisse",
+          name: "The Left Bank Bordeaux Cup Final 2025",
+          organizer: "Commanderie du Bontemps",
+          location: "Bordeaux, France",
           description:
-            "Concours local organisé par l'EHL, référence mondiale de l'hospitalité, au cœur de Lausanne.",
-        },
+            "Prestigieux concours international de dégustation à l'aveugle réunissant les meilleures universités du monde autour des grands crus bordelais.",
+        },/*
         {
           name: "L'Étiquette",
           organizer: "Kedge Business School",
           location: "Bordeaux, France",
           description:
             "Compétition œnologique organisée par Kedge au cœur du vignoble bordelais.",
-        },
+        },*/
       ],
     },
     team: {
@@ -184,7 +184,7 @@ export const dictionaries = {
     },
     contact: {
       title: "Contactez-nous",
-      subtitle: "Nous serions ravis d'échanger sur un potentiel partenariat",
+      subtitle: "Nous serions ravis d'échanger sur un potentiel partenariat ou dégustation",
       form: {
         name: "Nom",
         email: "Email",
@@ -203,7 +203,7 @@ export const dictionaries = {
       },
     },
     footer: {
-      tagline: "Initier. Partager. Découvrir.",
+      tagline: "In Vino Veritas",
       rights: "Tous droits réservés",
       association: "Association UNIL · EPFL",
     },
@@ -248,7 +248,7 @@ export const dictionaries = {
         items: [
           "55 students every 2 weeks",
           "Led by wine professionals",
-          "World wines, champagnes & spirits",
+          "World wines, champagnes",
           "Aperitif buffet after each tasting",
         ],
       },
@@ -258,7 +258,7 @@ export const dictionaries = {
           "The Left Bank Bordeaux Cup",
           "Elyxir — ESSEC Business School",
           "Millésime EHL",
-          "L'Étiquette — Kedge Business School",
+          "Sciences Po International Tasting",
         ],
       },
       visits: {
@@ -339,33 +339,33 @@ export const dictionaries = {
       subtitle: "Representing Lausanne on the international stage",
       list: [
         {
-          name: "The Left Bank Bordeaux Cup",
+          name: "The Left Bank Bordeaux Cup 2026",
           organizer: "Commanderie du Bontemps",
           location: "London, England",
           description:
             "Prestigious international blind tasting competition bringing together the world's top universities around Bordeaux grand crus.",
         },
         {
-          name: "Elyxir",
+          name: "Elyxir 2026",
           organizer: "ESSEC Business School",
           location: "Paris, France",
           description:
-            "Inter-school competition organised by ESSEC, combining blind tasting and wine culture.",
+            "Inter-school competition organised by ESSEC Business School, combining blind tasting and wine culture.",
         },
         {
-          name: "Millésime EHL",
-          organizer: "École Hôtelière de Lausanne",
-          location: "Lausanne, Switzerland",
+          name: "The Left Bank Bordeaux Cup Final 2025",
+          organizer: "Commanderie du Bontemps",
+          location: "Bordeaux, France",
           description:
-            "Local competition organised by EHL, the world reference in hospitality, in the heart of Lausanne.",
-        },
+            "Prestigious international blind tasting competition bringing together the world's top universities around Bordeaux grand crus.",
+        },/*
         {
           name: "L'Étiquette",
           organizer: "Kedge Business School",
           location: "Bordeaux, France",
           description:
             "Oenology competition organised by Kedge in the heart of the Bordeaux vineyard.",
-        },
+        },*/
       ],
     },
     team: {
@@ -393,7 +393,7 @@ export const dictionaries = {
     },
     contact: {
       title: "Contact us",
-      subtitle: "We would love to discuss a potential partnership",
+      subtitle: "We would love to discuss a potential partnership or tasting",
       form: {
         name: "Name",
         email: "Email",
@@ -412,7 +412,7 @@ export const dictionaries = {
       },
     },
     footer: {
-      tagline: "Initiate. Share. Discover.",
+      tagline: "In Vino Veritas",
       rights: "All rights reserved",
       association: "Association UNIL · EPFL",
     },

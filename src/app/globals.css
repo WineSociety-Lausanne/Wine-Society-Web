@@ -81,3 +81,7 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #5c1d3a;
 }
+
+.rotate-90 {
+  transform: rotate(90deg);
+}

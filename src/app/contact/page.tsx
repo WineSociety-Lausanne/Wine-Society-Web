@@ -1,12 +1,12 @@
 "use client";
 
 import { useLang } from "@/lib/lang-context";
-import { SlideIn } from "@/components/AnimatedText";
+import { FadeUp, SlideIn } from "@/components/AnimatedText";
 import SectionHeader from "@/components/SectionHeader";
 import { Mail, Phone, Globe, MapPin } from "lucide-react";
 
 export default function ContactPage() {
-  const { t } = useLang();
+  const { t, locale } = useLang();
 
   return (
     <>
@@ -16,9 +16,58 @@ export default function ContactPage() {
         </div>
       </section>
 
+      {/* Contacts */}
       <section className="section-padding bg-bg">
-        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-20">
+        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
+          {/* Événements — Orso */}
           <SlideIn direction="left">
+            <div className="bg-wine-900 p-10 h-full">
+              <span className="font-body text-[10px] text-gold-400/60 uppercase tracking-[0.3em]">
+                {locale === "fr" ? "Événements & Dégustations" : "Events & Tastings"}
+              </span>
+              <p className="font-headline text-2xl text-cream-100 mt-4">Orso Jean Renucci</p>
+              <p className="font-body text-cream-200/40 text-xs mt-1 uppercase tracking-wider">
+                {locale === "fr" ? "Responsable Événements" : "Head of Events"}
+              </p>
+              <div className="mt-6 space-y-3 text-cream-200/60 font-body text-sm">
+                <p className="flex items-center gap-3"><Mail className="w-3.5 h-3.5 text-gold-400/40" />orso.renucci@epfl.ch</p>
+                <p className="flex items-center gap-3"><Phone className="w-3.5 h-3.5 text-gold-400/40" />+33 6 69 97 65 98</p>
+              </div>
+            </div>
+          </SlideIn>
+
+          {/* Sponsoring — Adonis */}
+          <SlideIn direction="right" delay={0.15}>
+            <div className="bg-wine-900 p-10 h-full">
+              <span className="font-body text-[10px] text-gold-400/60 uppercase tracking-[0.3em]">
+                {locale === "fr" ? "Partenariats & Sponsoring" : "Partnerships & Sponsoring"}
+              </span>
+              <p className="font-headline text-2xl text-cream-100 mt-4">Adonis Casteret</p>
+              <p className="font-body text-cream-200/40 text-xs mt-1 uppercase tracking-wider">
+                {locale === "fr" ? "Responsable Sponsorship" : "Head of Sponsorship"}
+              </p>
+              <div className="mt-6 space-y-3 text-cream-200/60 font-body text-sm">
+                <p className="flex items-center gap-3"><Mail className="w-3.5 h-3.5 text-gold-400/40" />adonis.casteret@epfl.ch</p>
+                <p className="flex items-center gap-3"><Phone className="w-3.5 h-3.5 text-gold-400/40" />+41 78 312 48 18</p>
+                <p className="flex items-center gap-3"><Phone className="w-3.5 h-3.5 text-gold-400/40" />+33 7 85 89 65 82</p>
+              </div>
+            </div>
+          </SlideIn>
+        </div>
+        
+        {/* Contact général */}
+        
+      </section>
+
+      {/* Formulaire */}
+      <section className="section-padding bg-bg-alt">
+        <div className="max-w-3xl mx-auto">
+          <FadeUp>
+            <h3 className="font-headline text-3xl text-wine-900 mb-12 text-center">
+              {locale === "fr" ? "Écrivez-nous" : "Write to us"}
+            </h3>
+          </FadeUp>
+          <FadeUp delay={0.15}>
             <div className="space-y-8">
               {[
                 { label: t.contact.form.name, type: "text" },
@@ -36,31 +85,7 @@ export default function ContactPage() {
               </div>
               <button className="btn-primary mt-4">{t.contact.form.send}</button>
             </div>
-          </SlideIn>
-
-          <SlideIn direction="right" delay={0.2}>
-            <div className="space-y-8">
-              <div className="bg-wine-900 p-10">
-                <span className="font-body text-[10px] text-gold-400/60 uppercase tracking-[0.3em]">{t.contact.info.sponsoring}</span>
-                <p className="font-headline text-2xl text-cream-100 mt-3">{t.contact.info.sponsoringName}</p>
-                <p className="font-body text-cream-200/40 text-xs mt-1 uppercase tracking-wider">{t.contact.info.sponsoringRole}</p>
-                <div className="mt-6 space-y-3 text-cream-200/60 font-body text-sm">
-                  <p className="flex items-center gap-3"><Mail className="w-3.5 h-3.5 text-gold-400/40" />adonis.casteret@epfl.ch</p>
-                  <p className="flex items-center gap-3"><Phone className="w-3.5 h-3.5 text-gold-400/40" />+41 78 312 48 18</p>
-                  <p className="flex items-center gap-3"><Phone className="w-3.5 h-3.5 text-gold-400/40" />+33 7 85 89 65 82</p>
-                </div>
-              </div>
-
-              <div className="border border-wine-800/15 p-10">
-                <span className="font-body text-[10px] text-wine-700/50 uppercase tracking-[0.3em]">{t.contact.info.general}</span>
-                <div className="mt-6 space-y-3 text-dark-500 font-body text-sm">
-                  <p className="flex items-center gap-3"><Mail className="w-3.5 h-3.5 text-wine-800/30" />{t.contact.info.email}</p>
-                  <p className="flex items-center gap-3"><Globe className="w-3.5 h-3.5 text-wine-800/30" />{t.contact.info.website}</p>
-                  <p className="flex items-center gap-3"><MapPin className="w-3.5 h-3.5 text-wine-800/30" />{t.contact.info.location}</p>
-                </div>
-              </div>
-            </div>
-          </SlideIn>
+          </FadeUp>
         </div>
       </section>
     </>
