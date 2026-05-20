@@ -37,9 +37,9 @@ function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: str
   }, [started, target]);
 
   return (
-    <div ref={ref}>
-      <span className="font-headline text-5xl md:text-6xl text-wine-800">
-        {count.toLocaleString()}{suffix}
+    <div ref={ref} className="whitespace-nowrap">
+      <span className="font-headline text-4xl md:text-5xl text-wine-800">
+        {target === 2014 ? count : count.toLocaleString("de-CH")}{suffix}
       </span>
     </div>
   );
@@ -130,13 +130,19 @@ function PrestigiousDomains() {
     "Château Lafite Rothschild", "Branaire-Ducru", "Joseph Drouhin",
     "Famille Perrin", "Champagne Lanson", "M. Chapoutier",
     "Frères Dutruy", "Mauler", "Minuty", "Bouchard Père et Fils",
-    "Marie-Thérèse Chappaz", "Gosset", "Lagrange",
+    "Domaine Marie-Thérèse Chappaz", "Champagne Gosset", "Chateau Lagrange",
   ];
 
-  const [domains] = useState(() => {
-    const shuffled = [...baseDomains].sort(() => Math.random() - 0.5);
-    return [...shuffled, ...shuffled];
-  });
+  const [domains, setDomains] = useState([...baseDomains, ...baseDomains, ...baseDomains]);
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const shuffled = [...baseDomains].sort(() => Math.random() - 0.5);
+      setDomains([...shuffled, ...shuffled, ...shuffled]);
+    }, 100);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <section className="py-16 border-b border-dark-300/20 overflow-hidden">
@@ -148,17 +154,16 @@ function PrestigiousDomains() {
       <div className="relative">
         <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-bg to-transparent z-10" />
         <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-bg to-transparent z-10" />
-        <motion.div
+        <div
           className="flex gap-16 whitespace-nowrap"
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+          style={{ animation: "scroll 20s linear infinite" }}
         >
           {domains.map((name, i) => (
             <span key={i} className="font-display text-2xl md:text-3xl text-dark-300 italic flex-shrink-0">
               {name}
             </span>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
@@ -189,7 +194,7 @@ function About() {
             { target: 35000, suffix: "+", label: t.about.stats.studentsLabel },
             { target: 2014, suffix: "", label: t.about.stats.sinceLabel },
             { target: 50, suffix: "", label: t.about.stats.perEventLabel },
-            { target: 4, suffix: "", label: t.about.stats.frequencyLabel + " /an" },
+            { target: 12, suffix: "", label: t.about.stats.frequencyLabel + " /an" },
           ].map((stat, i) => (
             <FadeUp key={i} delay={i * 0.1}>
               <div className="bg-bg p-8 md:p-10 text-center">

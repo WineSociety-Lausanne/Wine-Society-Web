@@ -68,23 +68,25 @@ export default function ContactPage() {
             </h3>
           </FadeUp>
           <FadeUp delay={0.15}>
-            <div className="space-y-8">
-              {[
-                { label: t.contact.form.name, type: "text" },
-                { label: t.contact.form.email, type: "email" },
-                { label: t.contact.form.subject, type: "text" },
-              ].map((field, i) => (
-                <div key={i}>
-                  <label className="font-body text-[10px] text-dark-500 uppercase tracking-[0.25em] block mb-3">{field.label}</label>
-                  <input type={field.type} className="w-full bg-transparent border-b border-wine-800/15 py-3 font-body text-sm text-wine-900 focus:border-wine-800 focus:outline-none transition-colors duration-500" />
-                </div>
-              ))}
+            <form action="https://formspree.io/f/mnjrpawp" method="POST" className="space-y-8">
+              <div>
+                <label className="font-body text-[10px] text-dark-500 uppercase tracking-[0.25em] block mb-3">{t.contact.form.name}</label>
+                <input type="text" name="name" required className="w-full bg-transparent border-b border-wine-800/15 py-3 font-body text-sm text-wine-900 focus:border-wine-800 focus:outline-none transition-colors duration-500" />
+              </div>
+              <div>
+                <label className="font-body text-[10px] text-dark-500 uppercase tracking-[0.25em] block mb-3">{t.contact.form.email}</label>
+                <input type="email" name="email" required className="w-full bg-transparent border-b border-wine-800/15 py-3 font-body text-sm text-wine-900 focus:border-wine-800 focus:outline-none transition-colors duration-500" />
+              </div>
+              <div>
+                <label className="font-body text-[10px] text-dark-500 uppercase tracking-[0.25em] block mb-3">{t.contact.form.subject}</label>
+                <input type="text" name="subject" required className="w-full bg-transparent border-b border-wine-800/15 py-3 font-body text-sm text-wine-900 focus:border-wine-800 focus:outline-none transition-colors duration-500" />
+              </div>
               <div>
                 <label className="font-body text-[10px] text-dark-500 uppercase tracking-[0.25em] block mb-3">{t.contact.form.message}</label>
-                <textarea rows={5} className="w-full bg-transparent border-b border-wine-800/15 py-3 font-body text-sm text-wine-900 focus:border-wine-800 focus:outline-none transition-colors duration-500 resize-none" />
+                <textarea name="message" rows={5} required className="w-full bg-transparent border-b border-wine-800/15 py-3 font-body text-sm text-wine-900 focus:border-wine-800 focus:outline-none transition-colors duration-500 resize-none" />
               </div>
-              <button className="btn-primary mt-4">{t.contact.form.send}</button>
-            </div>
+              <button type="submit" className="btn-primary mt-4">{t.contact.form.send}</button>
+            </form>
           </FadeUp>
         </div>
       </section>

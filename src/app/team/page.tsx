@@ -6,12 +6,12 @@ import SectionHeader from "@/components/SectionHeader";
 import { User } from "lucide-react";
 
 const teamMembers = [
-  { nameKey: "president", name: "Jan " },
+  { nameKey: "president", name: "Jan Hoffman" },
   { nameKey: "vicePresident", name: "Damien Grosset-Bourbange" },
   { nameKey: "sponsorship", name: "Adonis Casteret" },
   { nameKey: "events", name: "Orso Renucci" },
   { nameKey: "communication", name: "Mirko " },
-  { nameKey: "treasurer", name: "Thomas " },
+  { nameKey: "treasurer", name: "Thomas Grosso" },
 ];
 
 export default function TeamPage() {
