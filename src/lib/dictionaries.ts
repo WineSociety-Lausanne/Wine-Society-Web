@@ -18,10 +18,10 @@ export const dictionaries = {
     about: {
       title: "Qui sommes-nous ?",
       description:
-        "Créée en mars 2014 par des étudiants de la faculté d'HEC de l'Université de Lausanne, la Wine Society est implantée sur l'ensemble du campus lémanique comprenant l'EPFL et l'UNIL, touchant au total plus de 30'000 étudiants.",
+          "Créée en mars 2014 par des étudiants de la faculté d'HEC de l'Université de Lausanne, la Wine Society est implantée sur l'ensemble du campus lémanique comprenant l'EPFL et l'UNIL, touchant au total plus de 30'000 étudiants.",
       mission:
-        "Son principal objectif est d'initier les étudiants à l'œnologie. À travers des dégustations, des découvertes de domaines viticoles, des compétitions et des interventions de professionnels, nous proposons des moments de rencontre et de partage autour d'une passion commune.",
-      stats: {
+        "Notre but est d'initier les étudiants à l'œnologie. Par des dégustations, des découvertes de domaines, des concours et des échanges avec des professionnels, nous créons des moments de rencontre et de partage uniques autour de cette passion commune.",  
+        stats: {
         students: "35'000+",
         studentsLabel: "étudiants sur le campus",
         since: "Depuis 2014",
@@ -229,7 +229,7 @@ export const dictionaries = {
       description:
         "Founded in March 2014 by students from the HEC Faculty at the University of Lausanne, the Wine Society operates across the entire Lake Geneva campus encompassing EPFL and UNIL, reaching over 30,000 students.",
       mission:
-        "Our main objective is to introduce students to oenology. Through tastings, vineyard discoveries, competitions and professional interventions, we offer moments of encounter and sharing around a common passion.",
+        "We aim to introduce students to oenology. Through tastings, vineyard tours, contests and expert talks, we create unique opportunities for encounters and sharing around this beautiful common passion.",
       stats: {
         students: "35,000+",
         studentsLabel: "students on campus",

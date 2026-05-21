@@ -219,14 +219,17 @@ function About() {
       <div className="max-w-5xl mx-auto">
         <SectionHeader title={t.about.title} />
 
-        <div className="grid md:grid-cols-2 gap-16 mb-24">
+        {/* AJOUT : gap-16 ajusté pour laisser de la place à la ligne */}
+        <div className="grid md:grid-cols-2 gap-12 md:gap-16 mb-24">
+          
+          {/* PREMIER BLOC : Ajout d'une bordure droite sur desktop */}
           <SlideIn direction="left">
-            <p className="font-display text-xl md:text-2xl leading-relaxed text-wine-800/70 italic">
+            <p className="font-display text-xl md:text-2xl leading-relaxed text-wine-800/70 italic md:border-r md:border-dark-300/20 md:pr-12 h-full">
               {t.about.description}
             </p>
           </SlideIn>
+
           <SlideIn direction="right" delay={0.2}>
-            {/* Remplacement des classes font-body, text-sm, etc. par le style identique à gauche */}
             <p className="font-display text-xl md:text-2xl leading-relaxed text-wine-800/70 italic">
               {t.about.mission}
             </p>

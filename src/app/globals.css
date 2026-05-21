@@ -89,6 +89,6 @@
 @media (min-width: 640px) {
   .scroll-banner {
     /* Vitesse sur ordinateur */
-    animation: scroll 60s linear infinite;
+    animation: scroll 80s linear infinite;
   }
 }
