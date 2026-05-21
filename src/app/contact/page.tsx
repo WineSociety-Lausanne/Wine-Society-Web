@@ -10,7 +10,7 @@ export default function ContactPage() {
 
   return (
     <>
-      <section className="relative section-padding pt-32 pb-16 bg-wine-900">
+      <section className="relative px-6 md:px-12 lg:px-24 pt-40 pb-3 bg-wine-900">
         <div className="relative z-10 max-w-5xl mx-auto">
           <SectionHeader title={t.contact.title} subtitle={t.contact.subtitle} light />
         </div>
@@ -25,7 +25,7 @@ export default function ContactPage() {
               <span className="font-body text-[10px] text-gold-400/60 uppercase tracking-[0.3em]">
                 {locale === "fr" ? "Événements & Dégustations" : "Events & Tastings"}
               </span>
-              <p className="font-headline text-2xl text-cream-100 mt-4">Orso Jean Renucci</p>
+              <p className="font-headline text-2xl text-cream-100 mt-4">Orso Renucci</p>
               <p className="font-body text-cream-200/40 text-xs mt-1 uppercase tracking-wider">
                 {locale === "fr" ? "Responsable Événements" : "Head of Events"}
               </p>

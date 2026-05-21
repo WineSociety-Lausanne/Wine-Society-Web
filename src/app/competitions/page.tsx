@@ -46,7 +46,7 @@ export default function CompetitionsPage() {
 
   return (
     <>
-      <section className="relative section-padding pt-32 pb-16 bg-wine-900">
+      <section className="relative px-6 md:px-12 lg:px-24 pt-40 pb-8 bg-wine-900">
         <div className="relative z-10 max-w-5xl mx-auto">
           <SectionHeader title={t.competitions.title} subtitle={t.competitions.subtitle} light />
         </div>

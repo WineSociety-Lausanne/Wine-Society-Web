@@ -55,7 +55,7 @@ export default function EventsPage() {
   return (
     <>
       {/* Hero bordeaux */}
-      <section className="relative section-padding pt-32 pb-16 bg-wine-900">
+      <section className="relative px-6 md:px-12 lg:px-24 pt-40 pb-8 bg-wine-900">
         <div className="relative z-10 max-w-5xl mx-auto">
           <SectionHeader title={t.events.title} subtitle={t.events.subtitle} light />
         </div>
