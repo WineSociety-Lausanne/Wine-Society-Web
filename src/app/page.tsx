@@ -219,20 +219,25 @@ function About() {
       <div className="max-w-5xl mx-auto">
         <SectionHeader title={t.about.title} />
 
-        {/* AJOUT : gap-16 ajusté pour laisser de la place à la ligne */}
-        <div className="grid md:grid-cols-2 gap-12 md:gap-16 mb-24">
+        {/* Le conteneur grid gère l'écartement global */}
+        <div className="grid md:grid-cols-2 gap-0 mb-24">
           
-          {/* PREMIER BLOC : Ajout d'une bordure droite sur desktop */}
+          {/* BLOC GAUCHE : On aligne le texte à droite (vers le centre) et on met la bordure */}
           <SlideIn direction="left">
-            <p className="font-display text-xl md:text-2xl leading-relaxed text-wine-800/70 italic md:border-r md:border-dark-300/20 md:pr-12 h-full">
-              {t.about.description}
-            </p>
+            <div className="md:text-right md:border-r md:border-dark-300/20 md:pr-12 pr-0 pb-6 md:pb-0">
+              <p className="font-display text-xl md:text-2xl leading-relaxed text-wine-800/70 italic inline-block">
+                {t.about.description}
+              </p>
+            </div>
           </SlideIn>
 
+          {/* BLOC DROITE : On aligne le texte à gauche (vers le centre) et on espace par rapport à la ligne */}
           <SlideIn direction="right" delay={0.2}>
-            <p className="font-display text-xl md:text-2xl leading-relaxed text-wine-800/70 italic">
-              {t.about.mission}
-            </p>
+            <div className="md:text-left md:pl-12 pl-0 pt-6 md:pt-0">
+              <p className="font-display text-xl md:text-2xl leading-relaxed text-wine-800/70 italic inline-block">
+                {t.about.mission}
+              </p>
+            </div>
           </SlideIn>
         </div>
 
