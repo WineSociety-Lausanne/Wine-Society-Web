@@ -9,7 +9,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-dark-950 border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-12 pb-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-16">
           <div>
             <div className="flex items-center gap-3 mb-4">
@@ -21,7 +21,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-[11px] text-gold-500/60 uppercase tracking-[0.25em] font-body mb-6">Navigation</h4>
+            <h4 className="text-[11px] text-bg uppercase tracking-[0.25em] font-body mb-6">Navigation</h4>
             <div className="space-y-3">
               {[
                 { href: "/events", label: t.nav.events },
@@ -38,10 +38,10 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-[11px] text-gold-500/60 uppercase tracking-[0.25em] font-body mb-6">Contact</h4>
+            <h4 className="text-[11px] text-bg uppercase tracking-[0.25em] font-body mb-6">Contact</h4>
             <div className="space-y-3 text-sm text-dark-400 font-body">
-              <p>contact@wine-society.ch</p>
-              <p>www.wine-society.ch</p>
+              <a href="mailto:contact@wine-society.ch" className="block hover:text-gold-400 transition-colors duration-300">contact@wine-society.ch</a>
+              <a href="https://www.wine-society.ch" target="_blank" rel="noopener noreferrer" className="block hover:text-gold-400 transition-colors duration-300">www.wine-society.ch</a>
               <p>Lausanne, Suisse</p>
             </div>
             <div className="flex gap-4 mt-6">
@@ -55,7 +55,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-[11px] text-gold-500/60 uppercase tracking-[0.25em] font-body mb-6">
+            <h4 className="text-[11px] text-bg uppercase tracking-[0.25em] font-body mb-6">
               {locale === "fr" ? "Légal" : "Legal"}
             </h4>
             <div className="space-y-3">
@@ -69,7 +69,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-white/5 text-center">
+        <div className="mt-12 pt-6 pb-0 border-t border-white/10 text-center">
           <p className="text-dark-600 text-xs font-body tracking-wider">
             © {new Date().getFullYear()} Wine Society · {t.footer.rights}
           </p>

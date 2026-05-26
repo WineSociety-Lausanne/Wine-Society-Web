@@ -34,7 +34,7 @@ export default function CookieBanner() {
     : "This site uses cookies to improve your experience. By continuing, you accept our ";
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-[100] bg-dark-900 border-t border-white/5 px-6 py-5">
+    <div className="fixed bottom-0 left-0 right-0 z-[100] bg-wine-950 border-t border-white/5 px-6 py-5">
       <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <p className="font-body text-sm text-dark-400 flex-1">
           {mainText}

@@ -14,13 +14,13 @@ const currentPartners: {
   category:{ fr: string; en: string };
 }[] = [
   
-  /*{
+  {
     name: "Grassl Glass",
     descFr: "Verres de dégustation haut de gamme, conçus pour révéler chaque nuance aromatique. Grassl accompagne nos dégustations avec leur verrerie d'exception.",
     descEn: "Premium tasting glasses designed to reveal every aromatic nuance. Grassl supports our tastings with their exceptional glassware.",
-    url: "https://glasslglass.com",
+    url: "https://grasslglass.com",
     category: { fr: "Verrerie", en: "Glassware" },
-  },*/
+  },
   /*{
     name: "Daniel Gazzar Vins",
     descFr: "Maison de vins basée à Pully, sélection pointue de domaines français et suisses. Partenaire clé pour nos bouteilles d'entraînement aux concours.",
@@ -119,7 +119,7 @@ export default function PartenairesPage() {
                         </li>
                       ))}
                     </ul>
-                    <a href="/WineSociety_Sponsoring_2025-2026.pdf" download className="btn-primary w-full mt-8 text-center">
+                    <a href="/WineSociety_Sponsoring_2026-2027.pdf" download className="btn-primary w-full mt-8 text-center">
                       {locale === "fr" ? "Télécharger le dossier" : "Download brochure"}
                     </a>
                   </div>

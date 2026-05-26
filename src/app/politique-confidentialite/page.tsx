@@ -14,7 +14,7 @@ export default function PolitiqueConfidentialitePage() {
         <FadeUp>
           <div className="space-y-10 font-body text-sm text-dark-400 leading-[1.9]">
             <div>
-              <h3 className="font-display text-xl text-cream-100 mb-4">
+              <h3 className="font-display text-xl text-dark-800 mb-4">
                 {locale === "fr" ? "Responsable du traitement" : "Data controller"}
               </h3>
               <p>Wine Society — Association UNIL · EPFL</p>
@@ -23,7 +23,7 @@ export default function PolitiqueConfidentialitePage() {
             </div>
 
             <div>
-              <h3 className="font-display text-xl text-cream-100 mb-4">
+              <h3 className="font-display text-xl text-dark-800 mb-4">
                 {locale === "fr" ? "Données collectées" : "Data collected"}
               </h3>
               <p>
@@ -34,7 +34,7 @@ export default function PolitiqueConfidentialitePage() {
             </div>
 
             <div>
-              <h3 className="font-display text-xl text-cream-100 mb-4">
+              <h3 className="font-display text-xl text-dark-800 mb-4">
                 {locale === "fr" ? "Base légale" : "Legal basis"}
               </h3>
               <p>
@@ -45,7 +45,7 @@ export default function PolitiqueConfidentialitePage() {
             </div>
 
             <div>
-              <h3 className="font-display text-xl text-cream-100 mb-4">
+              <h3 className="font-display text-xl text-dark-800 mb-4">
                 {locale === "fr" ? "Cookies" : "Cookies"}
               </h3>
               <p>
@@ -56,7 +56,7 @@ export default function PolitiqueConfidentialitePage() {
             </div>
 
             <div>
-              <h3 className="font-display text-xl text-cream-100 mb-4">
+              <h3 className="font-display text-xl text-dark-800 mb-4">
                 {locale === "fr" ? "Durée de conservation" : "Retention period"}
               </h3>
               <p>
@@ -67,7 +67,7 @@ export default function PolitiqueConfidentialitePage() {
             </div>
 
             <div>
-              <h3 className="font-display text-xl text-cream-100 mb-4">
+              <h3 className="font-display text-xl text-dark-800 mb-4">
                 {locale === "fr" ? "Vos droits" : "Your rights"}
               </h3>
               <p>

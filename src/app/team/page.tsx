@@ -8,8 +8,8 @@ import { User } from "lucide-react";
 const teamMembers = [
   { nameKey: "president", name: "Damien Grosset-Bourbange" },
   { nameKey: "vicePresident", name: "Jan Hoffman" },
-  { nameKey: "sponsorship", name: "Adonis Casteret" },
   { nameKey: "events", name: "Orso Renucci" },
+  { nameKey: "sponsorship", name: "Adonis Casteret" },
   { nameKey: "communication", name: "Mirko " },
   { nameKey: "treasurer", name: "Thomas Grosso" },
 ];

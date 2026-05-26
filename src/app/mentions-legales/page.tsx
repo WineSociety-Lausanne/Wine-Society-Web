@@ -14,7 +14,7 @@ export default function MentionsLegalesPage() {
         <FadeUp>
           <div className="space-y-10 font-body text-sm text-dark-400 leading-[1.9]">
             <div>
-              <h3 className="font-display text-xl text-cream-100 mb-4">
+              <h3 className="font-display text-xl text-dark-800 mb-4">
                 {locale === "fr" ? "Éditeur du site" : "Site publisher"}
               </h3>
               <p>Wine Society — Association UNIL · EPFL</p>
@@ -24,22 +24,22 @@ export default function MentionsLegalesPage() {
             </div>
 
             <div>
-              <h3 className="font-display text-xl text-cream-100 mb-4">
+              <h3 className="font-display text-xl text-dark-800 mb-4">
                 {locale === "fr" ? "Responsable de la publication" : "Publication manager"}
               </h3>
-              <p>Adonis Casteret — Responsable Sponsorship</p>
-              <p>adonis.casteret@epfl.ch</p>
+              <p>Wine Society — Association UNIL · EPFL</p>
+              <p>contact@wine-society.ch</p>
             </div>
 
             <div>
-              <h3 className="font-display text-xl text-cream-100 mb-4">
+              <h3 className="font-display text-xl text-dark-800 mb-4">
                 {locale === "fr" ? "Hébergement" : "Hosting"}
               </h3>
-              <p>{locale === "fr" ? "À compléter selon l'hébergeur choisi (Vercel, Infomaniak, etc.)" : "To be completed based on chosen hosting provider (Vercel, Infomaniak, etc.)"}</p>
+              <p>{locale === "fr" ? "Wix" : "Wix"}</p>
             </div>
 
             <div>
-              <h3 className="font-display text-xl text-cream-100 mb-4">
+              <h3 className="font-display text-xl text-dark-800 mb-4">
                 {locale === "fr" ? "Propriété intellectuelle" : "Intellectual property"}
               </h3>
               <p>
@@ -50,7 +50,7 @@ export default function MentionsLegalesPage() {
             </div>
 
             <div>
-              <h3 className="font-display text-xl text-cream-100 mb-4">
+              <h3 className="font-display text-xl text-dark-800 mb-4">
                 {locale === "fr" ? "Consommation responsable" : "Responsible drinking"}
               </h3>
               <p>

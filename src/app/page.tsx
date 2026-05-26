@@ -127,7 +127,7 @@ function Hero() {
 
 function PrestigiousDomains() {
   const { locale } = useLang();
-  
+
   const initialLogos = [
     { src: "/domaines/branaire.png", alt: "Château Branaire-Ducru", h: "h-20 sm:h-20 md:h-24" },
     { src: "/domaines/lanson.png", alt: "Champagne Lanson", h: "h-12 sm:h-14 md:h-16" },
@@ -143,33 +143,17 @@ function PrestigiousDomains() {
     { src: "/domaines/chappaz.png", alt: "Marie-Thérèse Chappaz", h: "h-10 sm:h-12 md:h-14" },
   ];
 
-  // Un seul état global pour le composant
-  const [state, setState] = useState<{
-    logos: typeof initialLogos;
-    isMounted: boolean;
-  }>({
-    logos: [...initialLogos, ...initialLogos],
-    isMounted: false,
-  });
+   const [logos] = useState(initialLogos);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const randomized = [...initialLogos].sort(() => Math.random() - 0.5);
-    
-    // Le setTimeout rend l'action asynchrone, ce qui calme instantanément le linter
-    const timer = setTimeout(() => {
-      setState({
-        logos: [...randomized, ...randomized],
-        isMounted: true,
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        setMounted(true);
       });
-    }, 0);
-
-    // Bonne pratique : on nettoie le timer si le composant est démonté
-    return () => clearTimeout(timer);
+    });
   }, []);
-
-  // On récupère les logos à afficher
-  const logosToRender = state.logos;
-
+  
   return (
     <section className="py-14 border-b border-dark-300/20 overflow-hidden">
       <FadeIn>
@@ -177,33 +161,18 @@ function PrestigiousDomains() {
           {locale === "fr" ? "Domaines reçus" : "Past guest estates"}
         </p>
       </FadeIn>
-      
       <div className="relative flex overflow-hidden group">
         <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-bg to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-bg to-transparent z-10 pointer-events-none" />
-
         <div className="flex w-max">
-          {/* Bloc 1 */}
-          <div className="flex scroll-banner items-center gap-16 sm:gap-24 pr-16 sm:pr-24 flex-shrink-0 group-hover:[animation-play-state:paused]">
-            {logosToRender.map((logo, i) => (
-              <img
-                key={`block1-${i}`}
-                src={logo.src}
-                alt={logo.alt}
-                className={`${logo.h} w-auto object-contain flex-shrink-0`}
-              />
+          <div className={`flex items-center gap-16 sm:gap-24 pr-16 sm:pr-24 flex-shrink-0 ${mounted ? "scroll-banner" : ""} group-hover:[animation-play-state:paused]`}>
+            {logos.map((logo, i) => (
+              <img key={`a-${i}`} src={logo.src} alt={logo.alt} className={`${logo.h} w-auto object-contain flex-shrink-0`} />
             ))}
           </div>
-
-          {/* Bloc 2 */}
-          <div className="flex scroll-banner items-center gap-16 sm:gap-24 pr-16 sm:pr-24 flex-shrink-0 group-hover:[animation-play-state:paused]" aria-hidden="true">
-            {logosToRender.map((logo, i) => (
-              <img
-                key={`block2-${i}`}
-                src={logo.src}
-                alt={logo.alt}
-                className={`${logo.h} w-auto object-contain flex-shrink-0`}
-              />
+          <div className={`flex items-center gap-16 sm:gap-24 pr-16 sm:pr-24 flex-shrink-0 ${mounted ? "scroll-banner" : ""} group-hover:[animation-play-state:paused]`} aria-hidden="true">
+            {logos.map((logo, i) => (
+              <img key={`b-${i}`} src={logo.src} alt={logo.alt} className={`${logo.h} w-auto object-contain flex-shrink-0`} />
             ))}
           </div>
         </div>
@@ -288,7 +257,7 @@ function Activities() {
           {cards.map((card, i) => (
             <FadeUp key={i} delay={i * 0.15}>
               <div className="border-t border-gold-400/20 pt-8 h-full group">
-                <span className="font-body text-gold-400/30 text-[10px] tracking-[0.4em] uppercase">
+                <span className="font-headline text-gold-400/20 text-3xl sm:text-4xl">
                   {card.num}
                 </span>
                 <h3 className="font-display text-2xl text-cream-100 mt-3 mb-6 group-hover:text-gold-400 transition-colors duration-500">

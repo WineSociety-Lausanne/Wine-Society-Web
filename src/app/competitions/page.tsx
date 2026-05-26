@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState , useEffect} from "react";
 import { useLang } from "@/lib/lang-context";
 import { FadeUp } from "@/components/AnimatedText";
 import SectionHeader from "@/components/SectionHeader";
@@ -43,6 +43,14 @@ const competitionImages: Record<string, { placeholder: string; photos: string[] 
 export default function CompetitionsPage() {
   const { t } = useLang();
   const [selectedComp, setSelectedComp] = useState<number | null>(null);
+  useEffect(() => {
+    Object.values(competitionImages).forEach((comp) => {
+      comp.photos.forEach((src) => {
+        const img = new window.Image();
+        img.src = src;
+      });
+    });
+  }, []);
 
   return (
     <>
@@ -96,6 +104,7 @@ export default function CompetitionsPage() {
                                     src={src}
                                     alt={`${comp.name} - Photo ${j + 1}`}
                                     fill
+                                    sizes="(max-width: 768px) 50vw, 33vw"
                                     className="object-cover hover:scale-105 transition-transform duration-500"
                                   />
                                 </div>

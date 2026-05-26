@@ -30,8 +30,8 @@ export default function ContactPage() {
                 {locale === "fr" ? "Responsable Événements" : "Head of Events"}
               </p>
               <div className="mt-6 space-y-3 text-cream-200/60 font-body text-sm">
-                <p className="flex items-center gap-3"><Mail className="w-3.5 h-3.5 text-gold-400/40" />orso.renucci@epfl.ch</p>
-                <p className="flex items-center gap-3"><Phone className="w-3.5 h-3.5 text-gold-400/40" />+33 6 69 97 65 98</p>
+                <a href="mailto:orso.renucci@epfl.ch" className="flex items-center gap-3 hover:text-cream-100 transition-colors"><Mail className="w-3.5 h-3.5 text-gold-400/40" />orso.renucci@epfl.ch</a>
+                <a href="tel:+33669976598" className="flex items-center gap-3 hover:text-cream-100 transition-colors"><Phone className="w-3.5 h-3.5 text-gold-400/40" />+33 6 69 97 65 98</a>
               </div>
             </div>
           </SlideIn>
@@ -47,9 +47,9 @@ export default function ContactPage() {
                 {locale === "fr" ? "Responsable Sponsorship" : "Head of Sponsorship"}
               </p>
               <div className="mt-6 space-y-3 text-cream-200/60 font-body text-sm">
-                <p className="flex items-center gap-3"><Mail className="w-3.5 h-3.5 text-gold-400/40" />adonis.casteret@epfl.ch</p>
-                <p className="flex items-center gap-3"><Phone className="w-3.5 h-3.5 text-gold-400/40" />+41 78 312 48 18</p>
-                <p className="flex items-center gap-3"><Phone className="w-3.5 h-3.5 text-gold-400/40" />+33 7 85 89 65 82</p>
+                <a href="mailto:adonis.casteret@epfl.ch" className="flex items-center gap-3 hover:text-cream-100 transition-colors"><Mail className="w-3.5 h-3.5 text-gold-400/40" />adonis.casteret@epfl.ch</a>
+                <a href="tel:+41783124818" className="flex items-center gap-3 hover:text-cream-100 transition-colors"><Phone className="w-3.5 h-3.5 text-gold-400/40" />+41 78 312 48 18</a>
+                <a href="tel:+33785896582" className="flex items-center gap-3 hover:text-cream-100 transition-colors"><Phone className="w-3.5 h-3.5 text-gold-400/40" />+33 7 85 89 65 82</a>
               </div>
             </div>
           </SlideIn>
