@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useLang } from "@/lib/lang-context";
 import { FadeUp, StaggerContainer, StaggerItem } from "@/components/AnimatedText";
@@ -13,44 +12,50 @@ const upcomingEvents = [
     slug: "Blanchard",
     date: "2025-11-11",
     titleFr: "A venir",
-    titleEn: "Comming Soon",
+    titleEn: "Coming Soon",
     descFr: "Dégustation",
     descEn: "Tasting",
-  },/*
-  {
-    slug: "octobre-2025",
-    date: "2025-10-01",
-    titleFr: "Domaine à confirmer",
-    titleEn: "Estate TBC",
-    descFr: "Soirée dégustation bimensuelle",
-    descEn: "Bimonthly tasting evening",
-  },*/
+  },
 ];
 
 const pastHighlights = [
-  { titleFr: "Branaire-Ducru — Saint-Julien", titleEn: "Branaire-Ducru — Saint-Julien", descFr: "4ème Grand Cru Classé présenté par le domaine", descEn: "4th Grand Cru Classé presented by the estate", photoCount: 0 },
-  { titleFr: "Cave de la Côte", titleEn: "Cave de la Côte", descFr: "À la découverte des pépites et cépages emblématiques du vignoble vaudois", descEn: "Discovering the hidden gems and iconic grape varieties of the Vaud region", photoCount: 0 },
-  { titleFr: "Château Minuty — Côtes de Provence", titleEn: "Château Minuty — Côtes de Provence", descFr: "L'excellence des grands rosés de Provence et de la French Riviera", descEn: "The excellence of great Provence rosés and the French Riviera", photoCount: 0 },
-  { titleFr: "Champagne Lanson", titleEn: "Champagne Lanson", descFr: "Découverte de la gamme Lanson, du Brut au Rosé", descEn: "Discovering the Lanson range, from Brut to Rosé", photoCount: 0 },
-  { titleFr: "Mauler", titleEn: "Mauler", descFr: "Tradition et excellence des grands vins mousseux suisses depuis 1829", descEn: "Tradition and excellence of great Swiss sparkling wines since 1829", photoCount: 0 },
-  { titleFr: "Les Frères Dutruy", titleEn: "Les Frères Dutruy", descFr: "Des vins de terroir d'exception récompensés au cœur de La Côte", descEn: "Exceptional award-winning terroir wines from the heart of La Côte", photoCount: 0 },
-  { titleFr: "Famille Perrin — Vallée du Rhône", titleEn: "Famille Perrin — Rhône Valley", descFr: "Les grands vins du Rhône sud, de Gigondas à Châteauneuf-du-Pape", descEn: "Great wines of the Southern Rhône, from Gigondas to Châteauneuf-du-Pape", photoCount: 0 },
-  { titleFr: "Joseph Drouhin — Bourgogne", titleEn: "Joseph Drouhin — Burgundy", descFr: "Exploration des terroirs bourguignons avec la Maison Drouhin", descEn: "Exploring Burgundian terroirs with Maison Drouhin", photoCount: 0 },
-  { titleFr: "Château Chasse-Spleen", titleEn: "Château Chasse-Spleen", descFr: "L'élégance et la poésie d'un grand nom de Moulis-en-Médoc", descEn: "The elegance and poetry of a great name from Moulis-en-Médoc", photoCount: 0 },
-  { titleFr: "Château Lafite Rothschild", titleEn: "Château Lafite Rothschild", descFr: "Une soirée exceptionnelle autour des grands crus légendaires du Médoc", descEn: "An exceptional evening featuring the legendary grand crus of Médoc", photoCount: 0 },
-  { titleFr: "Bouvet-Jabloir", titleEn: "Bouvet-Jabloir", descFr: "La haute couture du vignoble neuchâtelois et ses grands Pinots Noirs", descEn: "The haute couture of Neuchâtel vineyards and its great Pinot Noirs", photoCount: 0 },
-  { titleFr: "Bouchard Père & Fils", titleEn: "Bouchard Père & Fils", descFr: "Un voyage historique à travers les plus prestigieux climats de Bourgogne", descEn: "A historical journey through the most prestigious climates of Burgundy", photoCount: 0 },
-  { titleFr: "Château Pichon", titleEn: "Château Pichon", descFr: "Immersion dans l'excellence des Grands Crus Classés de Pauillac", descEn: "Immersion into the excellence of Pauillac's Grand Crus Classés", photoCount: 0 },
-  { titleFr: "Louis Latour", titleEn: "Louis Latour", descFr: "Deux siècles de tradition et de grands vins blancs et rouges de Bourgogne", descEn: "Two centuries of tradition and great Burgundy white and red wines", photoCount: 0 },
-  { titleFr: "Sélection Terroir & Charcuterie", titleEn: "Local Terroir & Pairings", descFr: "Sélection de produits artisanaux pour accompagner nos plus belles cuvées", descEn: "Selection of local artisanal products to complement our finest cuvées", photoCount: 0 },
-  { titleFr: "Champagne Gosset", titleEn: "Champagne Gosset", descFr: "Dégustation historique de la plus ancienne Maison de Vins de la Champagne", descEn: "Historical tasting session with the oldest Wine House in Champagne", photoCount: 0 },
-  { titleFr: "Marie-Thérèse Chappaz", titleEn: "Marie-Thérèse Chappaz", descFr: "Les icônes biodynamiques du Valais par une vigneronne d'exception", descEn: "The iconic biodynamic wines of Valais by an exceptional winemaker", photoCount: 0 },
-  { titleFr: "Château Lagrange", titleEn: "Château Lagrange", descFr: "Splendeur, rigueur et précision d'un Grand Cru Classé de Saint-Julien", descEn: "Splendor, rigor and precision of a Saint-Julien Grand Cru Classé", photoCount: 0 },
+  { titleFr: "Branaire-Ducru — Saint-Julien", titleEn: "Branaire-Ducru — Saint-Julien", descFr: "4ème Grand Cru Classé présenté par le domaine", descEn: "4th Grand Cru Classé presented by the estate", photoCount: 0, region: "bordeaux" },
+  { titleFr: "Cave de la Côte", titleEn: "Cave de la Côte", descFr: "À la découverte des pépites et cépages emblématiques du vignoble vaudois", descEn: "Discovering the hidden gems and iconic grape varieties of the Vaud region", photoCount: 0, region: "suisse" },
+  { titleFr: "Château Minuty — Côtes de Provence", titleEn: "Château Minuty — Côtes de Provence", descFr: "L'excellence des grands rosés de Provence et de la French Riviera", descEn: "The excellence of great Provence rosés and the French Riviera", photoCount: 0, region: "provence" },
+  { titleFr: "Champagne Lanson", titleEn: "Champagne Lanson", descFr: "Découverte de la gamme Lanson, du Brut au Rosé", descEn: "Discovering the Lanson range, from Brut to Rosé", photoCount: 0, region: "champagne" },
+  { titleFr: "Mauler", titleEn: "Mauler", descFr: "Tradition et excellence des grands vins mousseux suisses depuis 1829", descEn: "Tradition and excellence of great Swiss sparkling wines since 1829", photoCount: 0, region: "suisse" },
+  { titleFr: "Les Frères Dutruy", titleEn: "Les Frères Dutruy", descFr: "Des vins de terroir d'exception récompensés au cœur de La Côte", descEn: "Exceptional award-winning terroir wines from the heart of La Côte", photoCount: 0, region: "suisse" },
+  { titleFr: "Famille Perrin ", titleEn: "Famille Perrin — Rhône Valley", descFr: "Les grands vins du Rhône sud, de Gigondas à Châteauneuf-du-Pape", descEn: "Great wines of the Southern Rhône, from Gigondas to Châteauneuf-du-Pape", photoCount: 0, region: "rhone" },
+  { titleFr: "Joseph Drouhin ", titleEn: "Joseph Drouhin — Burgundy", descFr: "Exploration des terroirs bourguignons avec la Maison Drouhin", descEn: "Exploring Burgundian terroirs with Maison Drouhin", photoCount: 0, region: "bourgogne" },
+  { titleFr: "Château Chasse-Spleen", titleEn: "Château Chasse-Spleen", descFr: "L'élégance et la poésie d'un grand nom de Moulis-en-Médoc", descEn: "The elegance and poetry of a great name from Moulis-en-Médoc", photoCount: 0, region: "bordeaux" },
+  { titleFr: "Château Lafite Rothschild", titleEn: "Château Lafite Rothschild", descFr: "Une soirée exceptionnelle autour des grands crus légendaires du Médoc", descEn: "An exceptional evening featuring the legendary grand crus of Médoc", photoCount: 0, region: "bordeaux" },
+  { titleFr: "Bouvet-Jabloir", titleEn: "Bouvet-Jabloir", descFr: "La haute couture du vignoble neuchâtelois et ses grands Pinots Noirs", descEn: "The haute couture of Neuchâtel vineyards and its great Pinot Noirs", photoCount: 0, region: "suisse" },
+  { titleFr: "Bouchard Père & Fils", titleEn: "Bouchard Père & Fils", descFr: "Un voyage historique à travers les plus prestigieux climats de Bourgogne", descEn: "A historical journey through the most prestigious climates of Burgundy", photoCount: 0, region: "bourgogne" },
+  { titleFr: "Château Pichon Baron", titleEn: "Château Pichon Baron", descFr: "Immersion dans l'excellence des Grands Crus Classés de Pauillac", descEn: "Immersion into the excellence of Pauillac's Grand Crus Classés", photoCount: 0, region: "bordeaux" },
+  { titleFr: "Louis Latour", titleEn: "Louis Latour", descFr: "Deux siècles de tradition et de grands vins blancs et rouges de Bourgogne", descEn: "Two centuries of tradition and great Burgundy white and red wines", photoCount: 0, region: "bourgogne" },
+  { titleFr: "Sélection Terroir & Charcuterie", titleEn: "Local Terroir & Pairings", descFr: "Sélection de produits artisanaux pour accompagner nos plus belles cuvées", descEn: "Selection of local artisanal products to complement our finest cuvées", photoCount: 0, region: "autre" },
+  { titleFr: "Champagne Gosset", titleEn: "Champagne Gosset", descFr: "Dégustation historique de la plus ancienne Maison de Vins de la Champagne", descEn: "Historical tasting session with the oldest Wine House in Champagne", photoCount: 0, region: "champagne" },
+  { titleFr: "Marie-Thérèse Chappaz", titleEn: "Marie-Thérèse Chappaz", descFr: "Les icônes biodynamiques du Valais par une vigneronne d'exception", descEn: "The iconic biodynamic wines of Valais by an exceptional winemaker", photoCount: 0, region: "suisse" },
+  { titleFr: "Château Lagrange", titleEn: "Château Lagrange", descFr: "Splendeur, rigueur et précision d'un Grand Cru Classé de Saint-Julien", descEn: "Splendor, rigor and precision of a Saint-Julien Grand Cru Classé", photoCount: 0, region: "bordeaux" },
+  { titleFr: "Moët & Chandon", titleEn: "Moët & Chandon", descFr: "L'éclat et le savoir-faire de l'une des plus célèbres Maisons de Champagne", descEn: "The brilliance and expertise of one of the world's most famous Champagne Houses", photoCount: 0, region: "champagne" },
+  { titleFr: "M. Chapoutier", titleEn: "M. Chapoutier", descFr: "Une immersion audacieuse au cœur des plus grands terroirs de la Vallée du Rhône", descEn: "A bold journey into the finest terroirs of the Rhône Valley", photoCount: 0, region: "rhone" },
+  { titleFr: "Château du Crest", titleEn: "Château du Crest", descFr: "L'excellence helvétique et la tradition viticole genevoise", descEn: "Swiss excellence and the rich winemaking tradition of Geneva", photoCount: 0, region: "suisse" },
+  { titleFr: "Maison Gilliard", titleEn: "Maison Gilliard", descFr: "Les trésors du Valais et l'iconique Dôle des Noirs à l'honneur", descEn: "Valais treasures and the iconic Dôle des Noirs highlighted", photoCount: 0, region: "suisse" },
+  { titleFr: "Cave La Madeleine", titleEn: "Cave La Madeleine", descFr: "Les grands crus d'André Fontannaz, reflets purs du terroir valaisan", descEn: "André Fontannaz's grand crus, a pure reflection of the Valais terroir", photoCount: 0, region: "suisse" },
+  { titleFr: "Veuve Clicquot", titleEn: "Veuve Clicquot", descFr: "Une dégustation audacieuse sous le signe de l'excellence et de la culture Vintage", descEn: "A bold tasting experience driven by excellence and Vintage culture", photoCount: 0, region: "champagne" },
+  { titleFr: "Jean-René Germanier", titleEn: "Jean-René Germanier", descFr: "L'art des grands vins du Valais et la quintessence de la Syrah helvétique", descEn: "The art of fine Valais wines and the ultimate expression of Swiss Syrah", photoCount: 0, region: "suisse" },
+  { titleFr: "EuroVins", titleEn: "EuroVins", descFr: "Une sélection rigoureuse de pépites viticoles et de terroirs européens exclusifs", descEn: "A curated selection of hidden gems and exclusive European terroirs", photoCount: 0, region: "autre" },
+  { titleFr: "Champagne Bollinger", titleEn: "Champagne Bollinger", descFr: "Le caractère affirmé et l'élégance intemporelle des grands vins de Champagne", descEn: "The distinctive character and timeless elegance of great Champagne wines", photoCount: 0, region: "champagne" },
+  { titleFr: "Champagne Drappier", titleEn: "Champagne Drappier", descFr: "L'expression naturelle du Pinot Noir et le fleuron des cuvées de l'Aube", descEn: "The natural expression of Pinot Noir and the flagship cuvées of the Aube region", photoCount: 0, region: "champagne" },
+  { titleFr: "Schenk", titleEn: "Schenk", descFr: "Un voyage multisensoriel à travers les grands vignobles d'Europe", descEn: "A multi-sensory journey through Europe's finest vineyards", photoCount: 0, region: "autre" },
 ];
 
 export default function EventsPage() {
   const { t, locale } = useLang();
   const [selectedPast, setSelectedPast] = useState<number | null>(null);
+  const [filter, setFilter] = useState("all");
+
+  const filteredEvents = pastHighlights.filter((e) => filter === "all" || e.region === filter);
 
   return (
     <>
@@ -133,52 +138,114 @@ export default function EventsPage() {
       <section className="section-padding bg-bg">
         <div className="max-w-5xl mx-auto">
           <FadeUp>
-            <h3 className="font-headline text-3xl text-wine-900 mb-12">{t.events.past}</h3>
+            <h3 className="font-headline text-3xl text-wine-900 mb-8">{t.events.past}</h3>
           </FadeUp>
+
+          {/* Filtres */}
+          <div className="flex flex-wrap gap-2 mb-10">
+            {[
+              { key: "all", fr: "Tous", en: "All" },
+              { key: "bordeaux", fr: "Bordeaux", en: "Bordeaux" },
+              { key: "bourgogne", fr: "Bourgogne", en: "Burgundy" },
+              { key: "rhone", fr: "Rhône", en: "Rhône" },
+              { key: "champagne", fr: "Champagne", en: "Champagne" },
+              { key: "provence", fr: "Provence", en: "Provence" },
+              { key: "alsace", fr: "Alsace",  en: "Alsace"},
+              { key: "suisse", fr: "Suisse", en: "Switzerland" },
+              { key: "autre", fr: "Autre", en: "Other"}
+            ].map((f) => (
+              <button
+                key={f.key}
+                onClick={() => { setFilter(f.key); setSelectedPast(null); }}
+                className={`font-body text-[11px] uppercase tracking-[0.15em] px-5 py-2.5 transition-all duration-300 ${
+                  filter === f.key
+                    ? "bg-wine-800 text-cream-100"
+                    : "border border-wine-800/15 text-wine-800/50 hover:border-wine-800/30 hover:text-wine-800"
+                }`}
+              >
+                {locale === "fr" ? f.fr : f.en}
+              </button>
+            ))}
+          </div>
+
+          {/* Liste filtrée */}
           <div className="space-y-3">
-            {pastHighlights.map((event, i) => {
-              const isOpen = selectedPast === i;
-              return (
-                <div key={i} className="bg-white border border-wine-800/10 hover:border-wine-800/25 transition-colors duration-300">
-                  <button
-                    onClick={() => setSelectedPast(isOpen ? null : i)}
-                    className="w-full text-left group"
-                  >
-                    <div className="p-6 md:p-8 flex items-center justify-between gap-6">
-                      <div className="flex-1">
-                        <h4 className="font-display text-lg md:text-xl text-wine-800 group-hover:text-wine-600 transition-colors duration-500">
-                          {locale === "fr" ? event.titleFr : event.titleEn}
-                        </h4>
-                        <p className="font-body text-sm text-dark-500 mt-1">
-                          {locale === "fr" ? event.descFr : event.descEn}
-                        </p>
-                      </div>
-                      <ChevronRight
-                        className={`w-4 h-4 text-wine-800/30 flex-shrink-0 transition-transform duration-500 ${isOpen ? "rotate-90" : ""}`}
-                      />
-                    </div>
-                  </button>
+            {filteredEvents.length > 0 ? (
+              filteredEvents.map((event, i) => {
+                const hasPhotos = event.photoCount > 0;
+                const isOpen = selectedPast === i && hasPhotos;
                 
-                  <div
-                    className="grid transition-[grid-template-rows] duration-500 ease-in-out"
-                    style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
-                  >
-                    <div className="overflow-hidden">
-                      <div className="px-6 md:px-8 pb-8 pt-4 border-t border-wine-800/10">
-                        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                          {Array.from({ length: event.photoCount }).map((_, j) => (
-                            <div key={j} className="aspect-[4/3] bg-bg-alt border border-wine-800/10 flex flex-col items-center justify-center gap-2 hover:border-wine-800/20 transition-colors duration-300">
-                              <ImageIcon className="w-5 h-5 text-dark-300" />
-                              <span className="font-body text-[10px] text-dark-400 uppercase tracking-wider">Photo {j + 1}</span>
+                return (
+                  <div key={`${filter}-${i}`} className="bg-white border border-wine-800/10 hover:border-wine-800/25 transition-colors duration-300">
+                    <button
+                      onClick={() => hasPhotos && setSelectedPast(isOpen ? null : i)}
+                      disabled={!hasPhotos}
+                      className={`w-full text-left group ${hasPhotos ? "cursor-pointer" : "cursor-default"}`}
+                    >
+                      <div className="p-6 md:p-8 flex items-center justify-between gap-6">
+                        <div className="flex-1">
+                          <h4 className={`font-display text-lg md:text-xl text-wine-800 ${hasPhotos ? "group-hover:text-wine-600" : ""} transition-colors duration-500`}>
+                            {locale === "fr" ? event.titleFr : event.titleEn}
+                          </h4>
+                          <p className="font-body text-sm text-dark-500 mt-1">
+                            {locale === "fr" ? event.descFr : event.descEn}
+                          </p>
+                        </div>
+                        {hasPhotos && (
+                          <ChevronRight
+                            className={`w-4 h-4 text-wine-800/30 flex-shrink-0 transition-transform duration-500 ${isOpen ? "rotate-90" : ""}`}
+                          />
+                        )}
+                      </div>
+                    </button>
+
+                    {hasPhotos && (
+                      <div
+                        className="grid transition-[grid-template-rows] duration-500 ease-in-out"
+                        style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
+                      >
+                        <div className="overflow-hidden">
+                          <div className="px-6 md:px-8 pb-8 pt-4 border-t border-wine-800/10">
+                            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                              {Array.from({ length: event.photoCount }).map((_, j) => (
+                                <div key={j} className="aspect-[4/3] bg-bg-alt border border-wine-800/10 flex flex-col items-center justify-center gap-2 hover:border-wine-800/20 transition-colors duration-300">
+                                  <ImageIcon className="w-5 h-5 text-dark-300" />
+                                  <span className="font-body text-[10px] text-dark-400 uppercase tracking-wider">Photo {j + 1}</span>
+                                </div>
+                              ))}
                             </div>
-                          ))}
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    )}
                   </div>
+                );
+              })
+            ) : (
+              /* Message d'appel à l'action si aucun domaine n'est encore enregistré pour le filtre */
+              <FadeUp>
+                <div className="bg-white border border-dashed border-wine-800/20 p-12 text-center max-w-xl mx-auto my-4">
+                  <Wine className="w-8 h-8 text-wine-800/30 mx-auto mb-4" />
+                  <h4 className="font-display text-xl text-wine-900 mb-2">
+                    {locale === "fr" 
+                      ? "Soyez le premier domaine à faire découvrir cette région !" 
+                      : "Be the first estate to showcase this region!"}
+                  </h4>
+                  <p className="font-body text-sm text-dark-500 max-w-sm mx-auto mb-6">
+                    {locale === "fr"
+                      ? "Vous êtes un domaine ou un vigneron de cette magnifique région ? Contactez-nous pour organiser une dégustation à Lausanne."
+                      : "Are you an estate or a winemaker from this beautiful region? Contact us to organize an exclusive tasting in Lausanne."}
+                  </p>
+                  <Link 
+                    href="/contact" 
+                    className="inline-flex items-center gap-2 font-body text-xs uppercase tracking-wider bg-wine-800 text-cream-100 px-6 py-3 hover:bg-wine-700 transition-colors"
+                  >
+                    {locale === "fr" ? "Nous contacter" : "Contact us"}
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
                 </div>
-              );
-            })}
+              </FadeUp>
+            )}
           </div>
         </div>
       </section>

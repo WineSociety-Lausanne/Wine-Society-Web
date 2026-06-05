@@ -4,7 +4,7 @@ import { useLang } from "@/lib/lang-context";
 import { FadeUp, SlideIn, StaggerContainer, StaggerItem } from "@/components/AnimatedText";
 import SectionHeader from "@/components/SectionHeader";
 import Link from "next/link";
-import { Check, ExternalLink } from "lucide-react";
+import { Check, ExternalLink, Minus } from "lucide-react";
 
 const currentPartners: {
   name: string;
@@ -13,7 +13,6 @@ const currentPartners: {
   url: string;
   category:{ fr: string; en: string };
 }[] = [
-  
   {
     name: "Grassl Glass",
     descFr: "Verres de dégustation haut de gamme, conçus pour révéler chaque nuance aromatique. Grassl accompagne nos dégustations avec leur verrerie d'exception.",
@@ -21,21 +20,43 @@ const currentPartners: {
     url: "https://grasslglass.com",
     category: { fr: "Verrerie", en: "Glassware" },
   },
-  /*{
-    name: "Daniel Gazzar Vins",
-    descFr: "Maison de vins basée à Pully, sélection pointue de domaines français et suisses. Partenaire clé pour nos bouteilles d'entraînement aux concours.",
-    descEn: "Wine house based in Pully, with a refined selection of French and Swiss estates. Key partner for our competition training samples.",
-    url: "https://daniel-vins.ch",
-    category: { fr: "Vins", en: "Wines" },
-  },*/
 ];
 
 export default function PartenairesPage() {
   const { t, locale } = useLang();
-  const tiers = [
-    { ...t.partners.tiers.bronze, accent: "border-amber-700/30 hover:border-amber-700/50", badge: "bg-amber-800/10 text-amber-800", header: "bg-gradient-to-br from-amber-700 to-amber-800" },
-    { ...t.partners.tiers.silver, accent: "border-dark-400/30 hover:border-dark-400/50", badge: "bg-dark-400/10 text-dark-600", header: "bg-gradient-to-br from-dark-400 to-dark-500" },
-    { ...t.partners.tiers.gold, accent: "border-gold-500/30 hover:border-gold-500/50", badge: "bg-gold-500/10 text-gold-600", header: "bg-gradient-to-br from-gold-400 to-gold-500" },
+  
+  const features = [
+    "Logos sur flyers et posts récapitulatifs",
+    "Emplacement partenaire sur notre site",
+    "Flyers sur notre buffet d'apéritif",
+    "Newsletter",
+    "Interview / Portrait croisé exclusif",
+    "Logo (Cartes de visite, PPT, Affiches)",
+    "Roll-up permanent",
+    "Logo sur pulls comité",
+    "Invitations VIP aux dégustations"
+  ];
+
+  // Remplacement des bleus par un dégradé bordeaux / vin
+  const tiersMatrix = [
+    { 
+      name: "Bronze", 
+      price: "Prix sur demande", 
+      bg: "bg-[#8c2a3e]", // Rubis / Grenat clair
+      checks: [true, true, true, true, false, false, false, false, false] 
+    },
+    { 
+      name: "Silver", 
+      price: "Prix sur demande", 
+      bg: "bg-[#6b1e2e]", // Bordeaux classique
+      checks: [true, true, true, true, true, false, false, false, false] 
+    },
+    { 
+      name: "Gold", 
+      price: "Prix sur demande", 
+      bg: "bg-[#4a121e]", // Rouge vin très sombre / Premium
+      checks: [true, true, true, true, true, true, true, true, true] 
+    },
   ];
 
   return (
@@ -95,38 +116,64 @@ export default function PartenairesPage() {
         </div>
       </section>
 
-      {/* Tiers */}
+      {/* Tiers - Structure Verticale & Couleurs Bordeaux */}
       <section className="section-padding bg-bg">
-        <div className="max-w-6xl mx-auto">
-          <SectionHeader title={t.partners.tiers.title} />
-          <StaggerContainer className="grid md:grid-cols-3 gap-8">
-            {tiers.map((tier, i) => (
-              <StaggerItem key={i}>
-                <div className={`border ${tier.accent} bg-white transition-all duration-500 h-full flex flex-col`}>
-                  <div className={`${tier.header} p-10 pb-8 text-center`}>
-                    <p className="font-body text-cream-100/70 text-xs uppercase tracking-[0.2em]">Sponsor</p>
-                    <p className="font-headline text-4xl text-cream-100 mt-2">{tier.name}</p>
-                    <p className="font-display text-cream-100/60 text-sm mt-2 italic">
-                      {locale === "fr" ? "Sur demande" : "On request"}
-                    </p>
-                  </div>
-                  <div className="p-10 flex-1 flex flex-col">
-                    <ul className="space-y-4 flex-1">
-                      {tier.features.map((feature, j) => (
-                        <li key={j} className="flex items-start gap-3 font-body text-sm text-dark-500">
-                          <Check className="w-3.5 h-3.5 text-wine-700/50 mt-0.5 flex-shrink-0" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                    <a href="/WineSociety_Sponsoring_2026-2027.pdf" download className="btn-primary w-full mt-8 text-center">
-                      {locale === "fr" ? "Télécharger le dossier" : "Download brochure"}
-                    </a>
-                  </div>
+        <div className="max-w-6xl mx-auto overflow-x-auto pb-4">
+          <div className="mb-12">
+            <h2 className="font-headline text-4xl text-wine-900 mb-4">
+              Devenez Partenaire Officiel
+            </h2>
+            <p className="font-body text-dark-500 text-lg">
+              Comparez nos offres et choisissez le niveau de visibilité adapté à vos objectifs.
+            </p>
+          </div>
+
+          <div className="min-w-[900px]">
+            <div className="grid grid-cols-[minmax(300px,1fr)_repeat(3,1fr)] gap-4">
+              
+              {/* Colonne 1 : Textes descriptifs à gauche */}
+              <div className="flex flex-col">
+                {/* En-tête invisible pour s'aligner avec les blocs couleurs */}
+                <div className="h-28 flex flex-col justify-end pb-6">
+                  <div className="font-bold text-wine-900 text-lg">Avantages et Visibilité</div>
                 </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
+                {/* Lignes de texte */}
+                {features.map((feature, i) => (
+                  <div key={i} className="h-14 flex items-center border-b border-gray-100 font-body text-sm text-dark-600 pr-4">
+                    {feature}
+                  </div>
+                ))}
+              </div>
+
+              {/* Colonnes 2, 3, 4 : Packs Bronze, Silver, Gold */}
+              {tiersMatrix.map((tier, i) => (
+                <div key={i} className={`${tier.bg} rounded-2xl flex flex-col overflow-hidden shadow-sm`}>
+                  {/* En-tête du pack */}
+                  <div className="h-28 flex flex-col justify-center items-center text-center p-4">
+                    <h3 className="text-3xl font-bold text-white mb-1">{tier.name}</h3>
+                    <p className="text-sm text-white/90">{tier.price}</p>
+                  </div>
+                  {/* Cases à cocher ou tirets */}
+                  {tier.checks.map((hasFeature, j) => (
+                    <div key={j} className="h-14 flex items-center justify-center border-t border-white/20">
+                      {hasFeature ? (
+                        <Check className="w-5 h-5 text-white stroke-[3]" />
+                      ) : (
+                        <Minus className="w-5 h-5 text-white/40" />
+                      )}
+                    </div>
+                  ))}
+                </div>
+              ))}
+              
+            </div>
+          </div>
+          
+          <div className="mt-12 text-center">
+             <a href="/WineSociety_Sponsoring_2026-2027.pdf" download className="btn-primary inline-block">
+               {locale === "fr" ? "Télécharger le dossier complet" : "Download full brochure"}
+             </a>
+          </div>
         </div>
       </section>
 
