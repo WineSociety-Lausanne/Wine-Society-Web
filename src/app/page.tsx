@@ -212,7 +212,7 @@ function About() {
 
         <div className="grid grid-cols-2 lg:grid-cols-4">
           {[
-            { target: 35000, suffix: "+", label: t.about.stats.studentsLabel },
+            { target: 30000, suffix: "+", label: t.about.stats.studentsLabel },
             { target: 2014, suffix: "", label: t.about.stats.sinceLabel },
             { target: 50, suffix: "", label: t.about.stats.perEventLabel },
             { target: 12, suffix: "", label: t.about.stats.frequencyLabel + " /an" },

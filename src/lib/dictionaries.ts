@@ -22,7 +22,7 @@ export const dictionaries = {
       mission:
         "Notre but est d'initier les étudiants à l'œnologie. Par des dégustations, des découvertes de domaines, des concours et des échanges avec des professionnels, nous créons des moments de rencontre et de partage uniques autour de cette passion commune.",  
         stats: {
-        students: "35'000+",
+        students: "30'000+",
         studentsLabel: "étudiants sur le campus",
         since: "Depuis 2014",
         sinceLabel: "Association active",
@@ -70,7 +70,7 @@ export const dictionaries = {
       reasons: [
         {
           title: "Visibilité ciblée",
-          desc: "Accès direct à 35'000 étudiants de l'UNIL et de l'EPFL, futurs professionnels.",
+          desc: "Accès direct à 30'000 étudiants de l'UNIL et de l'EPFL, futurs professionnels.",
         },
         {
           title: "Image premium",
@@ -233,7 +233,7 @@ export const dictionaries = {
       mission:
         "We aim to introduce students to oenology. Through tastings, vineyard tours, contests and expert talks, we create unique opportunities for encounters and sharing around this beautiful common passion.",
       stats: {
-        students: "35,000+",
+        students: "0,000+",
         studentsLabel: "students on campus",
         since: "Since 2014",
         sinceLabel: "Active association",
@@ -281,7 +281,7 @@ export const dictionaries = {
       reasons: [
         {
           title: "Targeted visibility",
-          desc: "Direct access to 35,000 UNIL & EPFL students, future professionals.",
+          desc: "Direct access to 30,000 UNIL & EPFL students, future professionals.",
         },
         {
           title: "Premium image",

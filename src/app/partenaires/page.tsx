@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import { useLang } from "@/lib/lang-context";
 import { FadeUp, SlideIn, StaggerContainer, StaggerItem } from "@/components/AnimatedText";
 import SectionHeader from "@/components/SectionHeader";
@@ -11,14 +11,16 @@ const currentPartners: {
   descFr: string;
   descEn: string;
   url: string;
-  category:{ fr: string; en: string };
+  category: { fr: string; en: string };
+  logo?: string;
 }[] = [
   {
     name: "Grassl Glass",
     descFr: "Verres de dégustation haut de gamme, conçus pour révéler chaque nuance aromatique. Grassl accompagne nos dégustations avec leur verrerie d'exception.",
     descEn: "Premium tasting glasses designed to reveal every aromatic nuance. Grassl supports our tastings with their exceptional glassware.",
-    url: "https://grasslglass.com",
+    url: "https://glasslglass.com",
     category: { fr: "Verrerie", en: "Glassware" },
+    logo: "/partenaires/grassl.png",
   },
 ];
 
@@ -37,7 +39,6 @@ export default function PartenairesPage() {
     "Invitations VIP aux dégustations"
   ];
 
-  // Remplacement des bleus par un dégradé bordeaux / vin
   const tiersMatrix = [
     { 
       name: "Bronze", 

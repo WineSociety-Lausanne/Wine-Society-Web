@@ -47,6 +47,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Footer />
           <CookieBanner />
         </LangProvider>
+          <script async src="//www.instagram.com/embed.js" />
       </body>
     </html>
   );
