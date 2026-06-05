@@ -70,7 +70,7 @@ function InstagramEmbed({ url }: { url: string }) {
       <iframe
         src={`https://www.instagram.com/p/${postId}/embed`}
         className="w-full border-0 rounded"
-        style={{ minHeight: "750px" }}
+        style={{ minHeight: "700px" }}
         scrolling="no"
         title="Instagram"
       />
