@@ -89,7 +89,7 @@ export const dictionaries = {
         title: "Nos offres de sponsoring",
         bronze: {
           name: "Bronze",
-          price: "CHF 800 HT",
+          price: "Prix sur demande",
           features: [
             "Logo sur nos affiches et flyers",
             "Logo sur la page Sponsors du site web",
@@ -101,7 +101,7 @@ export const dictionaries = {
         },
         silver: {
           name: "Silver",
-          price: "CHF 1'500 HT",
+          price: "Prix sur demande",
           features: [
             "Tout le package Bronze",
             "Logo sur nos cartes de visite",
@@ -113,7 +113,7 @@ export const dictionaries = {
         },
         gold: {
           name: "Gold",
-          price: "CHF 3'000 HT",
+          price: "Prix sur demande",
           features: [
             "Tout le package Silver",
             "Logo sur nos pulls/t-shirts",
@@ -149,19 +149,17 @@ export const dictionaries = {
           location: "Bordeaux, France",
           description:
             "Prestigieux concours international de dégustation à l'aveugle réunissant les meilleures universités du monde autour des grands crus bordelais.",
-        },/*
-        {
-          name: "L'Étiquette",
-          organizer: "Kedge Business School",
-          location: "Bordeaux, France",
-          description:
-            "Compétition œnologique organisée par Kedge au cœur du vignoble bordelais.",
-        },*/
+        },
       ],
     },
     team: {
       title: "Notre équipe",
       subtitle: "Une équipe passionnée au service de l'œnologie",
+      sections: {
+        committee: "Comité",
+        heads: "Responsables",
+        members: "Membres",
+      },
       roles: {
         president: "Président",
         vicePresident: "Vice-président",
@@ -169,6 +167,10 @@ export const dictionaries = {
         events: "Responsable Événements",
         communication: "Responsable Communication",
         treasurer: "Trésorier",
+        memberEvent: "Pôle Événements",
+        memberComm: "Pôle Communication",
+        memberSponso: "Pôle Sponsoring",
+        memberLogistique: "Pôle Logistique",
       },
     },
     events: {
@@ -298,7 +300,7 @@ export const dictionaries = {
         title: "Our sponsoring packages",
         bronze: {
           name: "Bronze",
-          price: "CHF 800",
+          price: "On request",
           features: [
             "Logo on our posters and flyers",
             "Logo on the Sponsors page of our website",
@@ -310,7 +312,7 @@ export const dictionaries = {
         },
         silver: {
           name: "Silver",
-          price: "CHF 1,500",
+          price: "On request",
           features: [
             "Entire Bronze package",
             "Logo on our business cards",
@@ -322,7 +324,7 @@ export const dictionaries = {
         },
         gold: {
           name: "Gold",
-          price: "CHF 3,000",
+          price: "On request",
           features: [
             "Entire Silver package",
             "Logo on our hoodies/t-shirts",
@@ -358,19 +360,17 @@ export const dictionaries = {
           location: "Bordeaux, France",
           description:
             "Prestigious international blind tasting competition bringing together the world's top universities around Bordeaux grand crus.",
-        },/*
-        {
-          name: "L'Étiquette",
-          organizer: "Kedge Business School",
-          location: "Bordeaux, France",
-          description:
-            "Oenology competition organised by Kedge in the heart of the Bordeaux vineyard.",
-        },*/
+        },
       ],
     },
     team: {
       title: "Our team",
       subtitle: "A passionate team dedicated to oenology",
+      sections: {
+        committee: "Committee",
+        heads: "Heads of Departments",
+        members: "Members",
+      },
       roles: {
         president: "President",
         vicePresident: "Vice-President",
@@ -378,6 +378,10 @@ export const dictionaries = {
         events: "Head of Events",
         communication: "Head of Communication",
         treasurer: "Treasurer",
+        memberEvent: "Events Team",
+        memberComm: "Communication Team",
+        memberSponso: "Sponsorship Team",
+        memberLogistique: "Logistics Team",
       },
     },
     events: {
