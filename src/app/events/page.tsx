@@ -9,12 +9,12 @@ import { Calendar, Clock, MapPin, Wine, ChevronRight, ImageIcon, ArrowRight } fr
 
 const upcomingEvents = [
   {
-    slug: "Blanchard",
-    date: "2025-11-11",
-    titleFr: "A venir",
-    titleEn: "Coming Soon",
-    descFr: "Dégustation",
-    descEn: "Tasting",
+    slug: "mouex",
+    date: "2025-11-12",
+    titleFr: "Jean-Pierre Moueix",
+    titleEn: "Jean-Pierre Moueix",
+    descFr: "Les seigneurs de la Rive Droite, maîtres absolus du classicisme et de l'élégance intemporelle de Pomerol. ",
+    descEn: "The rulers of the Right Bank, absolute masters of classicism and the timeless elegance of Pomerol.",
   },
 ];
 
@@ -30,9 +30,9 @@ type PastEvent = {
 };
 
 const pastHighlights: PastEvent[] = [
-  { titleFr: "Branaire-Ducru — Saint-Julien", titleEn: "Branaire-Ducru — Saint-Julien", descFr: "4ème Grand Cru Classé présenté par le domaine", descEn: "4th Grand Cru Classé presented by the estate", photoCount: 0, region: "bordeaux", instagram: "https://www.instagram.com/p/DY2Ripslu1E/" },
+  { titleFr: "Château Branaire-Ducru", titleEn: "Château Branaire-Ducru", descFr: "4ème Grand Cru Classé présenté par le domaine", descEn: "4th Grand Cru Classé presented by the estate", photoCount: 0, region: "bordeaux", instagram: "https://www.instagram.com/p/DY2Ripslu1E/" },
   { titleFr: "Cave de la Côte", titleEn: "Cave de la Côte", descFr: "À la découverte des pépites et cépages emblématiques du vignoble vaudois", descEn: "Discovering the hidden gems and iconic grape varieties of the Vaud region", photoCount: 0, region: "suisse", instagram: "https://www.instagram.com/p/DYpcrgMkVLm/" },
-  { titleFr: "Château Minuty — Côtes de Provence", titleEn: "Château Minuty — Côtes de Provence", descFr: "L'excellence des grands rosés de Provence et de la French Riviera", descEn: "The excellence of great Provence rosés and the French Riviera", photoCount: 0, region: "provence", instagram: "https://www.instagram.com/p/DYXYn1ElETW/" },
+  { titleFr: "Château Minuty", titleEn: "Château Minuty", descFr: "L'excellence des grands rosés de Provence et de la French Riviera", descEn: "The excellence of great Provence rosés and the French Riviera", photoCount: 0, region: "provence", instagram: "https://www.instagram.com/p/DYXYn1ElETW/" },
   { titleFr: "Champagne Lanson", titleEn: "Champagne Lanson", descFr: "Découverte de la gamme Lanson, du Brut au Rosé", descEn: "Discovering the Lanson range, from Brut to Rosé", photoCount: 0, region: "champagne", instagram: "https://www.instagram.com/p/DXmaeWmlle4/" },
   { titleFr: "Mauler", titleEn: "Mauler", descFr: "Tradition et excellence des grands vins mousseux suisses depuis 1829", descEn: "Tradition and excellence of great Swiss sparkling wines since 1829", photoCount: 0, region: "suisse", instagram: "https://www.instagram.com/p/DW3jAxGCEUg/" },
   { titleFr: "Les Frères Dutruy", titleEn: "Les Frères Dutruy", descFr: "Des vins de terroir d'exception récompensés au cœur de La Côte", descEn: "Exceptional award-winning terroir wines from the heart of La Côte", photoCount: 0, region: "suisse", instagram: "https://www.instagram.com/p/DWRlk8XlOqI/" },

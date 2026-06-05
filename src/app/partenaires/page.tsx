@@ -18,7 +18,7 @@ const currentPartners: {
     name: "Grassl Glass",
     descFr: "Verres de dégustation haut de gamme, conçus pour révéler chaque nuance aromatique. Grassl accompagne nos dégustations avec leur verrerie d'exception.",
     descEn: "Premium tasting glasses designed to reveal every aromatic nuance. Grassl supports our tastings with their exceptional glassware.",
-    url: "https://glasslglass.com",
+    url: "https://grasslglass.com",
     category: { fr: "Verrerie", en: "Glassware" },
     logo: "/partenaires/grassl.png",
   },

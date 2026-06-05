@@ -17,14 +17,14 @@ const events: Record<string, {
   spots: number;
   formUrl: string | null;
 }> = {
-  "Blanchard": {
-    titleFr: "Première Dégustation",
-    titleEn: "First Tasting",
-    date: "2025-11-11",
-    time: "19:300",
-    location: "Salle à confirmer, Campus UNIL-EPFL",
-    descFr: "Rejoignez-nous pour la première dégustation de la saison 2025-2026 ! Une soirée de bienvenue ouverte à tous les étudiants, avec une sélection de vins pour bien commencer l'année. 4 à 6 cuvées dégustées, suivies d'un apéritif convivial.",
-    descEn: "Join us for the first tasting of the 2025-2026 season! A welcome evening open to all students, featuring a selection of wines to kick off the year. 4 to 6 wines tasted, followed by a convivial aperitif.",
+  "mouex": {
+    titleFr: "Jean-Pierre Moueix",
+    titleEn: "Jean-Pierre Moueix",
+    date: "2026-11-12",
+    time: "19:00",
+    location: "Vortex, Campus UNIL-EPFL",
+    descFr: "Rejoignez-nous pour la première dégustation de la saison 2026-2027 ! Une soirée de bienvenue ouverte à tous les étudiants, avec une sélection de vins pour bien commencer l'année. 4 à 6 cuvées dégustées, suivies d'un apéritif convivial.",
+    descEn: "Join us for the first tasting of the 2026-2026 season! A welcome evening open to all students, featuring a selection of wines to kick off the year. 4 to 6 wines tasted, followed by a convivial aperitif.",
     spots: 40,
     formUrl: null, // Remplacer par l'URL de ton Google Form
   },/*
@@ -76,7 +76,7 @@ export default function EventPage() {
     <>
       {/* Header */}
       <section className="relative section-padding pt-32 pb-16">
-        <div className="absolute inset-0 bg-gradient-to-b from-wine-900/40 via-dark-950 to-dark-950" />
+        <div className="absolute inset-0 bg-gradient-to-b from-wine-900/40 via-wine-950 to-wine-950" />
         <div className="relative z-10 max-w-4xl mx-auto">
           <Link
             href="/events"
@@ -128,14 +128,14 @@ export default function EventPage() {
                   {locale === "fr" ? event.descFr : event.descEn}
                 </p>
 
-                <div className="mt-10 p-6 bg-dark-900 border border-white/5">
+                <div className="mt-10 p-6 bg-dark-900 border border-white/5 rounded-xl">
                   <h4 className="font-display text-lg text-cream-100 mb-3">
                     {locale === "fr" ? "Infos pratiques" : "Practical info"}
                   </h4>
                   <ul className="space-y-3 font-body text-sm text-dark-400">
                     <li className="flex items-start gap-3">
                       <span className="w-1 h-1 rounded-full bg-gold-500/40 mt-2 flex-shrink-0" />
-                      {locale === "fr" ? "Ouvert à tous les étudiants UNIL & EPFL" : "Open to all UNIL & EPFL students"}
+                      {locale === "fr" ? "Ouvert à tous les étudiants EPFL, UNIL & EHL" : "Open to all EPFL, UNIL & EHL students"}
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="w-1 h-1 rounded-full bg-gold-500/40 mt-2 flex-shrink-0" />
@@ -160,19 +160,19 @@ export default function EventPage() {
                 </h3>
 
                 {event.formUrl ? (
-                  <div className="bg-dark-900 border border-white/5 overflow-hidden">
+                  <div className="bg-dark-900 border border-white/5 overflow-hidden rounded-xl">
                     <iframe
                       src={event.formUrl}
                       width="100%"
                       height="800"
-                      className="border-0"
+                      className="border-0 rounded-xl"
                       title={locale === "fr" ? "Formulaire d'inscription" : "Registration form"}
                     >
                       {locale === "fr" ? "Chargement du formulaire..." : "Loading form..."}
                     </iframe>
                   </div>
                 ) : (
-                  <div className="bg-dark-900 border border-white/5 p-12 text-center min-h-[400px] flex flex-col items-center justify-center">
+                  <div className="bg-dark-900 border border-white/5 p-12 text-center min-h-[400px] flex flex-col items-center justify-center rounded-xl">
                     <div className="w-16 h-16 border border-gold-500/20 rounded-full flex items-center justify-center mb-6">
                       <Calendar className="w-7 h-7 text-gold-500/40" />
                     </div>
