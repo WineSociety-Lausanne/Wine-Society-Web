@@ -25,7 +25,7 @@ const membres = [
   { nameKey: "memberSponso", name: "Eva Krief", fallbackRole: "Pôle Sponsoring" },
   { nameKey: "memberLogistique", name: "Louis ..", fallbackRole: "Pôle Logistique" },
   { nameKey: "memberLogistique", name: "Jules Weill", fallbackRole: "Pôle Logistique" },
-  { nameKey: "memberEvent", name: "Stephanie Kutler", fallbackRole: "Pôle Événements" },
+  { nameKey: "memberEvent", name: "Stephanie Kuttler", fallbackRole: "Pôle Événements" },
   { nameKey: "memberEvent", name: "Elsa ..", fallbackRole: "Pôle Événements" },
   { nameKey: "memberEvent", name: "Youenn Boloré", fallbackRole: "Pôle Événements" },
   { nameKey: "memberEvent", name: "Hippolyte Richard", fallbackRole: "Pôle Événements" },
