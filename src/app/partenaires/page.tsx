@@ -50,7 +50,7 @@ export default function PartenairesPage() {
       name: "Silver", 
       price: "Prix sur demande", 
       bg: "bg-[#6b1e2e]", // Bordeaux classique
-      checks: [true, true, true, true, true, false, false, false, false] 
+      checks: [true, true, true, true, true, true, false, false, false] 
     },
     { 
       name: "Gold", 

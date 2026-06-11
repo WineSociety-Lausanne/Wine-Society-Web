@@ -181,7 +181,7 @@ export const dictionaries = {
       format: {
         title: "Format de nos soirées",
         description:
-          "Nos dégustations se tiennent le mercredi soir. Nous accueillons un domaine qui présente 4 à 6 cuvées, suivies d'un apéritif convivial. Parmi nos invités passés : Château Lafite Rothschild, Branaire-Ducru, Joseph Drouhin, Famille Perrin, Champagne Lanson...",
+          "Nos dégustations se tiennent le mercredi soir. Nous accueillons un domaine qui présente 4 à 6 cuvées, suivies d'un moment convivial atour d'une cuvée mise à l'honneur. Parmi nos invités passés : Château Lafite Rothschild,Château Branaire-Ducru, Joseph Drouhin, Famille Perrin, Champagne Lanson...",
       },
     },
     contact: {
@@ -392,7 +392,7 @@ export const dictionaries = {
       format: {
         title: "Our evening format",
         description:
-          "Our tastings are held on Wednesday evenings. We welcome an estate that presents 4 to 6 cuvées, followed by a convivial aperitif. Among our past guests: Château Lafite Rothschild, Branaire-Ducru, Joseph Drouhin, Famille Perrin, Champagne Lanson...",
+          "Our tastings are held on Wednesday evenings. We welcome an estate that presents 4 to 6 cuvées, followed by a convivial moment where a special cuvée takes center stage. Among our past guests: Château Lafite Rothschild, Château Branaire-Ducru, Joseph Drouhin, Famille Perrin, Champagne Lanson...",
       },
     },
     contact: {

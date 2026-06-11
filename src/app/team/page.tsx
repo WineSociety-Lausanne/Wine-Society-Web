@@ -21,15 +21,15 @@ const responsables = [
 
 // 3. Membres
 const membres = [
-  { nameKey: "memberSponso", name: "Colin ..", fallbackRole: "Pôle Sponsoring" },
+  { nameKey: "memberSponso", name: "Colin Leproux", fallbackRole: "Pôle Sponsoring" },
   { nameKey: "memberSponso", name: "Eva Krief", fallbackRole: "Pôle Sponsoring" },
-  { nameKey: "memberLogistique", name: "Louis ..", fallbackRole: "Pôle Logistique" },
+  { nameKey: "memberLogistique", name: "Louis Steinmetz", fallbackRole: "Pôle Logistique" },
   { nameKey: "memberLogistique", name: "Jules Weill", fallbackRole: "Pôle Logistique" },
   { nameKey: "memberEvent", name: "Stephanie Kuttler", fallbackRole: "Pôle Événements" },
-  { nameKey: "memberEvent", name: "Elsa ..", fallbackRole: "Pôle Événements" },
+  { nameKey: "memberEvent", name: "Elsa Martiolini", fallbackRole: "Pôle Événements" },
   { nameKey: "memberEvent", name: "Youenn Boloré", fallbackRole: "Pôle Événements" },
   { nameKey: "memberEvent", name: "Hippolyte Richard", fallbackRole: "Pôle Événements" },
-  { nameKey: "memberComm", name: "Eva B..", fallbackRole: "Pôle Communication" },
+  { nameKey: "memberComm", name: "Eva B.", fallbackRole: "Pôle Communication" },
 ];
 
 export default function TeamPage() {

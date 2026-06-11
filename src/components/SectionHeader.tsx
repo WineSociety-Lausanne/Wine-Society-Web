@@ -16,9 +16,8 @@ export default function SectionHeader({
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "100px" }}
-      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
       className={`mb-12 ${align === "center" ? "text-center" : "text-left"}`}
     >
       <h2 className={`font-headline text-4xl md:text-5xl lg:text-6xl tracking-tight ${light ? "text-cream-100" : "text-wine-900"}`}>

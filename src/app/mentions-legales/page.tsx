@@ -35,7 +35,7 @@ export default function MentionsLegalesPage() {
               <h3 className="font-display text-xl text-dark-800 mb-4">
                 {locale === "fr" ? "Hébergement" : "Hosting"}
               </h3>
-              <p>{locale === "fr" ? "Wix" : "Wix"}</p>
+              <p>{locale === "fr" ? "Vercel" : "Vercel"}</p>
             </div>
 
             <div>
