@@ -29,7 +29,7 @@ const membres = [
   { nameKey: "memberEvent", name: "Elsa Martiolini", fallbackRole: "Pôle Événements" },
   { nameKey: "memberEvent", name: "Youenn Boloré", fallbackRole: "Pôle Événements" },
   { nameKey: "memberEvent", name: "Hippolyte Richard", fallbackRole: "Pôle Événements" },
-  { nameKey: "memberComm", name: "Eva B.", fallbackRole: "Pôle Communication" },
+  { nameKey: "memberComm", name: "Eva Beyer", fallbackRole: "Pôle Communication" },
 ];
 
 export default function TeamPage() {

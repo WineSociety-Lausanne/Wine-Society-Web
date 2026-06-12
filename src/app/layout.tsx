@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   description: "Association d'œnologie de l'UNIL et de l'EPFL à Lausanne. Dégustations, concours internationaux et découverte du vin. Initier. Partager. Découvrir.",
   keywords: ["wine society", "oenologie", "UNIL", "EPFL", "Lausanne", "dégustation", "vin", "concours", "Left Bank Bordeaux Cup"],
   authors: [{ name: "Wine Society Lausanne" }],
+  verification: {
+    google: "ZsMjAUon5rOZlRz2c2SKdttOvUYSP8h7qDGGvTCNNw4",
+  },
   openGraph: {
     title: "Wine Society | UNIL · EPFL · Lausanne",
     description: "Association d'œnologie de l'UNIL et de l'EPFL. Dégustations bimensuelles, concours internationaux et visites de domaines.",
