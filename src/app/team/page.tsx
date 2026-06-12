@@ -16,7 +16,7 @@ const direction = [
 const responsables = [
   { nameKey: "events", name: "Orso Renucci", fallbackRole: "Responsable Événements" },
   { nameKey: "sponsorship", name: "Adonis Casteret", fallbackRole: "Responsable Sponsoring" },
-  { nameKey: "communication", name: "Mirko", fallbackRole: "Responsable Communication" },
+  { nameKey: "communication", name: "Mirko Von Kaenel", fallbackRole: "Responsable Communication" },
 ];
 
 // 3. Membres
