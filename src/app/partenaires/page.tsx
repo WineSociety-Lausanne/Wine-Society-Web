@@ -1,10 +1,11 @@
 "use client";
+import { useState } from "react";
 import Image from "next/image";
 import { useLang } from "@/lib/lang-context";
 import { FadeUp, SlideIn, StaggerContainer, StaggerItem } from "@/components/AnimatedText";
 import SectionHeader from "@/components/SectionHeader";
 import Link from "next/link";
-import { Check, ExternalLink, Minus } from "lucide-react";
+import { Check, ExternalLink, Minus, ChevronDown } from "lucide-react";
 
 const currentPartners: {
   name: string;
@@ -26,6 +27,7 @@ const currentPartners: {
 
 export default function PartenairesPage() {
   const { t, locale } = useLang();
+  const [openTier, setOpenTier] = useState<number | null>(null);
   
   const features = [
     "Logos sur flyers et posts récapitulatifs",
@@ -43,19 +45,19 @@ export default function PartenairesPage() {
     { 
       name: "Bronze", 
       price: "Prix sur demande", 
-      bg: "bg-[#8c2a3e]", // Rubis / Grenat clair
+      bg: "bg-[#8c2a3e]",
       checks: [true, true, true, true, false, false, false, false, false] 
     },
     { 
       name: "Silver", 
       price: "Prix sur demande", 
-      bg: "bg-[#6b1e2e]", // Bordeaux classique
+      bg: "bg-[#6b1e2e]",
       checks: [true, true, true, true, true, true, false, false, false] 
     },
     { 
       name: "Gold", 
       price: "Prix sur demande", 
-      bg: "bg-[#4a121e]", // Rouge vin très sombre / Premium
+      bg: "bg-[#4a121e]",
       checks: [true, true, true, true, true, true, true, true, true] 
     },
   ];
@@ -63,7 +65,7 @@ export default function PartenairesPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative px-6 md:px-12 lg:px-24 pt-40 pb-8 bg-wine-900">
+      <section className="relative px-6 md:px-12 lg:px-24 pt-40 pb-8 bg-wine-900 hero-pattern">
         <div className="relative z-10 max-w-5xl mx-auto">
           <SectionHeader title={t.partners.title} subtitle={t.partners.subtitle} light />
         </div>
@@ -117,63 +119,111 @@ export default function PartenairesPage() {
         </div>
       </section>
 
-      {/* Tiers - Structure Verticale & Couleurs Bordeaux */}
+      {/* Tiers */}
       <section className="section-padding bg-bg">
-        <div className="max-w-6xl mx-auto overflow-x-auto pb-4">
+        <div className="max-w-6xl mx-auto">
           <div className="mb-12">
             <h2 className="font-headline text-4xl text-wine-900 mb-4">
-              Devenez Partenaire Officiel
+              {locale === "fr" ? "Devenez Partenaire Officiel" : "Become an Official Partner"}
             </h2>
             <p className="font-body text-dark-500 text-lg">
-              Comparez nos offres et choisissez le niveau de visibilité adapté à vos objectifs.
+              {locale === "fr" ? "Comparez nos offres et choisissez le niveau de visibilité adapté à vos objectifs." : "Compare our offers and choose the visibility level that fits your goals."}
             </p>
           </div>
 
-          <div className="min-w-[900px]">
-            <div className="grid grid-cols-[minmax(300px,1fr)_repeat(3,1fr)] gap-4">
-              
-              {/* Colonne 1 : Textes descriptifs à gauche */}
-              <div className="flex flex-col">
-                {/* En-tête invisible pour s'aligner avec les blocs couleurs */}
-                <div className="h-28 flex flex-col justify-end pb-6">
-                  <div className="font-bold text-wine-900 text-lg">Avantages et Visibilité</div>
-                </div>
-                {/* Lignes de texte */}
-                {features.map((feature, i) => (
-                  <div key={i} className="h-14 flex items-center border-b border-gray-100 font-body text-sm text-dark-600 pr-4">
-                    {feature}
+          {/* Desktop : tableau */}
+          <div className="hidden md:block overflow-x-auto pb-4">
+            <div className="min-w-[900px]">
+              <div className="grid grid-cols-[minmax(300px,1fr)_repeat(3,1fr)] gap-4">
+                <div className="flex flex-col">
+                  <div className="h-28 flex flex-col justify-end pb-6">
+                    <div className="font-bold text-wine-900 text-lg">{locale === "fr" ? "Avantages et Visibilité" : "Benefits & Visibility"}</div>
                   </div>
-                ))}
-              </div>
-
-              {/* Colonnes 2, 3, 4 : Packs Bronze, Silver, Gold */}
-              {tiersMatrix.map((tier, i) => (
-                <div key={i} className={`${tier.bg} rounded-2xl flex flex-col overflow-hidden shadow-sm`}>
-                  {/* En-tête du pack */}
-                  <div className="h-28 flex flex-col justify-center items-center text-center p-4">
-                    <h3 className="text-3xl font-bold text-white mb-1">{tier.name}</h3>
-                    <p className="text-sm text-white/90">{tier.price}</p>
-                  </div>
-                  {/* Cases à cocher ou tirets */}
-                  {tier.checks.map((hasFeature, j) => (
-                    <div key={j} className="h-14 flex items-center justify-center border-t border-white/20">
-                      {hasFeature ? (
-                        <Check className="w-5 h-5 text-white stroke-[3]" />
-                      ) : (
-                        <Minus className="w-5 h-5 text-white/40" />
-                      )}
+                  {features.map((feature, i) => (
+                    <div key={i} className="h-14 flex items-center border-b border-gray-100 font-body text-sm text-dark-600 pr-4">
+                      {feature}
                     </div>
                   ))}
                 </div>
-              ))}
-              
+                {tiersMatrix.map((tier, i) => (
+                  <div key={i} className={`${tier.bg} rounded-2xl flex flex-col overflow-hidden shadow-sm`}>
+                    <div className="h-28 flex flex-col justify-center items-center text-center p-4">
+                      <h3 className="text-3xl font-bold text-white mb-1">{tier.name}</h3>
+                      <p className="text-sm text-white/90">{tier.price}</p>
+                    </div>
+                    {tier.checks.map((hasFeature, j) => (
+                      <div key={j} className="h-14 flex items-center justify-center border-t border-white/20">
+                        {hasFeature ? <Check className="w-5 h-5 text-white stroke-[3]" /> : <Minus className="w-5 h-5 text-white/40" />}
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-          
+
+          {/* Mobile : cartes empilées */}
+          <div className="md:hidden">
+            <div className="relative flex flex-col">
+              {tiersMatrix.map((tier, i) => {
+                const isOpen = openTier === i;
+
+                return (
+                  <div
+                    key={i}
+                    className={`${tier.bg} rounded-2xl overflow-hidden shadow-lg transition-all duration-500 ${
+                      openTier === null && i > 0 ? "-mt-12" : "mt-2"
+                    }`}
+                    style={{
+                      position: "relative",
+                      zIndex: openTier === null ? 10 + i : isOpen ? 30 : 5,
+                      opacity: openTier !== null && !isOpen ? 0.5 : 1,
+                      transform: openTier !== null && !isOpen ? "scale(0.97)" : "scale(1)",
+                      transition: "all 0.5s ease",
+                    }}
+                  >
+                    <button
+                      onClick={() => setOpenTier(isOpen ? null : i)}
+                      className="w-full p-5 flex items-center justify-between"
+                    >
+                      <h3 className="text-xl font-bold text-white">{tier.name}</h3>
+                      <div className="flex items-center gap-3">
+                        <span className="text-xs text-white/50">{tier.price}</span>
+                        <ChevronDown className={`w-4 h-4 text-white/50 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
+                      </div>
+                    </button>
+
+                    <div
+                      className="grid transition-[grid-template-rows] duration-500 ease-in-out"
+                      style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
+                    >
+                      <div className="overflow-hidden">
+                        <div className="px-5 pb-5 space-y-3 border-t border-white/10 pt-4">
+                          {features.map((feature, j) => (
+                            <div key={j} className="flex items-center gap-3">
+                              {tier.checks[j] ? (
+                                <Check className="w-4 h-4 text-gold-400 flex-shrink-0 stroke-[3]" />
+                              ) : (
+                                <Minus className="w-4 h-4 text-white/20 flex-shrink-0" />
+                              )}
+                              <span className={`font-body text-sm ${tier.checks[j] ? "text-white/90" : "text-white/30"}`}>
+                                {feature}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
           <div className="mt-12 text-center">
-             <a href="/WineSociety_Sponsoring_2026-2027.pdf" download className="btn-primary inline-block">
-               {locale === "fr" ? "Télécharger le dossier complet" : "Download full brochure"}
-             </a>
+            <a href="/WineSociety_Sponsoring_2026-2027.pdf" download className="btn-primary inline-block">
+              {locale === "fr" ? "Télécharger le dossier complet" : "Download full brochure"}
+            </a>
           </div>
         </div>
       </section>
