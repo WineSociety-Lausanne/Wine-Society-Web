@@ -49,75 +49,80 @@ function Hero() {
   const { t } = useLang();
 
   return (
-    <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden bg-wine-900">
-      <div className="relative z-10 text-center px-6 py-32 max-w-5xl w-full">
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="font-headline text-[3rem] sm:text-6xl md:text-7xl lg:text-[8rem] text-cream-100 leading-[0.9] tracking-tight"
-        >
-          Wine Society
-        </motion.h1>
-
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="font-headline text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-gold-400 leading-tight tracking-tight mt-3"
-        >
-          Lausanne
-        </motion.h2>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.5, delay: 0.8 }}
-          className="font-body text-cream-200/40 text-[10px] sm:text-[11px] uppercase tracking-[0.35em] mt-6"
-        >
-          EPFL · UNIL · HEC
-        </motion.p>
-
-        <motion.div
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ duration: 1.2, delay: 1.1, ease: [0.22, 1, 0.36, 1] }}
-          className="mx-auto my-6 sm:my-8"
-          style={{ width: 60, height: 1, background: "linear-gradient(90deg, transparent, #f2eeea, transparent)" }}
+    <section className="relative min-h-[100dvh] flex items-end overflow-hidden bg-wine-950">
+      {/* Photographie du lac Léman en fond plein écran */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
+        className="absolute inset-0"
+      >
+        <img
+          src="/lac.jpg"
+          alt="Le lac Léman et les Alpes vus depuis le campus lausannois"
+          className="h-full w-full object-cover object-center"
         />
+        {/* Voiles de teinte pour la lisibilité et l'ambiance */}
+        <div className="absolute inset-0 bg-gradient-to-t from-wine-950 via-wine-950/40 to-wine-950/10" />
+        <div className="absolute inset-0 bg-wine-950/20 mix-blend-multiply" />
+      </motion.div>
 
-        <motion.p
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1.3 }}
-          className="font-display text-cream-200/30 text-lg sm:text-xl md:text-2xl italic tracking-wide"
-        >
-          In vino veritas.
-        </motion.p>
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-6 md:px-12 lg:px-24 pb-20 md:pb-28">
+        <div className="max-w-3xl">
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.4 }}
+            className="font-body text-cream-100 text-[11px] sm:text-xs uppercase tracking-[0.4em]"
+          >
+            {t.hero.subtitle}
+          </motion.p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.6 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center mt-10 sm:mt-14"
-        >
-          <Link href="/events" className="bg-cream-100 text-wine-900 px-8 py-4 font-body font-semibold text-[10px] sm:text-xs uppercase tracking-[0.2em] hover:bg-white transition-all duration-500 text-center">
-            {t.hero.cta}
-          </Link>
-          <Link href="/partenaires" className="border border-cream-200/30 text-cream-200 px-8 py-4 font-body font-semibold text-[10px] sm:text-xs uppercase tracking-[0.2em] hover:bg-cream-100/10 transition-all duration-500 text-center">
-            {t.hero.ctaSecondary}
-          </Link>
-        </motion.div>
+          <motion.h1
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.1, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            className="font-headline text-cream-100 leading-[0.92] tracking-tight mt-5 text-[3.25rem] sm:text-7xl md:text-8xl lg:text-[8.5rem]"
+          >
+            {t.hero.title}
+          </motion.h1>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.9 }}
+            className="flex items-center gap-4 mt-6"
+          >
+            <span className="h-px w-12 bg-gold-400/70" />
+            <p className="font-display text-cream-100/80 text-lg sm:text-xl md:text-2xl italic">
+              {t.hero.tagline}
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.15 }}
+            className="flex flex-col sm:flex-row gap-4 mt-10"
+          >
+            <Link href="/events" className="bg-cream-100 text-wine-900 px-8 py-4 font-body font-semibold text-[10px] sm:text-xs uppercase tracking-[0.2em] hover:bg-white transition-all duration-500 text-center">
+              {t.hero.cta}
+            </Link>
+            <Link href="/partenaires" className="border border-cream-100/40 text-cream-100 px-8 py-4 font-body font-semibold text-[10px] sm:text-xs uppercase tracking-[0.2em] hover:bg-cream-100/10 transition-all duration-500 text-center backdrop-blur-sm">
+              {t.hero.ctaSecondary}
+            </Link>
+          </motion.div>
+        </div>
       </div>
 
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 2.5, duration: 1 }}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2"
+        transition={{ delay: 2, duration: 1 }}
+        className="absolute bottom-6 right-6 md:right-12 lg:right-24"
       >
         <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}>
-          <ArrowDown className="w-4 h-4 text-cream-200/30" />
+          <ArrowDown className="w-4 h-4 text-cream-100/50" />
         </motion.div>
       </motion.div>
     </section>

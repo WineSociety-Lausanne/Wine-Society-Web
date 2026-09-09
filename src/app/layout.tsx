@@ -7,8 +7,8 @@ import CookieBanner from "@/components/CookieBanner";
 
 export const metadata: Metadata = {
   title: "Wine Society | UNIL · EPFL · Lausanne",
-  description: "Association d'œnologie de l'UNIL et de l'EPFL à Lausanne. Dégustations, concours internationaux et découverte du vin. Initier. Partager. Découvrir.",
-  keywords: ["wine society", "oenologie", "UNIL", "EPFL", "Lausanne", "dégustation", "vin", "concours", "Left Bank Bordeaux Cup"],
+  description: "Association d'œnologie étudiante à Lausanne. Dégustations de vin bimensuelles, concours internationaux d'œnologie et découvertes viticoles pour les étudiants EPFL, UNIL et HEC depuis 2014. Rejoignez le premier club de vin universitaire de Suisse romande.",
+  keywords: ["wine society", "oenologie", "UNIL", "EPFL", "Lausanne", "dégustation vin", "association vin étudiante", "concours oenologie", "Left Bank Bordeaux Cup", "club vin Suisse", "dégustation vin Lausanne", "soirée vin étudiant", "wine tasting Lausanne", "HEC Lausanne"],
   authors: [{ name: "Wine Society Lausanne" }],
   verification: {
     google: "ZsMjAUon5rOZlRz2c2SKdttOvUYSP8h7qDGGvTCNNw4",

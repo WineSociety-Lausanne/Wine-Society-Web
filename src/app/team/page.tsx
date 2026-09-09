@@ -26,7 +26,7 @@ const membres = [
   { nameKey: "memberLogistique", name: "Louis Steinmetz", fallbackRole: "Pôle Logistique" },
   { nameKey: "memberLogistique", name: "Jules Weill", fallbackRole: "Pôle Logistique" },
   { nameKey: "memberEvent", name: "Stephanie Kuttler", fallbackRole: "Pôle Événements" },
-  { nameKey: "memberEvent", name: "Elsa Martiolini", fallbackRole: "Pôle Événements" },
+  { nameKey: "memberEvent", name: "Elsa Martinoli", fallbackRole: "Pôle Événements" },
   { nameKey: "memberEvent", name: "Youenn Boloré", fallbackRole: "Pôle Événements" },
   { nameKey: "memberEvent", name: "Hippolyte Richard", fallbackRole: "Pôle Événements" },
   { nameKey: "memberComm", name: "Eva Beyer", fallbackRole: "Pôle Communication" },

@@ -11,7 +11,7 @@ export const dictionaries = {
     hero: {
       title: "Wine Society",
       subtitle: "UNIL · EPFL · Lausanne",
-      tagline: "Initier. Partager. Découvrir.",
+      tagline: "In vino veritas",
       cta: "Découvrir nos événements",
       ctaSecondary: "Devenir partenaire",
     },
@@ -222,7 +222,7 @@ export const dictionaries = {
     hero: {
       title: "Wine Society",
       subtitle: "UNIL · EPFL · Lausanne",
-      tagline: "Initiate. Share. Discover.",
+      tagline: "In vino veritas",
       cta: "Discover our events",
       ctaSecondary: "Become a partner",
     },

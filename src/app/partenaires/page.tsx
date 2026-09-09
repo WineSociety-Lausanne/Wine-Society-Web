@@ -219,12 +219,6 @@ export default function PartenairesPage() {
               })}
             </div>
           </div>
-
-          <div className="mt-12 text-center">
-            <a href="/WineSociety_Sponsoring_2026-2027.pdf" download className="btn-primary inline-block">
-              {locale === "fr" ? "Télécharger le dossier complet" : "Download full brochure"}
-            </a>
-          </div>
         </div>
       </section>
 
