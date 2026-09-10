@@ -1,3 +1,9 @@
 node_modules
 .next
 .DS_Store
+tsconfig.tsbuildinfo
+
+# variables d'environnement (mots de passe, etc.)
+.env
+.env.local
+.env*.local

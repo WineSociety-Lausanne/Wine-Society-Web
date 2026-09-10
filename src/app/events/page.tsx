@@ -5,61 +5,15 @@ import Link from "next/link";
 import { useLang } from "@/lib/lang-context";
 import { FadeUp, StaggerContainer, StaggerItem } from "@/components/AnimatedText";
 import SectionHeader from "@/components/SectionHeader";
+import { getUpcomingEvents, getPastEvents } from "@/lib/events";
 import { Calendar, Clock, MapPin, Wine, ChevronRight, ImageIcon, ArrowRight } from "lucide-react";
 
-const upcomingEvents = [
-  {
-    slug: "mouex",
-    date: "2025-11-12",
-    titleFr: "Jean-Pierre Moueix",
-    titleEn: "Jean-Pierre Moueix",
-    descFr: "Les seigneurs de la Rive Droite, maîtres absolus du classicisme et de l'élégance intemporelle de Pomerol. ",
-    descEn: "The rulers of the Right Bank, absolute masters of classicism and the timeless elegance of Pomerol.",
-  },
-];
-
-type PastEvent = {
-  titleFr: string;
-  titleEn: string;
-  descFr: string;
-  descEn: string;
-  photoCount: number;
-  region: string;
-  instagram: string;
-  noEmbed?: boolean;
-};
-
-const pastHighlights: PastEvent[] = [
-  { titleFr: "Château Branaire-Ducru", titleEn: "Château Branaire-Ducru", descFr: "4ème Grand Cru Classé présenté par le domaine", descEn: "4th Grand Cru Classé presented by the estate", photoCount: 0, region: "bordeaux", instagram: "https://www.instagram.com/p/DY2Ripslu1E/" },
-  { titleFr: "Cave de la Côte", titleEn: "Cave de la Côte", descFr: "À la découverte des pépites et cépages emblématiques du vignoble vaudois", descEn: "Discovering the hidden gems and iconic grape varieties of the Vaud region", photoCount: 0, region: "suisse", instagram: "https://www.instagram.com/p/DYpcrgMkVLm/" },
-  { titleFr: "Château Minuty", titleEn: "Château Minuty", descFr: "L'excellence des grands rosés de Provence et de la French Riviera", descEn: "The excellence of great Provence rosés and the French Riviera", photoCount: 0, region: "provence", instagram: "https://www.instagram.com/p/DYXYn1ElETW/" },
-  { titleFr: "Champagne Lanson", titleEn: "Champagne Lanson", descFr: "Découverte de la gamme Lanson, du Brut au Rosé", descEn: "Discovering the Lanson range, from Brut to Rosé", photoCount: 0, region: "champagne", instagram: "https://www.instagram.com/p/DXmaeWmlle4/" },
-  { titleFr: "Mauler", titleEn: "Mauler", descFr: "Tradition et excellence des grands vins mousseux suisses depuis 1829", descEn: "Tradition and excellence of great Swiss sparkling wines since 1829", photoCount: 0, region: "suisse", instagram: "https://www.instagram.com/p/DW3jAxGCEUg/" },
-  { titleFr: "Les Frères Dutruy", titleEn: "Les Frères Dutruy", descFr: "Des vins de terroir d'exception récompensés au cœur de La Côte", descEn: "Exceptional award-winning terroir wines from the heart of La Côte", photoCount: 0, region: "suisse", instagram: "https://www.instagram.com/p/DWRlk8XlOqI/" },
-  { titleFr: "Famille Perrin", titleEn: "Famille Perrin — Rhône Valley", descFr: "Les grands vins du Rhône sud, de Gigondas à Châteauneuf-du-Pape", descEn: "Great wines of the Southern Rhône, from Gigondas to Châteauneuf-du-Pape", photoCount: 0, region: "rhone", instagram: "https://www.instagram.com/p/DSM7EaADiry/" },
-  { titleFr: "Joseph Drouhin", titleEn: "Joseph Drouhin — Burgundy", descFr: "Exploration des terroirs bourguignons avec la Maison Drouhin", descEn: "Exploring Burgundian terroirs with Maison Drouhin", photoCount: 0, region: "bourgogne", instagram: "https://www.instagram.com/p/DRci_bvjAwr/" },
-  { titleFr: "Château Chasse-Spleen", titleEn: "Château Chasse-Spleen", descFr: "L'élégance et la poésie d'un grand nom de Moulis-en-Médoc", descEn: "The elegance and poetry of a great name from Moulis-en-Médoc", photoCount: 0, region: "bordeaux", instagram: "https://www.instagram.com/p/DJrnuDmo84e/", noEmbed: true },
-  { titleFr: "Château Lafite Rothschild", titleEn: "Château Lafite Rothschild", descFr: "Une soirée exceptionnelle autour des grands crus légendaires du Médoc", descEn: "An exceptional evening featuring the legendary grand crus of Médoc", photoCount: 0, region: "bordeaux", instagram: "https://www.instagram.com/p/C74Z6bLIW1P/" },
-  { titleFr: "Bouvet-Jabloir", titleEn: "Bouvet-Jabloir", descFr: "La haute couture du vignoble neuchâtelois et ses grands Pinots Noirs", descEn: "The haute couture of Neuchâtel vineyards and its great Pinot Noirs", photoCount: 0, region: "suisse", instagram: "https://www.instagram.com/p/DHIu23yo0P2", noEmbed: true },
-  { titleFr: "Bouchard Père & Fils", titleEn: "Bouchard Père & Fils", descFr: "Un voyage historique à travers les plus prestigieux climats de Bourgogne", descEn: "A historical journey through the most prestigious climates of Burgundy", photoCount: 0, region: "bourgogne", instagram: "https://www.instagram.com/p/DGoDAkMoTxo/", noEmbed: true },
-  { titleFr: "Château Pichon Baron", titleEn: "Château Pichon Baron", descFr: "Immersion dans l'excellence des Grands Crus Classés de Pauillac", descEn: "Immersion into the excellence of Pauillac's Grand Crus Classés", photoCount: 0, region: "bordeaux", instagram: "https://www.instagram.com/p/DDY-6k5u-7z/", noEmbed: true },
-  { titleFr: "Louis Latour", titleEn: "Louis Latour", descFr: "Deux siècles de tradition et de grands vins blancs et rouges de Bourgogne", descEn: "Two centuries of tradition and great Burgundy white and red wines", photoCount: 0, region: "bourgogne", instagram: "https://www.instagram.com/p/DBgfkgeoKrs/" },
-  { titleFr: "Sélection Terroir & Charcuterie", titleEn: "Local Terroir & Pairings", descFr: "Sélection de produits artisanaux pour accompagner nos plus belles cuvées", descEn: "Selection of local artisanal products to complement our finest cuvées", photoCount: 0, region: "autre", instagram: "" },
-  { titleFr: "Champagne Gosset", titleEn: "Champagne Gosset", descFr: "Dégustation historique de la plus ancienne Maison de Vins de la Champagne", descEn: "Historical tasting session with the oldest Wine House in Champagne", photoCount: 0, region: "champagne", instagram: "https://www.instagram.com/p/C5G_UFOo5qK/" },
-  { titleFr: "Marie-Thérèse Chappaz", titleEn: "Marie-Thérèse Chappaz", descFr: "Les icônes biodynamiques du Valais par une vigneronne d'exception", descEn: "The iconic biodynamic wines of Valais by an exceptional winemaker", photoCount: 0, region: "suisse", instagram: "https://www.instagram.com/p/C4ia7l0I5w3/" },
-  { titleFr: "Château Lagrange", titleEn: "Château Lagrange", descFr: "Splendeur, rigueur et précision d'un Grand Cru Classé de Saint-Julien", descEn: "Splendor, rigor and precision of a Saint-Julien Grand Cru Classé", photoCount: 0, region: "bordeaux", instagram: "https://www.instagram.com/p/C0819OxoHrm/" },
-  { titleFr: "Moët & Chandon", titleEn: "Moët & Chandon", descFr: "L'éclat et le savoir-faire de l'une des plus célèbres Maisons de Champagne", descEn: "The brilliance and expertise of one of the world's most famous Champagne Houses", photoCount: 0, region: "champagne", instagram: "https://www.instagram.com/p/Cqcpb2AoDsq/" },
-  { titleFr: "M. Chapoutier", titleEn: "M. Chapoutier", descFr: "Une immersion audacieuse au cœur des plus grands terroirs de la Vallée du Rhône", descEn: "A bold journey into the finest terroirs of the Rhône Valley", photoCount: 0, region: "rhone", instagram: "https://www.instagram.com/p/C7EIbRXoFDi/" },
-  { titleFr: "Château du Crest", titleEn: "Château du Crest", descFr: "L'excellence helvétique et la tradition viticole genevoise", descEn: "Swiss excellence and the rich winemaking tradition of Geneva", photoCount: 0, region: "suisse", instagram: "https://www.instagram.com/p/DRFO-_pDIsV/" },
-  { titleFr: "Maison Gilliard", titleEn: "Maison Gilliard", descFr: "Les trésors du Valais et l'iconique Dôle des Noirs à l'honneur", descEn: "Valais treasures and the iconic Dôle des Noirs highlighted", photoCount: 0, region: "suisse", instagram: "https://www.instagram.com/p/DIllq1nomiq/", noEmbed: true },
-  { titleFr: "Cave La Madeleine", titleEn: "Cave La Madeleine", descFr: "Les grands crus d'André Fontannaz, reflets purs du terroir valaisan", descEn: "André Fontannaz's grand crus, a pure reflection of the Valais terroir", photoCount: 0, region: "suisse", instagram: "https://www.instagram.com/p/DCWX_3hItp6/", noEmbed: true },
-  { titleFr: "Veuve Clicquot", titleEn: "Veuve Clicquot", descFr: "Une dégustation audacieuse sous le signe de l'excellence et de la culture Vintage", descEn: "A bold tasting experience driven by excellence and Vintage culture", photoCount: 0, region: "champagne", instagram: "https://www.instagram.com/p/C4BQFoOo4TX/" },
-  { titleFr: "Jean-René Germanier", titleEn: "Jean-René Germanier", descFr: "L'art des grands vins du Valais et la quintessence de la Syrah helvétique", descEn: "The art of fine Valais wines and the ultimate expression of Swiss Syrah", photoCount: 0, region: "suisse", instagram: "https://www.instagram.com/p/C0ZaMg4IZ_a/" },
-  { titleFr: "ÉroVins", titleEn: "ÉroVins", descFr: "Une sélection passionnée de vins d'artisans, mettant à l'honneur le terroir du Languedoc et des pépites du Roussilon", descEn: "A passionate curation of artisanal wines, celebrating Languedoc terroirs and authentic hidden gems from Roussillon", photoCount: 0, region: "suisse", instagram: "" },
-  { titleFr: "Champagne Bollinger", titleEn: "Champagne Bollinger", descFr: "Le caractère affirmé et l'élégance intemporelle des grands vins de Champagne", descEn: "The distinctive character and timeless elegance of great Champagne wines", photoCount: 0, region: "champagne", instagram: "" },
-  { titleFr: "Champagne Drappier", titleEn: "Champagne Drappier", descFr: "L'expression naturelle du Pinot Noir et le fleuron des cuvées de l'Aube", descEn: "The natural expression of Pinot Noir and the flagship cuvées of the Aube region", photoCount: 0, region: "champagne", instagram: "https://www.instagram.com/p/BM9FwrRDBec/" },
-  { titleFr: "Schenk", titleEn: "Schenk", descFr: "Un voyage multisensoriel à travers les grands vignobles d'Europe", descEn: "A multi-sensory journey through Europe's finest vineyards", photoCount: 0, region: "autre", instagram: "" },
-];
+// Source unique : src/data/events.json (édition via /admin).
+// La répartition « à venir » / « passés » est automatique selon la date de chaque événement :
+// un événement bascule tout seul dans les « passés » une fois sa date dépassée.
+// Les dates des événements passés ne sont pas affichées (champ hideDate).
+const upcomingEvents = getUpcomingEvents();
+const pastHighlights = getPastEvents();
 
 function InstagramEmbed({ url }: { url: string }) {
   const postId = url.split("/p/")[1]?.replace(/\/$/, "");
@@ -188,7 +142,8 @@ export default function EventsPage() {
           <div className="space-y-3">
             {filteredEvents.length > 0 ? (
               filteredEvents.map((event, i) => {
-                const hasContent = event.photoCount > 0 || !!event.instagram;
+                const photoCount = event.photoCount ?? 0;
+                const hasContent = photoCount > 0 || !!event.instagram;
                 const isOpen = selectedPast === i && hasContent;
 
                 return (
@@ -236,9 +191,9 @@ export default function EventsPage() {
                             {event.instagram && isOpen && !event.noEmbed && (
                               <InstagramEmbed url={event.instagram} />
                             )}
-                            {event.photoCount > 0 && (
+                            {photoCount > 0 && (
                               <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                                {Array.from({ length: event.photoCount }).map((_, j) => (
+                                {Array.from({ length: photoCount }).map((_, j) => (
                                   <div key={j} className="aspect-[4/3] bg-bg-alt border border-wine-800/10 flex flex-col items-center justify-center gap-2 hover:border-wine-800/20 transition-colors duration-300">
                                     <ImageIcon className="w-5 h-5 text-dark-300" />
                                     <span className="font-body text-[10px] text-dark-400 uppercase tracking-wider">Photo {j + 1}</span>

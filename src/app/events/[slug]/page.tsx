@@ -5,47 +5,13 @@ import Link from "next/link";
 import { useLang } from "@/lib/lang-context";
 import { FadeUp } from "@/components/AnimatedText";
 import { ArrowLeft, Calendar, Clock, MapPin, Users } from "lucide-react";
-
-const events: Record<string, {
-  titleFr: string;
-  titleEn: string;
-  date: string;
-  time: string;
-  location: string;
-  descFr: string;
-  descEn: string;
-  spots: number;
-  formUrl: string | null;
-}> = {
-  "mouex": {
-    titleFr: "Jean-Pierre Moueix",
-    titleEn: "Jean-Pierre Moueix",
-    date: "2026-11-12",
-    time: "19:00",
-    location: "Vortex, Campus UNIL-EPFL",
-    descFr: "Rejoignez-nous pour la première dégustation de la saison 2026-2027 ! Une soirée de bienvenue ouverte à tous les étudiants, avec une sélection de vins pour bien commencer l'année. 4 à 6 cuvées dégustées, suivies d'un apéritif convivial.",
-    descEn: "Join us for the first tasting of the 2026-2026 season! A welcome evening open to all students, featuring a selection of wines to kick off the year. 4 to 6 wines tasted, followed by a convivial aperitif.",
-    spots: 40,
-    formUrl: null, // Remplacer par l'URL de ton Google Form
-  },/*
-  "octobre-2025": {
-    titleFr: "Domaine à confirmer",
-    titleEn: "Estate TBC",
-    date: "2025-10-01",
-    time: "18:30",
-    location: "Salle à confirmer, Campus UNIL-EPFL",
-    descFr: "Soirée dégustation bimensuelle. Le domaine invité sera annoncé prochainement. Restez connectés sur nos réseaux sociaux !",
-    descEn: "Bimonthly tasting evening. The guest estate will be announced soon. Stay tuned on our social media!",
-    spots: 55,
-    formUrl: null,
-  },*/
-};
+import { getEventBySlug } from "@/lib/events";
 
 export default function EventPage() {
   const params = useParams();
   const slug = params.slug as string;
   const { locale } = useLang();
-  const event = events[slug];
+  const event = getEventBySlug(slug);
 
   if (!event) {
     return (
@@ -93,22 +59,30 @@ export default function EventPage() {
             <div className="divider-gold mt-6 mb-8" />
 
             <div className="flex flex-wrap gap-8 text-dark-400 font-body text-sm">
-              <span className="flex items-center gap-2">
-                <Calendar className="w-4 h-4 text-gold-500/50" />
-                {formattedDate}
-              </span>
-              <span className="flex items-center gap-2">
-                <Clock className="w-4 h-4 text-gold-500/50" />
-                {event.time}
-              </span>
-              <span className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-gold-500/50" />
-                {event.location}
-              </span>
-              <span className="flex items-center gap-2">
-                <Users className="w-4 h-4 text-gold-500/50" />
-                {event.spots} places
-              </span>
+              {!event.hideDate && (
+                <span className="flex items-center gap-2">
+                  <Calendar className="w-4 h-4 text-gold-500/50" />
+                  {formattedDate}
+                </span>
+              )}
+              {event.time && (
+                <span className="flex items-center gap-2">
+                  <Clock className="w-4 h-4 text-gold-500/50" />
+                  {event.time}
+                </span>
+              )}
+              {event.location && (
+                <span className="flex items-center gap-2">
+                  <MapPin className="w-4 h-4 text-gold-500/50" />
+                  {event.location}
+                </span>
+              )}
+              {typeof event.spots === "number" && (
+                <span className="flex items-center gap-2">
+                  <Users className="w-4 h-4 text-gold-500/50" />
+                  {event.spots} places
+                </span>
+              )}
             </div>
           </FadeUp>
         </div>
@@ -125,7 +99,9 @@ export default function EventPage() {
                   {locale === "fr" ? "À propos" : "About"}
                 </h3>
                 <p className="font-body text-sm text-dark-400 leading-[1.9]">
-                  {locale === "fr" ? event.descFr : event.descEn}
+                  {locale === "fr"
+                    ? event.longDescFr ?? event.descFr
+                    : event.longDescEn ?? event.descEn}
                 </p>
 
                 <div className="mt-10 p-6 bg-dark-900 border border-white/5 rounded-xl">
