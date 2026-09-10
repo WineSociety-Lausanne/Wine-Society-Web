@@ -1,14 +1,5 @@
 [
   {
-    "slug": "test",
-    "date": "2026-10-01",
-    "region": "champagne",
-    "titleFr": "test",
-    "titleEn": "",
-    "descFr": "",
-    "descEn": ""
-  },
-  {
     "slug": "mouex",
     "date": "2026-11-12",
     "region": "bordeaux",
