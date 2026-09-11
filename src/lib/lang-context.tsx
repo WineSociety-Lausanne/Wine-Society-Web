@@ -1,6 +1,7 @@
 "use client";
 
 import { createContext, useContext, useState, ReactNode } from "react";
+import { MotionConfig } from "framer-motion";
 import { dictionaries, Locale, Dictionary } from "./dictionaries";
 
 type LangContextType = {
@@ -22,7 +23,7 @@ export function LangProvider({ children }: { children: ReactNode }) {
     <LangContext.Provider
       value={{ locale, t: dictionaries[locale], toggleLocale }}
     >
-      {children}
+      <MotionConfig reducedMotion="user">{children}</MotionConfig>
     </LangContext.Provider>
   );
 }

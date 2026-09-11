@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, type TouchEvent } from "react";
 import { useLang } from "@/lib/lang-context";
 import { FadeUp, FadeIn, SlideIn, StaggerContainer, StaggerItem } from "@/components/AnimatedText";
 import SectionHeader from "@/components/SectionHeader";
@@ -38,7 +38,7 @@ function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: str
 
   return (
     <div ref={ref} className="whitespace-nowrap">
-      <span className="font-headline text-4xl md:text-5xl text-wine-800">
+      <span className="font-headline text-3xl sm:text-4xl md:text-5xl text-wine-800">
         {target === 2014 ? count : count.toLocaleString("de-CH")}{suffix}
       </span>
     </div>
@@ -223,10 +223,10 @@ function About() {
             { target: 12, suffix: "", label: t.about.stats.frequencyLabel + " /an" },
           ].map((stat, i) => (
             <FadeUp key={i} delay={i * 0.1}>
-              <div 
-                className={`bg-bg p-8 md:p-10 text-center h-full
-                  ${i % 2 === 0 ? 'border-r border-dark-300/20' : ''} 
-                  ${i === 1 ? 'lg:border-r lg:border-dark-300/20' : ''} 
+              <div
+                className={`bg-bg p-6 sm:p-8 md:p-10 text-center h-full
+                  ${i % 2 === 0 ? 'border-r border-dark-300/20' : ''}
+                  ${i === 1 ? 'lg:border-r lg:border-dark-300/20' : ''}
                   ${i < 2 ? 'border-b border-dark-300/20 lg:border-b-0' : ''}
                 `}
               >
@@ -251,6 +251,35 @@ function Activities() {
     { ...t.activities.competitions, num: "02" },
     { ...t.activities.visits, num: "03" },
   ];
+
+  // Glissement au doigt (mobile) : swipe gauche = suivant, droite = précédent.
+  const touchStartX = useRef<number | null>(null);
+  const onTouchStart = (e: TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+  const onTouchEnd = (e: TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const dx = e.changedTouches[0].clientX - touchStartX.current;
+    if (Math.abs(dx) > 40) {
+      setActiveCard((prev) =>
+        dx < 0 ? (prev + 1) % cards.length : (prev - 1 + cards.length) % cards.length
+      );
+    }
+    touchStartX.current = null;
+  };
+
+  // Défilement automatique des onglets (mobile) toutes les 5 s.
+  // Se relance après chaque changement (auto ou tap), et se met en pause
+  // si l'utilisateur préfère réduire les animations.
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+    const id = setInterval(() => {
+      setActiveCard((prev) => (prev + 1) % cards.length);
+    }, 5000);
+    return () => clearInterval(id);
+  }, [activeCard, cards.length]);
 
   return (
     <section className="py-20 md:py-24 bg-wine-900">
@@ -304,7 +333,11 @@ function Activities() {
           </div>
 
           {/* Contenu */}
-          <div className="relative overflow-hidden">
+          <div
+            className="relative overflow-hidden touch-pan-y select-none"
+            onTouchStart={onTouchStart}
+            onTouchEnd={onTouchEnd}
+          >
             {cards.map((card, i) => (
               <div
                 key={i}
@@ -333,6 +366,21 @@ function Activities() {
               </div>
             ))}
           </div>
+
+          {/* Indicateur de défilement (points + barre active) */}
+          <div className="flex items-center justify-center gap-2 mt-8">
+            {cards.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setActiveCard(i)}
+                aria-label={`${t.activities.title} ${i + 1}`}
+                aria-current={activeCard === i ? "true" : undefined}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  activeCard === i ? "w-6 bg-gold-400" : "w-1.5 bg-cream-200/25 hover:bg-cream-200/40"
+                }`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -342,7 +390,7 @@ function Activities() {
 function CTASection() {
   const { t, locale } = useLang();
   return (
-    <section className="relative py-40 overflow-hidden bg-bg-alt">
+    <section className="relative py-20 md:py-40 overflow-hidden bg-bg-alt">
       <div className="relative z-10 max-w-3xl mx-auto text-center px-6">
         <FadeUp>
           <p className="font-body text-wine-800/40 text-[11px] uppercase tracking-[0.3em] mb-8">

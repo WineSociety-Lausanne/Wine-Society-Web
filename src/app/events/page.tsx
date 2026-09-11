@@ -3,8 +3,8 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { useLang } from "@/lib/lang-context";
-import { FadeUp, StaggerContainer, StaggerItem } from "@/components/AnimatedText";
-import SectionHeader from "@/components/SectionHeader";
+import { FadeUp } from "@/components/AnimatedText";
+import PageHeader from "@/components/PageHeader";
 import { getUpcomingEvents, getPastEvents } from "@/lib/events";
 import { Calendar, Clock, MapPin, Wine, ChevronRight, ImageIcon, ArrowRight } from "lucide-react";
 
@@ -50,29 +50,32 @@ export default function EventsPage() {
 
   return (
     <>
-      <section className="relative px-6 md:px-12 lg:px-24 pt-40 pb-8 bg-wine-900">
+      <section className="relative px-6 md:px-12 lg:px-24 pt-40 pb-16 bg-wine-900">
         <div className="relative z-10 max-w-5xl mx-auto">
-          <SectionHeader title={t.events.title} subtitle={t.events.subtitle} light />
+          <PageHeader
+            kicker={locale === "fr" ? "Depuis 2014" : "Since 2014"}
+            title={t.events.title}
+          />
         </div>
       </section>
 
       <section className="section-padding bg-bg">
         <div className="max-w-4xl mx-auto">
           <FadeUp>
-            <div className="relative bg-wine-900 p-12 md:p-16 text-center">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-bg border border-wine-800/20 flex items-center justify-center">
-                <Wine className="w-5 h-5 text-wine-800" />
+            <div className="bg-white border border-wine-800/10 p-7 md:p-9">
+              <div className="flex items-center gap-3 mb-4">
+                <Wine className="w-5 h-5 text-wine-800/60" />
+                <h3 className="font-headline text-xl md:text-2xl text-wine-900">{t.events.format.title}</h3>
               </div>
-              <h3 className="font-display text-2xl md:text-3xl text-cream-100 mb-6">{t.events.format.title}</h3>
-              <p className="font-body text-cream-200/60 text-sm leading-[1.9] max-w-2xl mx-auto">{t.events.format.description}</p>
-              <div className="flex flex-wrap justify-center gap-10 mt-10">
+              <p className="font-body text-dark-500 text-sm leading-relaxed max-w-2xl">{t.events.format.description}</p>
+              <div className="flex flex-wrap gap-x-8 gap-y-3 mt-6 pt-6 border-t border-wine-800/10">
                 {[
                   { icon: Calendar, text: locale === "fr" ? "Mercredi soir" : "Wednesday evening" },
                   { icon: Clock, text: locale === "fr" ? "4-6 cuvées" : "4-6 wines" },
                   { icon: MapPin, text: "Lausanne" },
                 ].map((item, i) => (
-                  <span key={i} className="flex items-center gap-2 text-cream-200/40 font-body text-xs uppercase tracking-wider">
-                    <item.icon className="w-3.5 h-3.5 text-gold-400/50" />
+                  <span key={i} className="flex items-center gap-2 text-wine-800/60 font-body text-xs uppercase tracking-wider">
+                    <item.icon className="w-3.5 h-3.5 text-gold-500" />
                     {item.text}
                   </span>
                 ))}
@@ -85,32 +88,112 @@ export default function EventsPage() {
       <section className="section-padding bg-bg-alt">
         <div className="max-w-5xl mx-auto">
           <FadeUp>
-            <h3 className="font-headline text-3xl text-wine-900 mb-12">{t.events.upcoming}</h3>
+            <div className="flex items-baseline gap-4 mb-10">
+              <span className="font-body text-[11px] text-gold-500 tracking-[0.35em]">01</span>
+              <h3 className="font-headline text-3xl md:text-4xl text-wine-900">{t.events.upcoming}</h3>
+              <span className="flex-1 h-px bg-wine-800/10" />
+            </div>
           </FadeUp>
-          <StaggerContainer className="space-y-4">
-            {upcomingEvents.map((event, i) => (
-              <StaggerItem key={i}>
-                <Link href={`/events/${event.slug}`} className="flex gap-8 items-start bg-white border border-wine-800/10 p-8 hover:border-wine-800/30 transition-all duration-500 group block">
-                  <div className="bg-wine-800 px-5 py-4 text-center flex-shrink-0 min-w-[80px]">
-                    <p className="font-headline text-2xl text-cream-100">{new Date(event.date).getDate()}</p>
-                    <p className="font-body text-[10px] text-cream-200/60 uppercase tracking-wider">{new Date(event.date).toLocaleDateString(locale === "fr" ? "fr-FR" : "en-GB", { month: "short" })}</p>
-                  </div>
-                  <div className="flex-1">
-                    <h4 className="font-display text-lg text-wine-900 group-hover:text-wine-700 transition-colors duration-300">{locale === "fr" ? event.titleFr : event.titleEn}</h4>
-                    <p className="font-body text-sm text-dark-500 mt-2">{locale === "fr" ? event.descFr : event.descEn}</p>
-                  </div>
-                  <ArrowRight className="w-4 h-4 text-wine-800/30 group-hover:text-wine-800 mt-2 flex-shrink-0 transition-colors" />
-                </Link>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
+
+          {upcomingEvents.length > 0 ? (
+            <div className="space-y-4">
+              {upcomingEvents.map((event, i) => {
+                const d = new Date(event.date);
+                const day = d.getDate();
+                const month = d.toLocaleDateString(locale === "fr" ? "fr-FR" : "en-GB", { month: "short" });
+                const year = d.getFullYear();
+                const title = locale === "fr" ? event.titleFr : event.titleEn;
+                const desc = locale === "fr" ? event.descFr : event.descEn;
+
+                if (i === 0) {
+                  return (
+                    <FadeUp key={event.slug}>
+                      <Link
+                        href={`/events/${event.slug}`}
+                        className="group block bg-wine-900 overflow-hidden hover:bg-wine-800 transition-colors duration-500"
+                      >
+                        <div className="grid md:grid-cols-[210px_1fr]">
+                          <div className="bg-wine-950/30 p-8 md:p-10 flex md:flex-col items-center md:items-start justify-center gap-4 md:gap-2">
+                            <span className="font-headline text-6xl md:text-7xl text-cream-100 leading-none">{day}</span>
+                            <span className="flex flex-col">
+                              <span className="font-body text-xs uppercase tracking-[0.3em] text-gold-400">{month}</span>
+                              <span className="font-body text-xs uppercase tracking-[0.2em] text-cream-200/40 mt-1">{year}</span>
+                            </span>
+                          </div>
+                          <div className="p-8 md:p-10">
+                            <h4 className="font-headline text-3xl md:text-4xl text-cream-100">{title}</h4>
+                            <p className="font-body text-sm text-cream-200/60 mt-4 max-w-xl leading-relaxed">{desc}</p>
+                            <div className="flex flex-wrap gap-x-8 gap-y-3 mt-6">
+                              {event.time && (
+                                <span className="flex items-center gap-2 text-cream-200/50 font-body text-xs uppercase tracking-wider">
+                                  <Clock className="w-3.5 h-3.5 text-gold-400/50" />
+                                  {event.time}
+                                </span>
+                              )}
+                              {event.location && (
+                                <span className="flex items-center gap-2 text-cream-200/50 font-body text-xs uppercase tracking-wider">
+                                  <MapPin className="w-3.5 h-3.5 text-gold-400/50" />
+                                  {event.location}
+                                </span>
+                              )}
+                            </div>
+                            <span className="inline-flex items-center gap-2 mt-8 bg-gold-500 text-wine-950 px-6 py-3 font-body text-[11px] uppercase tracking-[0.2em] group-hover:bg-gold-400 transition-colors">
+                              {locale === "fr" ? "Détails & inscription" : "Details & registration"}
+                              <ArrowRight className="w-3.5 h-3.5" />
+                            </span>
+                          </div>
+                        </div>
+                      </Link>
+                    </FadeUp>
+                  );
+                }
+
+                return (
+                  <FadeUp key={event.slug}>
+                    <Link
+                      href={`/events/${event.slug}`}
+                      className="flex gap-6 items-center bg-white border border-wine-800/10 p-6 hover:border-wine-800/30 transition-colors duration-500 group"
+                    >
+                      <div className="bg-wine-800 px-4 py-3 text-center flex-shrink-0 min-w-[70px]">
+                        <p className="font-headline text-xl text-cream-100">{day}</p>
+                        <p className="font-body text-[10px] text-cream-200/60 uppercase tracking-wider">{month}</p>
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="font-display text-lg text-wine-900 group-hover:text-wine-700 transition-colors">{title}</h4>
+                        <p className="font-body text-sm text-dark-500 mt-1">{desc}</p>
+                      </div>
+                      <ArrowRight className="w-4 h-4 text-wine-800/30 group-hover:text-wine-800 flex-shrink-0 transition-colors" />
+                    </Link>
+                  </FadeUp>
+                );
+              })}
+            </div>
+          ) : (
+            <FadeUp>
+              <div className="border border-dashed border-wine-800/20 p-12 text-center">
+                <Wine className="w-8 h-8 text-wine-800/30 mx-auto mb-4" />
+                <p className="font-display text-xl text-wine-900">
+                  {locale === "fr" ? "Prochaine soirée bientôt annoncée" : "Next evening announced soon"}
+                </p>
+                <p className="font-body text-sm text-dark-500 mt-2 max-w-sm mx-auto">
+                  {locale === "fr"
+                    ? "Suivez-nous sur Instagram pour être informé·e en premier."
+                    : "Follow us on Instagram to be the first to know."}
+                </p>
+              </div>
+            </FadeUp>
+          )}
         </div>
       </section>
 
       <section className="section-padding bg-bg">
         <div className="max-w-5xl mx-auto">
           <FadeUp>
-            <h3 className="font-headline text-3xl text-wine-900 mb-8">{t.events.past}</h3>
+            <div className="flex items-baseline gap-4 mb-8">
+              <span className="font-body text-[11px] text-gold-500 tracking-[0.35em]">02</span>
+              <h3 className="font-headline text-3xl md:text-4xl text-wine-900">{t.events.past}</h3>
+              <span className="flex-1 h-px bg-wine-800/10" />
+            </div>
           </FadeUp>
 
           <div className="flex flex-wrap gap-2 mb-10">
@@ -139,7 +222,7 @@ export default function EventsPage() {
             ))}
           </div>
 
-          <div className="space-y-3">
+          <div className="border-t border-wine-800/10">
             {filteredEvents.length > 0 ? (
               filteredEvents.map((event, i) => {
                 const photoCount = event.photoCount ?? 0;
@@ -147,15 +230,15 @@ export default function EventsPage() {
                 const isOpen = selectedPast === i && hasContent;
 
                 return (
-                  <div key={`${filter}-${i}`} ref={selectedPast === i ? scrollRef : null} className="bg-white border border-wine-800/10 hover:border-wine-800/25 transition-colors duration-300">
+                  <div key={`${filter}-${i}`} ref={selectedPast === i ? scrollRef : null} className="border-b border-wine-800/10">
                     <button
                       onClick={() => hasContent && setSelectedPast(isOpen ? null : i)}
                       disabled={!hasContent}
                       className={`w-full text-left group ${hasContent ? "cursor-pointer" : "cursor-default"}`}
                     >
-                      <div className="p-6 md:p-8 flex items-center justify-between gap-6">
+                      <div className="py-6 flex items-center justify-between gap-6">
                         <div className="flex-1">
-                          <h4 className={`font-display text-lg md:text-xl text-wine-800 ${hasContent ? "group-hover:text-wine-600" : ""} transition-colors duration-500`}>
+                          <h4 className={`font-display text-lg md:text-xl text-wine-900 ${hasContent ? "group-hover:text-wine-600" : ""} transition-colors duration-500`}>
                             {locale === "fr" ? event.titleFr : event.titleEn}
                           </h4>
                           <p className="font-body text-sm text-dark-500 mt-1">
@@ -174,7 +257,7 @@ export default function EventsPage() {
                         style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
                       >
                         <div className="overflow-hidden">
-                          <div className="px-6 md:px-8 pb-8 pt-4 border-t border-wine-800/10">
+                          <div className="pb-8 pt-1">
                             {event.instagram && isOpen && event.noEmbed && (
                             <div className="max-w-lg mx-auto mb-6 text-center py-8">
                               <a

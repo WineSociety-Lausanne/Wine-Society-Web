@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useLang } from "@/lib/lang-context";
 import { FadeUp, SlideIn, StaggerContainer, StaggerItem } from "@/components/AnimatedText";
 import SectionHeader from "@/components/SectionHeader";
+import PageHeader from "@/components/PageHeader";
 import Link from "next/link";
 import { Check, ExternalLink, Minus, ChevronDown } from "lucide-react";
 
@@ -65,9 +66,12 @@ export default function PartenairesPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative px-6 md:px-12 lg:px-24 pt-40 pb-8 bg-wine-900 hero-pattern">
+      <section className="relative px-6 md:px-12 lg:px-24 pt-40 pb-16 bg-wine-900 hero-pattern">
         <div className="relative z-10 max-w-5xl mx-auto">
-          <SectionHeader title={t.partners.title} subtitle={t.partners.subtitle} light />
+          <PageHeader
+            kicker={locale === "fr" ? "Devenir partenaire" : "Become a partner"}
+            title={t.partners.title}
+          />
         </div>
       </section>
 

@@ -72,10 +72,15 @@ export default function EventPage() {
                 </span>
               )}
               {event.location && (
-                <span className="flex items-center gap-2">
+                <a
+                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.location)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 hover:text-gold-400 transition-colors"
+                >
                   <MapPin className="w-4 h-4 text-gold-500/50" />
                   {event.location}
-                </span>
+                </a>
               )}
               {typeof event.spots === "number" && (
                 <span className="flex items-center gap-2">

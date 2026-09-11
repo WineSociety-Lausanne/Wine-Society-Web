@@ -2,7 +2,7 @@
 
 import { useLang } from "@/lib/lang-context";
 import { FadeUp, SlideIn } from "@/components/AnimatedText";
-import SectionHeader from "@/components/SectionHeader";
+import PageHeader from "@/components/PageHeader";
 import { Mail, Phone, Globe, MapPin } from "lucide-react";
 
 export default function ContactPage() {
@@ -10,9 +10,12 @@ export default function ContactPage() {
 
   return (
     <>
-      <section className="relative px-6 md:px-12 lg:px-24 pt-40 pb-3 bg-wine-900">
+      <section className="relative px-6 md:px-12 lg:px-24 pt-40 pb-16 bg-wine-900">
         <div className="relative z-10 max-w-5xl mx-auto">
-          <SectionHeader title={t.contact.title} subtitle={t.contact.subtitle} light />
+          <PageHeader
+            kicker={locale === "fr" ? "Parlons-en" : "Let's talk"}
+            title={t.contact.title}
+          />
         </div>
       </section>
 

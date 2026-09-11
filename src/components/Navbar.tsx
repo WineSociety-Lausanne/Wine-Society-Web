@@ -2,10 +2,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { useLang } from "@/lib/lang-context";
 import { Menu, X } from "lucide-react";
 export default function Navbar() {
   const { t, locale, toggleLocale } = useLang();
+  const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
@@ -21,25 +23,47 @@ export default function Navbar() {
     { href: "/team", label: t.nav.team },
     { href: "/contact", label: t.nav.contact },
   ];
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-bg/95 backdrop-blur-xl ${scrolled ? "border-b border-wine-800/10 shadow-sm" : ""}`}>
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="flex items-center justify-between h-20">
+        <div className={`flex items-center justify-between transition-all duration-500 ${scrolled ? "h-16" : "h-20"}`}>
           <Link href="/" onClick={() => window.scrollTo(0, 0)} className="flex items-center gap-3 group">
-            <Image src="/logo.png" alt="Wine Society" width={36} height={36} className="opacity-90 group-hover:opacity-100 transition-opacity duration-300" />
-            <span className="font-headline text-lg text-wine-900 tracking-wider">Wine Society Lausanne</span>
+            <Image
+              src="/logo.png"
+              alt="Wine Society"
+              width={36}
+              height={36}
+              className={`opacity-90 group-hover:opacity-100 transition-all duration-500 ${scrolled ? "w-8 h-8" : "w-9 h-9"}`}
+            />
+            <span className="flex flex-col leading-none">
+              <span className="font-headline text-[17px] md:text-lg text-wine-900 tracking-[0.02em]">Wine Society</span>
+              <span className="font-body text-[9px] uppercase tracking-[0.38em] text-gold-600/90 mt-[3px]">Lausanne</span>
+            </span>
           </Link>
           <div className="hidden lg:flex items-center gap-10">
-            {links.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => window.scrollTo(0, 0)}
-                className="text-wine-800/60 hover:text-wine-800 text-[11px] font-body font-medium uppercase tracking-[0.2em] transition-colors duration-300"
-              >
-                {link.label}
-              </Link>
-            ))}
+            {links.map((link) => {
+              const active = isActive(link.href);
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => window.scrollTo(0, 0)}
+                  aria-current={active ? "page" : undefined}
+                  className={`relative group text-[11px] font-body font-medium uppercase tracking-[0.2em] transition-colors duration-300 ${
+                    active ? "text-wine-900" : "text-wine-800/60 hover:text-wine-800"
+                  }`}
+                >
+                  {link.label}
+                  <span
+                    className={`absolute -bottom-1.5 left-0 h-px bg-gold-500 transition-all duration-300 ${
+                      active ? "w-full" : "w-0 group-hover:w-full"
+                    }`}
+                  />
+                </Link>
+              );
+            })}
             <button onClick={toggleLocale} className="ml-2 text-wine-800/40 hover:text-wine-800 text-[11px] font-body uppercase tracking-[0.2em] transition-colors duration-300">
               {locale === "fr" ? "EN" : "FR"}
             </button>
@@ -52,19 +76,25 @@ export default function Navbar() {
       {mobileOpen && (
         <div className="lg:hidden bg-bg/98 backdrop-blur-xl border-t border-wine-800/10">
           <div className="px-6 py-8 space-y-5">
-            {links.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => {
-                  setMobileOpen(false);
-                  window.scrollTo(0, 0);
-                }}
-                className="block text-wine-800/60 hover:text-wine-800 font-body text-[11px] uppercase tracking-[0.2em] transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
+            {links.map((link) => {
+              const active = isActive(link.href);
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => {
+                    setMobileOpen(false);
+                    window.scrollTo(0, 0);
+                  }}
+                  aria-current={active ? "page" : undefined}
+                  className={`block font-body text-[11px] uppercase tracking-[0.2em] transition-colors ${
+                    active ? "text-gold-500" : "text-wine-800/60 hover:text-wine-800"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
             <button onClick={toggleLocale} className="text-wine-800/40 hover:text-wine-800 text-[11px] font-body uppercase tracking-[0.2em] transition-colors">
               {locale === "fr" ? "EN" : "FR"}
             </button>
