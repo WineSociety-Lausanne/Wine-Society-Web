@@ -1,6 +1,6 @@
 "use client";
 
-import { useState , useEffect} from "react";
+import { useState } from "react";
 import { useLang } from "@/lib/lang-context";
 import { FadeUp } from "@/components/AnimatedText";
 import PageHeader from "@/components/PageHeader";
@@ -43,14 +43,6 @@ const competitionImages: Record<string, { placeholder: string; photos: string[] 
 export default function CompetitionsPage() {
   const { t, locale } = useLang();
   const [selectedComp, setSelectedComp] = useState<number | null>(null);
-  useEffect(() => {
-    Object.values(competitionImages).forEach((comp) => {
-      comp.photos.forEach((src) => {
-        const img = new window.Image();
-        img.src = src;
-      });
-    });
-  }, []);
 
   return (
     <>
