@@ -134,18 +134,18 @@ function PrestigiousDomains() {
   const { locale } = useLang();
 
   const initialLogos = [
-    { src: "/domaines/branaire.png", alt: "Château Branaire-Ducru", h: "h-20 sm:h-20 md:h-24" },
-    { src: "/domaines/lanson.png", alt: "Champagne Lanson", h: "h-12 sm:h-14 md:h-16" },
-    { src: "/domaines/drouhin.png", alt: "Joseph Drouhin", h: "h-8 sm:h-10 md:h-12" },
-    { src: "/domaines/chapoutier.png", alt: "M. Chapoutier", h: "h-8 sm:h-10 md:h-12" },
-    { src: "/domaines/lafite.png", alt: "Chateau Lafite Rotschild", h: "h-16 sm:h-18 md:h-20" },
-    { src: "/domaines/bouchard.png", alt: "Bouchard Père & Fils", h: "h-12 sm:h-14 md:h-16" },
-    { src: "/domaines/lagrange.png", alt: "Château Lagrange", h: "h-16 sm:h-18 md:h-20" },
-    { src: "/domaines/mauler.png", alt: "Mauler", h: "h-8 sm:h-10 md:h-12" },
-    { src: "/domaines/dutruy.png", alt: "Les Frères Dutruy", h: "h-10 sm:h-12 md:h-14" },
-    { src: "/domaines/latour.png", alt: "Maison Louis Latour", h: "h-8 sm:h-10 md:h-12" },
-    { src: "/domaines/perrin.png", alt: "Famille Perrin", h: "h-5 sm:h-6 md:h-8" },
-    { src: "/domaines/chappaz.png", alt: "Marie-Thérèse Chappaz", h: "h-10 sm:h-12 md:h-14" },
+    { src: "/domaines/branaire.png", alt: "Château Branaire-Ducru", h: "h-20 sm:h-20 md:h-24", url: "https://www.branaire.com" },
+    { src: "/domaines/lanson.png", alt: "Champagne Lanson", h: "h-12 sm:h-14 md:h-16", url: "https://www.lanson.com" },
+    { src: "/domaines/drouhin.png", alt: "Joseph Drouhin", h: "h-8 sm:h-10 md:h-12", url: "https://www.drouhin.com" },
+    { src: "/domaines/chapoutier.png", alt: "M. Chapoutier", h: "h-8 sm:h-10 md:h-12", url: "https://www.chapoutier.com" },
+    { src: "/domaines/lafite.png", alt: "Chateau Lafite Rotschild", h: "h-16 sm:h-18 md:h-20", url: "https://www.lafite.com" },
+    { src: "/domaines/bouchard.png", alt: "Bouchard Père & Fils", h: "h-12 sm:h-14 md:h-16", url: "https://www.bouchard-pereetfils.com" },
+    { src: "/domaines/lagrange.png", alt: "Château Lagrange", h: "h-16 sm:h-18 md:h-20", url: "https://www.chateau-lagrange.fr" },
+    { src: "/domaines/mauler.png", alt: "Mauler", h: "h-8 sm:h-10 md:h-12", url: "https://www.mauler.ch" },
+    { src: "/domaines/dutruy.png", alt: "Les Frères Dutruy", h: "h-10 sm:h-12 md:h-14", url: "https://www.lesfreresdutruy.ch" },
+    { src: "/domaines/latour.png", alt: "Maison Louis Latour", h: "h-8 sm:h-10 md:h-12", url: "https://www.louislatour.com" },
+    { src: "/domaines/perrin.png", alt: "Famille Perrin", h: "h-5 sm:h-6 md:h-8", url: "https://www.familleperrin.com" },
+    { src: "/domaines/chappaz.png", alt: "Marie-Thérèse Chappaz", h: "h-10 sm:h-12 md:h-14", url: "https://www.chappaz.ch" },
   ];
 
    const [logos] = useState(initialLogos);
@@ -166,18 +166,22 @@ function PrestigiousDomains() {
           {locale === "fr" ? "Domaines reçus" : "Past guest estates"}
         </p>
       </FadeIn>
-      <div className="relative flex overflow-hidden group">
+      <div className="scroll-banner-container relative flex overflow-hidden group">
         <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-bg to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-bg to-transparent z-10 pointer-events-none" />
         <div className="flex w-max">
-          <div className={`flex items-center gap-16 sm:gap-24 pr-16 sm:pr-24 flex-shrink-0 ${mounted ? "scroll-banner" : ""} group-hover:[animation-play-state:paused]`}>
+          <div className={`flex items-center gap-16 sm:gap-24 pr-16 sm:pr-24 flex-shrink-0 ${mounted ? "scroll-banner" : ""}`}>
             {logos.map((logo, i) => (
-              <img key={`a-${i}`} src={logo.src} alt={logo.alt} className={`${logo.h} w-auto object-contain flex-shrink-0`} />
+              <a key={`a-${i}`} href={logo.url} target="_blank" rel="noopener noreferrer" aria-label={logo.alt} className="flex-shrink-0 transition-opacity duration-300 hover:opacity-70">
+                <img src={logo.src} alt={logo.alt} className={`${logo.h} w-auto object-contain`} />
+              </a>
             ))}
           </div>
-          <div className={`flex items-center gap-16 sm:gap-24 pr-16 sm:pr-24 flex-shrink-0 ${mounted ? "scroll-banner" : ""} group-hover:[animation-play-state:paused]`} aria-hidden="true">
+          <div className={`flex items-center gap-16 sm:gap-24 pr-16 sm:pr-24 flex-shrink-0 ${mounted ? "scroll-banner" : ""}`} aria-hidden="true">
             {logos.map((logo, i) => (
-              <img key={`b-${i}`} src={logo.src} alt={logo.alt} className={`${logo.h} w-auto object-contain flex-shrink-0`} />
+              <a key={`b-${i}`} href={logo.url} target="_blank" rel="noopener noreferrer" tabIndex={-1} className="flex-shrink-0 transition-opacity duration-300 hover:opacity-70">
+                <img src={logo.src} alt={logo.alt} className={`${logo.h} w-auto object-contain`} />
+              </a>
             ))}
           </div>
         </div>
