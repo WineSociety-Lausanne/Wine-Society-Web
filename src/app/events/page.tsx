@@ -21,13 +21,19 @@ function InstagramEmbed({ url }: { url: string }) {
 
   return (
     <div className="max-w-lg mx-auto mb-6">
-      <iframe
-        src={`https://www.instagram.com/p/${postId}/embed`}
-        className="w-full border-0 rounded"
-        style={{ minHeight: "700px" }}
-        scrolling="no"
-        title="Instagram"
-      />
+      {/* Cadre au ratio photo carrée (100%) + hauteur de l'en-tête Instagram (~54px).
+          overflow-hidden coupe la barre "J'aime" / légende sous la photo. */}
+      <div
+        className="relative w-full overflow-hidden rounded"
+        style={{ paddingBottom: "calc(125% + 54px)" }}
+      >
+        <iframe
+          src={`https://www.instagram.com/p/${postId}/embed`}
+          className="absolute top-0 left-0 w-full h-full border-0"
+          scrolling="no"
+          title="Instagram"
+        />
+      </div>
     </div>
   );
 }

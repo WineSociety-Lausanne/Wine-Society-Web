@@ -294,7 +294,7 @@ function Activities() {
         <div className="hidden md:grid md:grid-cols-3 gap-6">
           {cards.map((card, i) => (
             <FadeUp key={i} delay={i * 0.15}>
-              <div className="border-t border-gold-400/20 pt-8 h-full group">
+              <div className="border-t border-gold-400/20 pt-8 h-full group origin-center transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:scale-[1.05] hover:relative hover:z-10">
                 <span className="font-headline text-gold-400/20 text-3xl sm:text-4xl">
                   {card.num}
                 </span>
@@ -406,8 +406,8 @@ function CTASection() {
           <p className="font-body text-dark-500 text-sm leading-relaxed max-w-xl mx-auto mb-12">
             {t.partners.reasons[0].desc}
           </p>
-          <div className="flex flex-col sm:flex-row gap-5 justify-center">
-            <Link href="/partenaires" className="btn-primary inline-flex items-center gap-3">
+          <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
+            <Link href="/partenaires" className="btn-primary inline-flex items-center justify-center gap-3">
               {t.partners.become}
               <ArrowRight className="w-4 h-4" />
             </Link>
