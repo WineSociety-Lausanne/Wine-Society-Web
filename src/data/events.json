@@ -1,14 +1,28 @@
 [
   {
-    "slug": "mouex",
+    "slug": "david-reynaud-domaine-les-bruyeres",
+    "date": "2026-09-30",
+    "region": "rhone",
+    "titleFr": "David Reynaud - Domaine Les Bruyères",
+    "titleEn": "David Reynaud - Domaine Les Bruyères",
+    "descFr": "Une dégustation exceptionnelle avec le Domaine Les Bruyères (David Reynaud). Venez découvrir leurs magnifiques cuvées de la Vallée du Rhône (Crozes-Hermitage, Saint-Joseph, IGP) lors d'une soirée en deux temps : dégustation assise suivie d'un apéritif convivial.",
+    "descEn": "An exceptional tasting with Domaine Les Bruyères (David Reynaud). Come and discover their magnificent Rhône Valley cuvées (Crozes-Hermitage, Saint-Joseph, IGP) during a two-part evening: a seated tasting followed by a convivial apéritif.",
+    "longDescFr": "La Wine Society a le plaisir d'accueillir le Domaine Les Bruyères pour une magnifique dégustation au cœur de la Vallée du Rhône Septentrionale. Cultivant la vigne en biodynamie, le domaine nous fera l'honneur de présenter 6 de ses superbes cuvées, allant de magnifiques IGP aux illustres appellations Crozes-Hermitage et Saint-Joseph.\nLa soirée se déroulera en deux actes :\n• Une première partie classique avec une dégustation assise et commentée pour découvrir en détail les 6 vins du domaine.\n• Un second moment plus convivial autour d'un apéritif préparé par nos soins, qui mettra à l'honneur une cuvée \"coup de cœur\" du domaine.\nUne belle occasion d'échanger et de passer commande directement auprès du domaine. Nous vous attendons nombreux au Vortex pour cette belle soirée de découvertes œnologiques !",
+    "longDescEn": "The Wine Society is delighted to welcome Domaine Les Bruyères for a magnificent tasting showcasing the Northern Rhône Valley. Farming biodynamically, the estate will honor us by presenting 6 of its superb cuvées, ranging from beautiful IGPs to the renowned Crozes-Hermitage and Saint-Joseph appellations.\nThe evening will be divided into two parts:\n• A classic first part with a seated, guided tasting to discover the 6 wines of the estate in detail.\n• A more convivial second part around an apéritif prepared by our team, highlighting a \"favorite\" cuvée from the estate.\nThis will be a great opportunity to chat and order wine directly from the estate. We look forward to seeing many of you at the Vortex for this wonderful evening of wine discovery!",
+    "time": "19:00",
+    "location": "Vortex, Campus UNIL-EPFL",
+    "spots": 40
+  },
+  {
+    "slug": "jean-Pierre-moueix",
     "date": "2026-11-12",
     "region": "bordeaux",
     "titleFr": "Jean-Pierre Moueix",
     "titleEn": "Jean-Pierre Moueix",
-    "descFr": "Les seigneurs de la Rive Droite, maîtres absolus du classicisme et de l'élégance intemporelle de Pomerol.",
-    "descEn": "The rulers of the Right Bank, absolute masters of classicism and the timeless elegance of Pomerol.",
-    "longDescFr": "Rejoignez-nous pour la première dégustation de la saison 2026-2027 ! Une soirée de bienvenue ouverte à tous les étudiants, avec une sélection de vins pour bien commencer l'année. 4 à 6 cuvées dégustées, suivies d'un apéritif convivial.",
-    "longDescEn": "Join us for the first tasting of the 2026-2027 season! A welcome evening open to all students, featuring a selection of wines to kick off the year. 4 to 6 wines tasted, followed by a convivial aperitif.",
+    "descFr": "Découvrez les Établissements Jean-Pierre Moueix, figures emblématiques de la Rive Droite. Une soirée exceptionnelle pour explorer le classicisme absolu et l'élégance intemporelle des grands vins de Pomerol et Saint-Émilion.",
+    "descEn": "Discover Jean-Pierre Moueix, the iconic figures of the Right Bank. An exceptional evening to explore the absolute classicism and timeless elegance of the great wines of Pomerol and Saint-Émilion.",
+    "longDescFr": "La Wine Society a l'immense privilège de mettre à l'honneur les Établissements Jean-Pierre Moueix pour une dégustation de haut vol. Véritables maîtres de la Rive Droite bordelaise, ils incarnent le classicisme absolu et l'élégance intemporelle des grands terroirs de Pomerol et de Saint-Émilion.\nAu programme de cette soirée : une dégustation commentée de 4 à 6 cuvées prestigieuses pour vous plonger dans la magie des grands merlots. La présentation sera suivie d'un apéritif convivial, l'occasion parfaite pour échanger entre passionnés et prolonger la découverte.\nNous vous attendons nombreux au Vortex pour célébrer la richesse de ces appellations mythiques !",
+    "longDescEn": "The Wine Society has the immense privilege of highlighting Jean-Pierre Moueix for a top-tier tasting. True masters of the Bordeaux Right Bank, they embody the absolute classicism and timeless elegance of the great terroirs of Pomerol and Saint-Émilion.\nOn the agenda for this evening: a guided tasting of 4 to 6 prestigious wines to immerse yourself in the magic of great Merlots. The presentation will be followed by a convivial aperitif, the perfect opportunity to chat with fellow wine enthusiasts and prolong the discovery.\nWe look forward to seeing many of you at the Vortex to celebrate the richness of these legendary appellations!",
     "time": "19:00",
     "location": "Vortex, Campus UNIL-EPFL",
     "spots": 40
