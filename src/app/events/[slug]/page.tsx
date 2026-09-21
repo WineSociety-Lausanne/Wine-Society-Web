@@ -7,6 +7,26 @@ import { FadeUp } from "@/components/AnimatedText";
 import { ArrowLeft, Calendar, Clock, MapPin, Users } from "lucide-react";
 import { getEventBySlug } from "@/lib/events";
 
+// Un Google Form ne s'affiche dans une iframe que si l'URL contient
+// ?embedded=true. On accepte donc n'importe quel lien Google Forms
+// (lien de partage ?usp=..., ou lien d'intégration) et on le normalise.
+function toEmbedUrl(raw: string): string {
+  try {
+    const url = new URL(raw);
+    if (
+      url.hostname.includes("docs.google.com") &&
+      url.pathname.includes("/viewform")
+    ) {
+      url.searchParams.delete("usp");
+      url.searchParams.set("embedded", "true");
+      return url.toString();
+    }
+    return raw;
+  } catch {
+    return raw;
+  }
+}
+
 export default function EventPage() {
   const params = useParams();
   const slug = params.slug as string;
@@ -143,7 +163,7 @@ export default function EventPage() {
                 {event.formUrl ? (
                   <div className="bg-dark-900 border border-white/5 overflow-hidden rounded-xl">
                     <iframe
-                      src={event.formUrl}
+                      src={toEmbedUrl(event.formUrl)}
                       width="100%"
                       height="800"
                       className="border-0 rounded-xl"
