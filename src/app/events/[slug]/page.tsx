@@ -58,6 +58,13 @@ export default function EventPage() {
     locale === "fr" ? "Apéritif offert après la dégustation" : "Complimentary aperitif after the tasting",
   ];
 
+  // Requête Google Maps fiable : « Vortex, Campus UNIL-EPFL » ne tombe pas sur le
+  // bon bâtiment, alors que « Vortex EPFL » est un lieu reconnu par Maps.
+  const mapQuery =
+    event.location && /vortex/i.test(event.location)
+      ? "Vortex EPFL, Lausanne"
+      : event.location ?? "";
+
   return (
     <>
       {/* Héros */}
@@ -99,7 +106,7 @@ export default function EventPage() {
               )}
               {event.location && (
                 <a
-                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.location)}`}
+                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapQuery)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 hover:text-gold-400 transition-colors"
