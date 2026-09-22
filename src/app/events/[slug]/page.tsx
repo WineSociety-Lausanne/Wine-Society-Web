@@ -4,21 +4,20 @@ import { useParams } from "next/navigation";
 import Link from "next/link";
 import { useLang } from "@/lib/lang-context";
 import { FadeUp } from "@/components/AnimatedText";
-import { ArrowLeft, Calendar, Clock, MapPin, Users } from "lucide-react";
+import { ArrowLeft, Calendar, Clock, ExternalLink, MapPin, Users } from "lucide-react";
 import { getEventBySlug } from "@/lib/events";
 
-// Un Google Form ne s'affiche dans une iframe que si l'URL contient
-// ?embedded=true. On accepte donc n'importe quel lien Google Forms
-// (lien de partage ?usp=..., ou lien d'intégration) et on le normalise.
-function toEmbedUrl(raw: string): string {
+// Lien d'inscription ouvert en plein écran (nouvel onglet), pas en iframe.
+// On retire les paramètres qui cassent l'accès : usp (lien éditeur),
+// ouid (identifiant du compte propriétaire, source d'erreurs de connexion)
+// et embedded (réservé à l'iframe).
+function toFormLink(raw: string): string {
   try {
     const url = new URL(raw);
-    if (
-      url.hostname.includes("docs.google.com") &&
-      url.pathname.includes("/viewform")
-    ) {
+    if (url.hostname.includes("docs.google.com")) {
       url.searchParams.delete("usp");
-      url.searchParams.set("embedded", "true");
+      url.searchParams.delete("ouid");
+      url.searchParams.delete("embedded");
       return url.toString();
     }
     return raw;
@@ -161,16 +160,27 @@ export default function EventPage() {
                 </h3>
 
                 {event.formUrl ? (
-                  <div className="bg-dark-900 border border-white/5 overflow-hidden rounded-xl">
-                    <iframe
-                      src={toEmbedUrl(event.formUrl)}
-                      width="100%"
-                      height="800"
-                      className="border-0 rounded-xl"
-                      title={locale === "fr" ? "Formulaire d'inscription" : "Registration form"}
+                  <div className="bg-dark-900 border border-white/5 p-10 md:p-12 text-center flex flex-col items-center justify-center rounded-xl">
+                    <div className="w-16 h-16 border border-gold-500/20 rounded-full flex items-center justify-center mb-6">
+                      <Users className="w-7 h-7 text-gold-500/60" />
+                    </div>
+                    <p className="font-display text-xl text-cream-100 mb-3">
+                      {locale === "fr" ? "Réserve ta place" : "Reserve your spot"}
+                    </p>
+                    <p className="font-body text-sm text-dark-500 max-w-sm mb-8">
+                      {locale === "fr"
+                        ? "L'inscription se fait via notre formulaire, où tu pourras joindre ta preuve de paiement. Une connexion à un compte Google est nécessaire pour envoyer le justificatif."
+                        : "Registration is handled through our form, where you can attach your proof of payment. A Google account sign-in is required to upload the receipt."}
+                    </p>
+                    <a
+                      href={toFormLink(event.formUrl)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-primary inline-flex items-center justify-center gap-3"
                     >
-                      {locale === "fr" ? "Chargement du formulaire..." : "Loading form..."}
-                    </iframe>
+                      {locale === "fr" ? "S'inscrire" : "Register"}
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
                   </div>
                 ) : (
                   <div className="bg-dark-900 border border-white/5 p-12 text-center min-h-[400px] flex flex-col items-center justify-center rounded-xl">
