@@ -12,11 +12,7 @@
     "time": "19:00",
     "location": "Vortex, Campus UNIL-EPFL",
     "spots": 40,
-<<<<<<< HEAD
     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSd9RHepJdW-0I-2nn0o9Q7HhFhCysEkcS0HXByzKAO-ugU64w/viewform"
-=======
-    "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSd9RHepJdW-0I-2nn0o9Q7HhFhCysEkcS0HXByzKAO-ugU64w/viewform?usp=sharing&ouid=114998023327731452283"
->>>>>>> c70f8dbc84617cb35ae8ab88ec197b34cc2bea4d
   },
   {
     "slug": "jean-Pierre-moueix",
