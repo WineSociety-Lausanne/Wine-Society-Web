@@ -1,5 +1,19 @@
 [
   {
+    "slug": "jean-Pierre-moueix",
+    "date": "2026-11-12",
+    "region": "bordeaux",
+    "titleFr": "Jean-Pierre Moueix",
+    "titleEn": "Jean-Pierre Moueix",
+    "descFr": "Découvrez les Établissements Jean-Pierre Moueix, figures emblématiques de la Rive Droite. Une soirée exceptionnelle pour explorer le classicisme absolu et l'élégance intemporelle des grands vins de Pomerol et Saint-Émilion.",
+    "descEn": "Discover Jean-Pierre Moueix, the iconic figures of the Right Bank. An exceptional evening to explore the absolute classicism and timeless elegance of the great wines of Pomerol and Saint-Émilion.",
+    "longDescFr": "La Wine Society a l'immense privilège de mettre à l'honneur les Établissements Jean-Pierre Moueix pour une dégustation de haut vol. Véritables maîtres de la Rive Droite bordelaise, ils incarnent le classicisme absolu et l'élégance intemporelle des grands terroirs de Pomerol et de Saint-Émilion.\nAu programme de cette soirée : une dégustation commentée de 4 à 6 cuvées prestigieuses pour vous plonger dans la magie des grands merlots. La présentation sera suivie d'un apéritif convivial, l'occasion parfaite pour échanger entre passionnés et prolonger la découverte.\nNous vous attendons nombreux au Vortex pour célébrer la richesse de ces appellations mythiques !",
+    "longDescEn": "The Wine Society has the immense privilege of highlighting Jean-Pierre Moueix for a top-tier tasting. True masters of the Bordeaux Right Bank, they embody the absolute classicism and timeless elegance of the great terroirs of Pomerol and Saint-Émilion.\nOn the agenda for this evening: a guided tasting of 4 to 6 prestigious wines to immerse yourself in the magic of great Merlots. The presentation will be followed by a convivial aperitif, the perfect opportunity to chat with fellow wine enthusiasts and prolong the discovery.\nWe look forward to seeing many of you at the Vortex to celebrate the richness of these legendary appellations!",
+    "time": "19:00",
+    "location": "Vortex, Campus UNIL-EPFL",
+    "spots": 40
+  },
+  {
     "slug": "david-reynaud-domaine-les-bruyeres",
     "date": "2026-09-30",
     "region": "rhone",
@@ -13,20 +27,6 @@
     "location": "Vortex, Campus UNIL-EPFL",
     "spots": 42,
     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSd9RHepJdW-0I-2nn0o9Q7HhFhCysEkcS0HXByzKAO-ugU64w/viewform"
-  },
-  {
-    "slug": "jean-Pierre-moueix",
-    "date": "2026-11-12",
-    "region": "bordeaux",
-    "titleFr": "Jean-Pierre Moueix",
-    "titleEn": "Jean-Pierre Moueix",
-    "descFr": "Découvrez les Établissements Jean-Pierre Moueix, figures emblématiques de la Rive Droite. Une soirée exceptionnelle pour explorer le classicisme absolu et l'élégance intemporelle des grands vins de Pomerol et Saint-Émilion.",
-    "descEn": "Discover Jean-Pierre Moueix, the iconic figures of the Right Bank. An exceptional evening to explore the absolute classicism and timeless elegance of the great wines of Pomerol and Saint-Émilion.",
-    "longDescFr": "La Wine Society a l'immense privilège de mettre à l'honneur les Établissements Jean-Pierre Moueix pour une dégustation de haut vol. Véritables maîtres de la Rive Droite bordelaise, ils incarnent le classicisme absolu et l'élégance intemporelle des grands terroirs de Pomerol et de Saint-Émilion.\nAu programme de cette soirée : une dégustation commentée de 4 à 6 cuvées prestigieuses pour vous plonger dans la magie des grands merlots. La présentation sera suivie d'un apéritif convivial, l'occasion parfaite pour échanger entre passionnés et prolonger la découverte.\nNous vous attendons nombreux au Vortex pour célébrer la richesse de ces appellations mythiques !",
-    "longDescEn": "The Wine Society has the immense privilege of highlighting Jean-Pierre Moueix for a top-tier tasting. True masters of the Bordeaux Right Bank, they embody the absolute classicism and timeless elegance of the great terroirs of Pomerol and Saint-Émilion.\nOn the agenda for this evening: a guided tasting of 4 to 6 prestigious wines to immerse yourself in the magic of great Merlots. The presentation will be followed by a convivial aperitif, the perfect opportunity to chat with fellow wine enthusiasts and prolong the discovery.\nWe look forward to seeing many of you at the Vortex to celebrate the richness of these legendary appellations!",
-    "time": "19:00",
-    "location": "Vortex, Campus UNIL-EPFL",
-    "spots": 40
   },
   {
     "slug": "chateau-branaire-ducru",
