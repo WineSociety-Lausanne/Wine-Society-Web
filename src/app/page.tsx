@@ -146,6 +146,9 @@ function PrestigiousDomains() {
     { src: "/domaines/latour.png", alt: "Maison Louis Latour", h: "h-8 sm:h-10 md:h-12", url: "https://www.louislatour.com" },
     { src: "/domaines/perrin.png", alt: "Famille Perrin", h: "h-5 sm:h-6 md:h-8", url: "https://www.familleperrin.com" },
     { src: "/domaines/chappaz.png", alt: "Marie-Thérèse Chappaz", h: "h-10 sm:h-12 md:h-14", url: "https://www.chappaz.ch" },
+    { src: "/domaines/cos-estournel.png", alt: "Château Cos d'Estournel", h: "h-16 sm:h-18 md:h-20", url: "https://www.estournel.com" },
+    { src: "/domaines/belair-monange.png", alt: "Château Bélair-Monange", h: "h-12 sm:h-14 md:h-16", url: "https://www.moueix.com" },
+    { src: "/domaines/la-fleur-petrus.png", alt: "Château La Fleur-Pétrus", h: "h-16 sm:h-18 md:h-20", url: "https://www.moueix.com" },
   ];
 
    const [logos] = useState(initialLogos);

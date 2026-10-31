@@ -16,23 +16,24 @@ const initials = (name: string) =>
 
 // 1. Comité (Direction)
 const direction = [
-  { nameKey: "president", name: "Damien Grosset-Bourbange", fallbackRole: "Président" },
-  { nameKey: "vicePresident", name: "Jan Hoffman", fallbackRole: "Vice-Président" },
-  { nameKey: "treasurer", name: "Thomas Grosso", fallbackRole: "Trésorier" },
+  { nameKey: "president", name: "Jan Hoffman", fallbackRole: "Président" },
+  { nameKey: "vicePresident", name: "Adonis Casteret", fallbackRole: "Vice-Président" },
+  { nameKey: "treasurer", name: "Youenn Boloré", fallbackRole: "Trésorier" },
 ];
 
 // 2. Responsables de Pôles
 const responsables = [
   { nameKey: "events", name: "Orso Renucci", fallbackRole: "Responsable Événements" },
-  { nameKey: "sponsorship", name: "Adonis Casteret", fallbackRole: "Responsable Sponsoring" },
+  //{ nameKey: "sponsorship", name: "Adonis Casteret", fallbackRole: "Responsable Sponsoring" },
   { nameKey: "communication", name: "Mirko Von Kaenel", fallbackRole: "Responsable Communication" },
+  { nameKey: "logistique", name: "Louis Steinmetz", fallbackRole: "Responsable Logistique" }
 ];
 
 // 3. Membres, regroupés par pôle
 const poles = [
-  { fr: "Pôle Événements", en: "Events", members: ["Stephanie Kuttler", "Elsa Martinoli", "Youenn Boloré", "Hippolyte Richard"] },
-  { fr: "Pôle Sponsoring", en: "Sponsorship", members: ["Colin Leproux", "Eva Krief"] },
-  { fr: "Pôle Logistique", en: "Logistics", members: ["Louis Steinmetz", "Jules Weill"] },
+  { fr: "Pôle Événements", en: "Events", members: ["Stephanie Kuttler", "Elsa Martinoli", "Hippolyte Richard","Colin Leproux", "Eva Krief"] },
+  //{ fr: "Pôle Sponsoring", en: "Sponsorship", members: ["Colin Leproux", "Eva Krief"] },
+  { fr: "Pôle Logistique", en: "Logistics", members: ["Jules Weill"] },
   { fr: "Pôle Communication", en: "Communication", members: ["Eva Beyer"] },
 ];
 
