@@ -1,5 +1,17 @@
 [
   {
+    "slug": "chateau-cos-d-estournel",
+    "date": "2026-11-04",
+    "region": "bordeaux",
+    "titleFr": "Château Cos d’Estournel",
+    "titleEn": "Château Cos d’Estournel",
+    "descFr": "L’un des plus grands 2èmes Grands Crus Classés de Bordeaux, icône du Médoc et du Saint-Estèphe",
+    "descEn": "One of Bordeaux’s greatest 2nd Grand Cru Classé, an icon of the Médoc and Saint-Estèphe",
+    "time": "19:00",
+    "location": "Vortex - Salle EPFL-UNIL",
+    "spots": 20
+  },
+  {
     "slug": "jean-Pierre-moueix",
     "date": "2026-11-12",
     "region": "bordeaux",
@@ -14,6 +26,30 @@
     "spots": 40
   },
   {
+    "slug": "domaine-la-capitaine",
+    "date": "2026-11-25",
+    "region": "suisse",
+    "titleFr": "Domaine La Capitaine",
+    "titleEn": "Domaine La Capitaine",
+    "descFr": "Découverte des vins du vignoble vaudois avec le Domaine La Capitaine",
+    "descEn": "Discovering the wines of the Vaud vineyards with Domaine La Capitaine",
+    "time": "19:00",
+    "location": "Vortex - Salle EPFL-UNIL",
+    "spots": 42
+  },
+  {
+    "slug": "blanchard-l-etivaz-accord-vin-et-fromage",
+    "date": "2026-12-09",
+    "region": "suisse",
+    "titleFr": "Blanchard × L’Étivaz — Accord Vin & Fromage",
+    "titleEn": "Blanchard × L’Étivaz — Wine & Cheese Pairing",
+    "descFr": "Une soirée inédite autour de l’accord entre les vins Blanchard et le célèbre fromage alpin L’Étivaz",
+    "descEn": "A unique evening exploring the pairing of Blanchard wines with the iconic alpine cheese L’Étivaz",
+    "time": "19:00",
+    "location": "Vortex - Salle EPFL-UNIL",
+    "spots": 35
+  },
+  {
     "slug": "david-reynaud-domaine-les-bruyeres",
     "date": "2026-09-30",
     "region": "rhone",
@@ -26,7 +62,8 @@
     "time": "19:00",
     "location": "Vortex, Campus UNIL-EPFL",
     "spots": 42,
-    "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSd9RHepJdW-0I-2nn0o9Q7HhFhCysEkcS0HXByzKAO-ugU64w/viewform"
+    "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSd9RHepJdW-0I-2nn0o9Q7HhFhCysEkcS0HXByzKAO-ugU64w/viewform",
+    "instagram": "https://www.instagram.com/p/DeEr2BTiHYy/?img_index=1"
   },
   {
     "slug": "chateau-branaire-ducru",
