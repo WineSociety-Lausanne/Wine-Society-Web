@@ -25,7 +25,7 @@ const direction = [
 const responsables = [
   { nameKey: "events", name: "Orso Renucci", fallbackRole: "Responsable Événements" },
   //{ nameKey: "sponsorship", name: "Adonis Casteret", fallbackRole: "Responsable Sponsoring" },
-  { nameKey: "communication", name: "Mirko Von Kaenel", fallbackRole: "Responsable Communication" },
+  { nameKey: "communication", name: "Eva Beyer", fallbackRole: "Responsable Communication" },
   { nameKey: "logistique", name: "Louis Steinmetz", fallbackRole: "Responsable Logistique" }
 ];
 
@@ -34,7 +34,7 @@ const poles = [
   { fr: "Pôle Événements", en: "Events", members: ["Stephanie Kuttler", "Elsa Martinoli", "Hippolyte Richard","Colin Leproux", "Eva Krief"] },
   //{ fr: "Pôle Sponsoring", en: "Sponsorship", members: ["Colin Leproux", "Eva Krief"] },
   { fr: "Pôle Logistique", en: "Logistics", members: ["Jules Weill"] },
-  { fr: "Pôle Communication", en: "Communication", members: ["Eva Beyer"] },
+  { fr: "Pôle Communication", en: "Communication", members: ["Mirko Von Kaenel"] },
 ];
 
 export default function TeamPage() {
