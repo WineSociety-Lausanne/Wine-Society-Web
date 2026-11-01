@@ -394,6 +394,60 @@ function Activities() {
   );
 }
 
+function Gallery() {
+  const { locale } = useLang();
+
+  const photos = [
+    { src: "/gallery/masterclass-drouhin.jpg", title: "Masterclass", sub: locale === "fr" ? "Soirée Joseph Drouhin" : "An evening with Joseph Drouhin" },
+    { src: "/gallery/drouhin-chambolle.jpg", title: "Joseph Drouhin", sub: "Chambolle-Musigny 1er Cru" },
+    { src: "/gallery/salle-comble.jpg", title: locale === "fr" ? "Dégustation" : "Tasting", sub: locale === "fr" ? "Salle comble à l'EPFL" : "A full house at EPFL" },
+    { src: "/gallery/perrin-chateauneuf.jpg", title: "Famille Perrin", sub: "Châteauneuf-du-Pape" },
+    { src: "/gallery/branaire-ducru.jpg", title: "Château Branaire-Ducru", sub: "Saint-Julien" },
+  ];
+
+  return (
+    <section className="section-padding">
+      <div className="max-w-6xl mx-auto">
+        <SectionHeader
+          title={locale === "fr" ? "Nos dégustations" : "Our tastings"}
+          subtitle={locale === "fr" ? "En images" : "In pictures"}
+        />
+
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+          {photos.map((photo, i) => (
+            <FadeUp
+              key={photo.src}
+              delay={i * 0.08}
+              className={i === 0 ? "col-span-2 lg:col-span-1 lg:row-span-2" : ""}
+            >
+              <div className="group relative overflow-hidden h-full bg-bg-dark">
+                <div className={`overflow-hidden h-full ${i === 0 ? "aspect-[4/5] lg:aspect-auto lg:h-full" : "aspect-[4/5]"}`}>
+                  <img
+                    src={photo.src}
+                    alt={`${photo.title} — ${photo.sub}`}
+                    className="w-full h-full object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.05]"
+                  />
+                </div>
+                <div className="absolute inset-x-0 bottom-0 p-5 md:p-6 bg-gradient-to-t from-wine-950/90 via-wine-950/25 to-transparent">
+                  <span className="font-body text-gold-400 text-[10px] tracking-[0.25em] block mb-1">
+                    0{i + 1}
+                  </span>
+                  <h3 className="font-display text-cream-100 text-lg md:text-xl leading-tight">
+                    {photo.title}
+                  </h3>
+                  <p className="font-body text-cream-200/70 text-[11px] md:text-xs mt-0.5 tracking-wide">
+                    {photo.sub}
+                  </p>
+                </div>
+              </div>
+            </FadeUp>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function CTASection() {
   const { t, locale } = useLang();
   return (
@@ -431,6 +485,7 @@ export default function HomePage() {
       <PrestigiousDomains />
       <About />
       <Activities />
+      <Gallery />
       <CTASection />
     </>
   );
