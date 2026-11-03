@@ -163,10 +163,11 @@ export const dictionaries = {
       roles: {
         president: "Président",
         vicePresident: "Vice-président",
-        sponsorship: "Responsable Sponsorship",
+        sponsorship: "Vice-président",
         events: "Responsable Événements",
         communication: "Responsable Communication",
         treasurer: "Trésorier",
+        logistique: "Responsable Logistique",
         memberEvent: "Pôle Événements",
         memberComm: "Pôle Communication",
         memberSponso: "Pôle Sponsoring",
@@ -197,7 +198,7 @@ export const dictionaries = {
       info: {
         sponsoring: "Sponsoring",
         sponsoringName: "Adonis Casteret",
-        sponsoringRole: "Responsable Sponsorship",
+        sponsoringRole: "Vice-président",
         general: "Contact général",
         email: "contact@wine-society.ch",
         website: "www.wine-society.ch",
@@ -374,10 +375,11 @@ export const dictionaries = {
       roles: {
         president: "President",
         vicePresident: "Vice-President",
-        sponsorship: "Head of Sponsorship",
+        sponsorship: "Vice-president",
         events: "Head of Events",
         communication: "Head of Communication",
         treasurer: "Treasurer",
+        logistique: "Head of Logistics",
         memberEvent: "Events Team",
         memberComm: "Communication Team",
         memberSponso: "Sponsorship Team",
@@ -408,7 +410,7 @@ export const dictionaries = {
       info: {
         sponsoring: "Sponsoring",
         sponsoringName: "Adonis Casteret",
-        sponsoringRole: "Head of Sponsorship",
+        sponsoringRole: "Vice-president",
         general: "General contact",
         email: "contact@wine-society.ch",
         website: "www.wine-society.ch",

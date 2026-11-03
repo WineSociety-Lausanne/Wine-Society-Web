@@ -2,6 +2,7 @@
 
 import { useParams } from "next/navigation";
 import Link from "next/link";
+import Script from "next/script";
 import { useLang } from "@/lib/lang-context";
 import { FadeUp } from "@/components/AnimatedText";
 import { ArrowLeft, Calendar, Clock, ExternalLink, MapPin, Users } from "lucide-react";
@@ -160,7 +161,35 @@ export default function EventPage() {
 
               {/* Inscription */}
               <div className="md:sticky md:top-28">
-                {event.formUrl ? (
+                {event.eventfrogEventId ? (
+                  <div className="bg-bg-alt border border-wine-800/10 rounded-2xl p-8 md:p-9 text-center flex flex-col items-center">
+                    <div className="w-14 h-14 rounded-full border border-gold-500/30 flex items-center justify-center mb-6">
+                      <Users className="w-6 h-6 text-gold-600/70" />
+                    </div>
+                    <p className="font-display text-xl text-wine-900 mb-2">
+                      {locale === "fr" ? "Réserve ta place" : "Reserve your spot"}
+                    </p>
+                    <p className="font-body text-sm text-dark-600 leading-relaxed mb-7">
+                      {locale === "fr"
+                        ? "Billets en vente via Eventfrog, paiement sécurisé."
+                        : "Tickets on sale via Eventfrog, secure payment."}
+                    </p>
+                    <div className="overflow-hidden rounded-md bg-white" style={{ width: 260, height: 47 }}>
+                      <iframe
+                        src={`https://embed.eventfrog.ch/${locale === "fr" ? "fr" : "en"}/embed/button-buy.html?eventId=${event.eventfrogEventId}`}
+                        title="Eventfrog"
+                        scrolling="no"
+                        width="260"
+                        height="47"
+                        className="border-0 block"
+                      />
+                    </div>
+                    <Script
+                      src="https://embed.eventfrog.ch/api/scripts/embed/buybutton.js"
+                      strategy="lazyOnload"
+                    />
+                  </div>
+                ) : event.formUrl ? (
                   <div className="relative overflow-hidden bg-wine-950 rounded-2xl p-9 md:p-10 text-center flex flex-col items-center">
                     <div className="absolute -top-16 -right-16 w-40 h-40 rounded-full bg-wine-700/25 blur-2xl" />
                     <div className="relative z-10 flex flex-col items-center w-full">

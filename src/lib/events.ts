@@ -23,6 +23,8 @@ export type WineEvent = {
   location?: string;
   spots?: number;
   formUrl?: string | null;
+  /** Identifiant Eventfrog de l'événement (eventId) : affiche le bouton d'achat de billets. */
+  eventfrogEventId?: string;
 
   /** Champs "passés" */
   instagram?: string;

@@ -56,12 +56,43 @@ export default function EventsPage() {
 
   return (
     <>
-      <section className="relative px-6 md:px-12 lg:px-24 pt-40 pb-16 bg-wine-900">
+      <section className="relative px-6 md:px-12 lg:px-24 pt-40 pb-16 bg-wine-900 overflow-hidden">
+        <img
+          src="/gallery/lbbc-degustation.jpg"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover object-center opacity-45"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-wine-950 via-wine-900/85 to-wine-900/70" />
         <div className="relative z-10 max-w-5xl mx-auto">
           <PageHeader
             kicker={locale === "fr" ? "Depuis 2014" : "Since 2014"}
             title={t.events.title}
           />
+        </div>
+      </section>
+
+      {/* Bande d'ambiance */}
+      <section className="bg-wine-900">
+        <div className="grid grid-cols-3">
+          {[
+            { src: "/gallery/jura-tissot-cave.jpg", label: locale === "fr" ? "Visite au Jura" : "Visit to the Jura" },
+            { src: "/gallery/gala-diner.jpg", label: locale === "fr" ? "Dîner de gala" : "Gala dinner" },
+            { src: "/gallery/equipe-londres.jpg", label: locale === "fr" ? "Left Bank Bordeaux Cup" : "Left Bank Bordeaux Cup" },
+          ].map((p) => (
+            <div key={p.src} className="group relative overflow-hidden aspect-[4/3] sm:aspect-[3/2]">
+              <img
+                src={p.src}
+                alt={p.label}
+                loading="lazy"
+                className="w-full h-full object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-wine-950/10 group-hover:bg-wine-950/0 transition-colors duration-500" />
+              <span className="absolute bottom-0 left-0 right-0 p-3 md:p-4 font-body text-[9px] md:text-[10px] uppercase tracking-[0.2em] text-cream-100/90 bg-gradient-to-t from-wine-950/80 to-transparent">
+                {p.label}
+              </span>
+            </div>
+          ))}
         </div>
       </section>
 

@@ -33,7 +33,7 @@ export default function ContactPage() {
                 {locale === "fr" ? "Responsable Événements" : "Head of Events"}
               </p>
               <div className="mt-6 space-y-3 text-cream-200/60 font-body text-sm">
-                <a href="mailto:orso.renucci@epfl.ch" className="flex items-center gap-3 hover:text-cream-100 transition-colors"><Mail className="w-3.5 h-3.5 text-gold-400/40" />orso.renucci@epfl.ch</a>
+                <a href="mailto:orso.renucci@ethz.ch" className="flex items-center gap-3 hover:text-cream-100 transition-colors"><Mail className="w-3.5 h-3.5 text-gold-400/40" />orso.renucci@ethz.ch</a>
                 <a href="tel:+33669976598" className="flex items-center gap-3 hover:text-cream-100 transition-colors"><Phone className="w-3.5 h-3.5 text-gold-400/40" />+33 6 69 97 65 98</a>
               </div>
             </div>
@@ -47,7 +47,7 @@ export default function ContactPage() {
               </span>
               <p className="font-headline text-2xl text-cream-100 mt-4">Adonis Casteret</p>
               <p className="font-body text-cream-200/40 text-xs mt-1 uppercase tracking-wider">
-                {locale === "fr" ? "Responsable Sponsorship" : "Head of Sponsorship"}
+                {locale === "fr" ? "Vice-président" : "Vice-president"}
               </p>
               <div className="mt-6 space-y-3 text-cream-200/60 font-body text-sm">
                 <a href="mailto:adonis.casteret@epfl.ch" className="flex items-center gap-3 hover:text-cream-100 transition-colors"><Mail className="w-3.5 h-3.5 text-gold-400/40" />adonis.casteret@epfl.ch</a>

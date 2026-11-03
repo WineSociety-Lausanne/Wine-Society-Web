@@ -151,10 +151,20 @@ function PrestigiousDomains() {
     { src: "/domaines/la-fleur-petrus.png", alt: "Château La Fleur-Pétrus", h: "h-16 sm:h-18 md:h-20", url: "https://www.moueix.com" },
   ];
 
-   const [logos] = useState(initialLogos);
+  // Ordre stable pour le rendu serveur (évite tout décalage d'hydratation),
+  // puis on mélange côté client au montage : l'ordre change à chaque reload.
+  const [logos, setLogos] = useState(initialLogos);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setLogos((prev) => {
+      const a = [...prev];
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    });
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
         setMounted(true);
@@ -398,7 +408,7 @@ function Gallery() {
   const { locale } = useLang();
 
   const photos = [
-    { src: "/gallery/masterclass-drouhin.jpg", title: "Masterclass", sub: locale === "fr" ? "Soirée Joseph Drouhin" : "An evening with Joseph Drouhin" },
+    { src: "/gallery/lbbc-salon.jpg", title: "Left Bank Bordeaux Cup", sub: locale === "fr" ? "Londres" : "London" },
     { src: "/gallery/drouhin-chambolle.jpg", title: "Joseph Drouhin", sub: "Chambolle-Musigny 1er Cru" },
     { src: "/gallery/salle-comble.jpg", title: locale === "fr" ? "Dégustation" : "Tasting", sub: locale === "fr" ? "Salle comble à l'EPFL" : "A full house at EPFL" },
     { src: "/gallery/perrin-chateauneuf.jpg", title: "Famille Perrin", sub: "Châteauneuf-du-Pape" },
