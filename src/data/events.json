@@ -1,7 +1,7 @@
 [
   {
     "slug": "chateau-cos-d-estournel",
-    "date": "2026-11-04",
+    "date": "2026-11-02",
     "region": "bordeaux",
     "titleFr": "Château Cos d’Estournel",
     "titleEn": "Château Cos d’Estournel",
@@ -24,7 +24,8 @@
     "time": "19:00",
     "location": "Vortex, Campus UNIL-EPFL",
     "spots": 40,
-    "eventfrogEventId": "7522742381654852144"
+    "eventfrogEventId": "7522742381654852144",
+    "price": "15 CHF"
   },
   {
     "slug": "domaine-la-capitaine",

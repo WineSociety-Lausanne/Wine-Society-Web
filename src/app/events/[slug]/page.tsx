@@ -53,8 +53,10 @@ export default function EventPage() {
   );
 
   const practical = [
-    locale === "fr" ? "Ouvert à tous les étudiants EPFL, UNIL & EHL" : "Open to all EPFL, UNIL & EHL students",
-    locale === "fr" ? "Inscription obligatoire via le formulaire" : "Registration required via the form",
+    locale === "fr" ? "Ouvert à tous les étudiants" : "Open to all students",
+    event.eventfrogEventId
+      ? (locale === "fr" ? "Inscription obligatoire via la billetterie" : "Registration required via the ticketing")
+      : (locale === "fr" ? "Inscription obligatoire via le formulaire" : "Registration required via the form"),
     locale === "fr" ? "Places limitées — premier arrivé, premier servi" : "Limited spots — first come, first served",
     locale === "fr" ? "Apéritif offert après la dégustation" : "Complimentary aperitif after the tasting",
   ];
@@ -169,21 +171,27 @@ export default function EventPage() {
                     <p className="font-display text-xl text-wine-900 mb-2">
                       {locale === "fr" ? "Réserve ta place" : "Reserve your spot"}
                     </p>
-                    <p className="font-body text-sm text-dark-600 leading-relaxed mb-7">
+                    {event.price && (
+                      <p className="font-headline text-3xl text-wine-900 mb-3">{event.price}</p>
+                    )}
+                    <p className="font-body text-sm text-dark-600 leading-relaxed mb-5">
                       {locale === "fr"
                         ? "Billets en vente via Eventfrog, paiement sécurisé."
                         : "Tickets on sale via Eventfrog, secure payment."}
                     </p>
-                    <div className="overflow-hidden rounded-md bg-white" style={{ width: 260, height: 47 }}>
-                      <iframe
-                        src={`https://embed.eventfrog.ch/${locale === "fr" ? "fr" : "en"}/embed/button-buy.html?eventId=${event.eventfrogEventId}`}
-                        title="Eventfrog"
-                        scrolling="no"
-                        width="260"
-                        height="47"
-                        className="border-0 block"
-                      />
-                    </div>
+                    <p className="font-body text-xs text-wine-800 bg-wine-800/5 border border-wine-800/15 rounded-lg px-4 py-3 mb-6 leading-relaxed text-left">
+                      {locale === "fr"
+                        ? "À la commande, pense à décocher l'assurance annulation et la contribution à la plateforme pour ne payer que le billet."
+                        : "At checkout, remember to uncheck the cancellation insurance and the platform contribution so you only pay for the ticket."}
+                    </p>
+                    <iframe
+                      src={`https://embed.eventfrog.ch/${locale === "fr" ? "fr" : "en"}/embed/button-buy.html?eventId=${event.eventfrogEventId}`}
+                      title="Eventfrog"
+                      scrolling="no"
+                      width="260"
+                      height="47"
+                      className="border-0 block mx-auto rounded-md overflow-hidden"
+                    />
                     <Script
                       src="https://embed.eventfrog.ch/api/scripts/embed/buybutton.js"
                       strategy="lazyOnload"

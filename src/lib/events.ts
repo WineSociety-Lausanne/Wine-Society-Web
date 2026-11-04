@@ -25,6 +25,8 @@ export type WineEvent = {
   formUrl?: string | null;
   /** Identifiant Eventfrog de l'événement (eventId) : affiche le bouton d'achat de billets. */
   eventfrogEventId?: string;
+  /** Prix du billet affiché sur la page (ex. "15 CHF"). */
+  price?: string;
 
   /** Champs "passés" */
   instagram?: string;
