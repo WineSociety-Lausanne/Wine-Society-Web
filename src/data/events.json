@@ -1,17 +1,5 @@
 [
   {
-    "slug": "chateau-cos-d-estournel",
-    "date": "2026-11-04",
-    "region": "bordeaux",
-    "titleFr": "Château Cos d’Estournel",
-    "titleEn": "Château Cos d’Estournel",
-    "descFr": "L’un des plus grands 2èmes Grands Crus Classés de Bordeaux, icône du Médoc et du Saint-Estèphe",
-    "descEn": "One of Bordeaux’s greatest 2nd Grand Cru Classé, an icon of the Médoc and Saint-Estèphe",
-    "time": "19:00",
-    "location": "Vortex - Salle EPFL-UNIL",
-    "spots": 20
-  },
-  {
     "slug": "jean-Pierre-moueix",
     "date": "2026-11-12",
     "region": "bordeaux",
@@ -23,8 +11,7 @@
     "longDescEn": "The Wine Society has the immense privilege of highlighting Jean-Pierre Moueix for a top-tier tasting. True masters of the Bordeaux Right Bank, they embody the absolute classicism and timeless elegance of the great terroirs of Pomerol and Saint-Émilion.\nOn the agenda for this evening: a guided tasting of 4 to 6 prestigious wines to immerse yourself in the magic of great Merlots. The presentation will be followed by a convivial aperitif, the perfect opportunity to chat with fellow wine enthusiasts and prolong the discovery.\nWe look forward to seeing many of you at the Vortex to celebrate the richness of these legendary appellations!",
     "time": "19:00",
     "location": "Vortex, Campus UNIL-EPFL",
-    "spots": 40,
-    "eventfrogEventId": "7522742381654852144"
+    "spots": 40
   },
   {
     "slug": "domaine-la-capitaine",
@@ -49,6 +36,18 @@
     "time": "19:00",
     "location": "Vortex - Salle EPFL-UNIL",
     "spots": 35
+  },
+  {
+    "slug": "chateau-cos-d-estournel",
+    "date": "2026-11-02",
+    "region": "bordeaux",
+    "titleFr": "Château Cos d’Estournel",
+    "titleEn": "Château Cos d’Estournel",
+    "descFr": "L’un des plus grands 2èmes Grands Crus Classés de Bordeaux, icône du Médoc et du Saint-Estèphe",
+    "descEn": "One of Bordeaux’s greatest 2nd Grand Cru Classé, an icon of the Médoc and Saint-Estèphe",
+    "time": "19:00",
+    "location": "Vortex - Salle EPFL-UNIL",
+    "spots": 20
   },
   {
     "slug": "david-reynaud-domaine-les-bruyeres",
