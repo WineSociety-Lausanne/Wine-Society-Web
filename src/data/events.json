@@ -9,7 +9,9 @@
     "descEn": "Discovering the wines of the Vaud vineyards with Domaine La Capitaine",
     "time": "19:00",
     "location": "Vortex - Salle EPFL-UNIL",
-    "spots": 42
+    "spots": 42,
+    "eventfrogEventId": "7528013414825743442",
+    "price": "15 CHF"
   },
   {
     "slug": "blanchard-l-etivaz-accord-vin-et-fromage",
